@@ -1,0 +1,7 @@
+#1 wc -l ../Data/*.fasta
+wc can print new lines, with -l allows it print new line counts, *.fasta means act the command on each fasta file.
+
+#2 tail --lines=+2 ../Data/E.coli.fasta | more
+
+#3 wc -c ../Data/E.coli.fasta
+
