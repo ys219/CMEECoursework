@@ -1,38 +1,56 @@
+#0 bash command challenge:
+
 find . -type f -exec ls -s {} \; | sort -n | head -10
 
-head search fir files in the directory
--type f: rugular file 
--exec execute ls 
+Search regular files in the directory and list out every single file, then sort them by nermeric values and output the first 10 lines of the list
 
--exec ls {} \; execute ls command for every files found by find.
-              
+#############################################################################################
 
-sort -n   sort lines of text files by numeric-sort:compare according to string numerical value
-head -10 outout the first 10 lines of the files
+#1  count lines:
 
+wc -l ../data/*.fasta
 
-
-#1 wc -l ../data/*.fasta
-
-28 ../data/407228326.fasta
+      28 ../data/407228326.fasta
     127 ../data/407228412.fasta
-  78103 ../data/cleaned_E.coli.fasta
   78104 ../data/E.coli.fasta
  156362 total
 
+wc -l allows me count the newlines and print it, using *.fasta to select all the fasta files
+############################################################################################
 
+#2 print from the second line:
 
-wc can print new lines, with -l allows it print new line counts, *.fasta means act the command on each fasta file.
+tail --lines=+2 ../data/E.coli.fasta | more
 
-#2 tail --lines=+2 ../data/E.coli.fasta | more
+<out put is too long not able to put here>
 
+tail can output the last part of the file and using --lines to start from sepcific lines
+I also put a | more as the sequence is to long, this allows me check the page by page and confirm if it's been printed from second line or not
+#############################################################################################
 
-#3 grep -v ">" ../data/E.coli.fasta |tr -d "\n"|wc -c 
+#3 count sequence length:
+
+grep -v ">" ../data/E.coli.fasta |tr -d "\n"|wc -c 
+
 4686137
 
-#4 grep -v ">" ../data/E.coli.fasta |tr -d "\n"|grep -o "ATGC" |wc -l
-21968
+grep -v which is the invert matches can get rid of that first line that start with ">", and using tr-d to delete the newline characters finally count the bytes
+#############################################################################################
 
-#5 echo $(grep -v ">" ../data/E.coli.fasta | grep -o ["A""T"] | wc -l) / $(grep -v ">" ../data/E.coli.fasta | grep -o ["G""C"] |wc -l)|bc -l 
+#4  match ATGC and count them:
+
+grep -v ">" ../data/E.coli.fasta |tr -d "\n"|grep -o "ATGC" |wc -l
+
+21968
+this is also start with removing the firs lines and new line characters then grep -o to match the target them count with wc -l
+##############################################################################################
+
+#5 compute AT/GC ratio:
+
+echo $(grep -v ">" ../data/E.coli.fasta | grep -o ["A""T"] | wc -l) / $(grep -v ">" ../data/E.coli.fasta | grep -o ["G""C"] |wc -l)|bc -l 
+
 .96922822848944879586
 
+Here i used square bracket to grep two character as onece and use bc -l to work out the ratio
+#############################################################################################
+[END]
