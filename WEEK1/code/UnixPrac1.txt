@@ -1,7 +1,38 @@
-#1 wc -l ../Data/*.fasta
+find . -type f -exec ls -s {} \; | sort -n | head -10
+
+head search fir files in the directory
+-type f: rugular file 
+-exec execute ls 
+
+-exec ls {} \; execute ls command for every files found by find.
+              
+
+sort -n   sort lines of text files by numeric-sort:compare according to string numerical value
+head -10 outout the first 10 lines of the files
+
+
+
+#1 wc -l ../data/*.fasta
+
+28 ../data/407228326.fasta
+    127 ../data/407228412.fasta
+  78103 ../data/cleaned_E.coli.fasta
+  78104 ../data/E.coli.fasta
+ 156362 total
+
+
+
 wc can print new lines, with -l allows it print new line counts, *.fasta means act the command on each fasta file.
 
-#2 tail --lines=+2 ../Data/E.coli.fasta | more
+#2 tail --lines=+2 ../data/E.coli.fasta | more
 
-#3 wc -c ../Data/E.coli.fasta
+
+#3 grep -v ">" ../data/E.coli.fasta |tr -d "\n"|wc -c 
+4686137
+
+#4 grep -v ">" ../data/E.coli.fasta |tr -d "\n"|grep -o "ATGC" |wc -l
+21968
+
+#5 echo $(grep -v ">" ../data/E.coli.fasta | grep -o ["A""T"] | wc -l) / $(grep -v ">" ../data/E.coli.fasta | grep -o ["G""C"] |wc -l)|bc -l 
+.96922822848944879586
 
