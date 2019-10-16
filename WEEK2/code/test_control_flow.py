@@ -24,8 +24,8 @@ def even_or_odd(x=0):
     in case of negative numbers, the positive is taken:    
     >>> even_or_odd(-2)
     '-2 is Even!'
-
     """
+    
     #Define function to be tested
     if x % 2 == 0:
         return "%d is Even!" % x

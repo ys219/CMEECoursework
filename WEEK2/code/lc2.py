@@ -1,3 +1,5 @@
+
+
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
 rainfall = (('JAN',111.4),
@@ -15,7 +17,7 @@ rainfall = (('JAN',111.4),
 )
 # (1) Use a list comprehension to create a list of month,rainfall tuples where
 # the amount of rain was greater than 100 mm.
-rainfall100=[i[0] for i in rainfall if i[1]>100] 
+rainfall100=[(i[0],i[1]) for i in rainfall if i[1]>100] 
 print(rainfall100)
 # (2) Use a list comprehension to create a list of just month names where the
 # amount of rain was less than 50 mm. 
@@ -23,12 +25,12 @@ rainfall50=[i[0] for i in rainfall if i[1]<50]
 print(rainfall50)
 # (3) Now do (1) and (2) using conventional loops (you can choose to do 
 # this before 1 and 2 !). 
+
 for i in [50,100]:
-    if i==50:
-        r100=[a[0] for a in rainfall if a[1]<i]
+    if i==100:
+        r100=[(a[0],a[1]) for a in rainfall if a[1]>i]
         print(r100)
     else:
-        r50=[a[0] for a in rainfall if a[1]>i]
+        r50=[a[0] for a in rainfall if a[1]<i]
         print(r50)
-
 

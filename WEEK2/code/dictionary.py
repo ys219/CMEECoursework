@@ -16,8 +16,10 @@ taxa = [ ('Myotis lucifugus','Chiroptera'),
 # derived from  taxa so that it maps order names to sets of taxa. 
 # E.g. 'Chiroptera' : set(['Myotis lucifugus']) etc. 
 taxa_dic={}
+
 for i in taxa:
-        taxa_dic[i[1]]=i[0]
+        taxa_dic.setdefault(i[1],set()).add(i[0])
+
 
 print (taxa_dic)
 

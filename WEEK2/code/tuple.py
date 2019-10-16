@@ -9,5 +9,5 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
 # write a (short) script to print these on a separate line or output block by species 
 # Hints: use the "print" command! You can use list comprehensions!\
 for i in birds:
-    print (i)
+    print(i,end="\n")
 
