@@ -1,4 +1,7 @@
 *~
+*.tmp
 *.temp
 *.docx
-*jpeg
+*.jpeg
+*.RData
+*.Rhistory
