@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+
+\title{Autocorrelation in weather}
+
+\author{Yige Sun}
+
+\usepackage{Sweave}
+\begin{document}
+  \maketitle
+\input{TAutoCorr-concordance}
+
+\section*{1.Calculate the correlation coefficient}
+  First, I loaded the file, shifted the tempperature data and cut them to same length, and worked out the correlation coefficient with following codes.
+\begin{Schunk}
+\begin{Sinput}
+> load("/home/yige/Documents/CMEECoursework/WEEK3/data/KeyWestAnnualMeanTemperature.RData")
+> y1901<-ats$Temp[-100]
+> y1902<-ats$Temp[-1]
+> corcoe<-cor(y1901,y1902)
+\end{Sinput}
+\end{Schunk}
+  
+  The temperature flactuation over years is shown in the plot below
+
+\begin{Schunk}
+\begin{Sinput}
+> plot(Temp~Year, data = ats, type="l",ylab="Temperature")
+\end{Sinput}
+\end{Schunk}
+\includegraphics{TAutoCorr-002}
+  
+  And the correlation looks like;
+\begin{Schunk}
+\begin{Sinput}
+> plot(y1902~y1901, pch=16)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{TAutoCorr-003}
+
+\section*{2.Randomize the data, and repeat the calculation}
+  Here, I created a empty list, and randomize the data, generate correlation coefficients for 10000 times and store them to the list.
+\begin{Schunk}
+\begin{Sinput}
+> rcorcoe <- c()
+> for (i in 1:10000){
++   rtemp<- sample(ats$Temp,size = length(ats$Temp),replace = FALSE)
++   ry1901<-rtemp[-100]
++   ry1902<-rtemp[-1]
++   rcorcoe[i]<- cor(ry1901,ry1902)
++ }
+\end{Sinput}
+\end{Schunk}
+The density of randomly generated correlation coefficient are:
+
+\begin{Schunk}
+\begin{Sinput}
+> plot(density(rcorcoe),main = "Density of randomly generated correlation coefficient")
+\end{Sinput}
+\end{Schunk}
+\includegraphics{TAutoCorr-005}
+\section*{3.Calculate p value}
+  Finally, I compared the each random correlation coefficient with the actual one which a loop, and work out how many of them are greater that the actual one with following codes:
+\begin{Schunk}
+\begin{Sinput}
+> for (i in rcorcoe){
++   a <- 0
++   if(i>corcoe){a = a+1}
++   p=a/length(rcorcoe)
++ }
+> print(paste("p-value=",p))
+\end{Sinput}
+\begin{Soutput}
+[1] "p-value= 0"
+\end{Soutput}
+\end{Schunk}
+The p value is 0
+\section*{Conclusion}
+The p value is 0 means none of the randomly generated correlation coefficient is greater than the actual one, and temperature growth is not randomly occured, there is a significant correlation between current and previous year.
+\end{document}
