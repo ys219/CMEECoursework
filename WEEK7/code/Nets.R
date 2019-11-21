@@ -1,7 +1,7 @@
 library(igraph) # Load the igraph package
 
 rm(list = ls())
-
+setwd("/home/yige/Documents/CMEECoursework/WEEK7/code")
 # 	ICL	UoR	CEH	ZSL	CEFAS	Nonacademic/CASE
 # ICL	0	0	10	9	5	70
 # UoR		0	12	0	2	76
@@ -13,8 +13,8 @@ rm(list = ls())
 # CEFAS					0	0
 # Nonacademic/CASE						0
 
-links <- read.csv("../Data/QMEE_Net_Mat_edges.csv", header=T, as.is=T)
-nodes <- read.csv("../Data/QMEE_Net_Mat_nodes.csv", header=T, row.names = 1)
+links <- read.csv("../data/QMEE_Net_Mat_edges.csv", header=T, as.is=T)
+nodes <- read.csv("../data/QMEE_Net_Mat_nodes.csv", header=T, row.names = 1)
 
 #Create graph object
 net <- graph.adjacency(as.matrix(links), mode = "directed", weighted=TRUE, diag=F)
@@ -45,7 +45,7 @@ E(net)$width <- 1+E(net)$weight/10
 
 graphics.off()
 
-svg("../Results/QMEENet.svg",width=7,height=7)
+svg("../results/QMEENet.svg",width=7,height=7)
 
 plot(net, edge.curved=0, vertex.label.color="black") 
 
@@ -53,3 +53,4 @@ legend(x=-1.5, y=-0.1, c("University","Hosting Partner", "Non-hosting Partner"),
        col="#777777", pt.bg=colrs, pt.cex=2, cex=.8, bty="n", ncol=1)
 
 dev.off()
+    

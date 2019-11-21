@@ -23,7 +23,4 @@ text = text.decode('ascii', 'ignore') # Now decode back to string
 # are multiple ways to skin this cat! Your solution could involve multiple
 # regular expression calls (easier!), or a single one (harder!)
 my_reg= r'Kingdom\s\w+\s|Phylum\s\w+\s|Species\s\w+\s\w+'
-blackbirds = re.findall(my_reg,text)
-blackbirds
-
-print(text)
+re.findall(my_reg,text)
