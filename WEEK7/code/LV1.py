@@ -1,9 +1,20 @@
+#!/usr/bin/env python3
+"""solving the Lotka-Volterra model 
+    for a predator-prey system in two-dimensional space"""
+_appname_="LV1"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
 def LV1():
+    """solving the Lotka-Volterra model 
+    for a predator-prey system in two-dimensional space"""
     import scipy as sc
     import scipy.integrate as integrate
 
     def dCR_dt(pops, t=0):
-
+        """ a function that returns the growth rate of 
+        consumer and resource population at any given time step"""
         R = pops[0]
         C = pops[1]
         dRdt = r * R - a * R * C 

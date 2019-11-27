@@ -1,4 +1,8 @@
-""" This is blah blah"""
+#!/bin/env python3
+
+
+"""some tasks to complete"""
+
 
 # Use the subprocess.os module to get a list of files and  directories 
 # in your ubuntu home directory 
@@ -32,7 +36,7 @@ for (dir, subdir, files) in subprocess.os.walk(home):
 
 
 FilesDirsStartingWithC=set(FilesDirsStartingWithC)
-FilesDirsStartingWithC
+print(FilesDirsStartingWithC)
 #################################
 # Get only directories in your home/ that start with either an upper or 
 #~lower case 'C' 
@@ -44,4 +48,4 @@ for (dir, subdir, files) in subprocess.os.walk(home):
 
 
 HomeDirWithC=set(HomeDirWithC)
-HomeDirWithC
+print(HomeDirWithC)

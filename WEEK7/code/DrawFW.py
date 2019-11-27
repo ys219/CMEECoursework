@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+"""Plot food web network and save it"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 import networkx as nx
 
 import scipy as sc
@@ -6,6 +12,7 @@ import matplotlib.pyplot as p
 
 def GenRdmAdjList(N = 2, C = 0.5):
     """ 
+generate ramdon list
     """
     Ids = range(N)
     ALst = []
@@ -21,9 +28,9 @@ def GenRdmAdjList(N = 2, C = 0.5):
 #c is the probablity of observe a connection btwn two random things. In nature it is 10-20%
 ###things in nature usually shown in log scale as it could be really dramatically vary in size
 MaxN = 30
-C = 0.75
+c = 0.75
 
-AdjL = sc.array(GenRdmAdjList(MaxN , C))
+AdjL = sc.array(GenRdmAdjList(MaxN , c))
 AdjL
 
 Sps = sc.unique(AdjL)

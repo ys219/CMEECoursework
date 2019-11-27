@@ -1,10 +1,18 @@
+#!/usr/bin/env python3
+""" a discrete-time version of the LV model """
+_appname_="LV3"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
 def LV3 ():
+    """a discrete-time version of the LV model"""
     import scipy as sc
     import scipy.integrate as integrate
     import sys
 
     def CR_t1(pops, t=0):
-
+        """a discrete-time version of the LV model"""
         Rt = pops[0]
         Ct = pops[1]
         Rt1 = Rt*(1+r*(1-Rt/k) - a * Ct )
@@ -30,8 +38,12 @@ def LV3 ():
     C0 = 5 
     RC0 = sc.array([R0, C0])
 
-    # pops, infodict = integrate.odeint(CR_t1, RC0, t, full_output=True)
-    #  do a loop with iteration instead 
+    pops, infodict = integrate.odeint(CR_t1, RC0, t, full_output=True)
+    ######################################################
+    #   do a loop with iteration instead  change it later#
+    ######################################################
+    # for i in range()
+    
 
     print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
 

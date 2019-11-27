@@ -1,3 +1,12 @@
+#!/bin/env python3
+
+"""how long would it takes"""
+
+__appname__=="TestR"
+__author__=="YSun"
+__version__=="0.01"
+__liscence__=="code.program"
+
 ##############################################################################
 # loops vs. list comprehensions: which is faster?
 ##############################################################################

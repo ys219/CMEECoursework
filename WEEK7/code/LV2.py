@@ -1,10 +1,21 @@
+#!/usr/bin/env python3
+"""modified LV1, with taken in parameters
+r,a,z,e(in this order)"""
+_appname_="LV2"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+
 def LV2 ():
+    """modified LV1, with taken in parameters
+r,a,z,e(in this order)"""
     import scipy as sc
     import scipy.integrate as integrate
     import sys
 
     def dCR_dt(pops, t=0):
-
+        """Lotka-Volterra model"""
         R = pops[0]
         C = pops[1]
         dRdt = r * R*(1-R/k) - a * R * C 
