@@ -1,0 +1,1341 @@
+Starting weekly assessment for Yige, Week7
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 25.53 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: WEEK1, Assessment, WEEK4, WEEK7, WEEK6, .git, WEEK5, CMEEminiPrject, WEEK2, WEEK3
+
+Found the following files in parent directory: README.txt, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+**********************************************************************
+*~
+*.tmp
+*.temp
+*.docx
+*.jpeg
+*.RData
+*.Rhistory
+
+*.png
+**********************************************************************
+
+Found README in parent directory, named: README.txt
+
+Printing contents of README.txt:
+**********************************************************************
+###########################
+#CMEECoursework Repository#
+###########################
+
+this repository includs codes and data that have been run and used in CMEE bootcamp
+All the codes [until 11th Oct. 2019] were written and tested with ubuntu 18.04.3 terminal, python3.* 
+please provide feedbacks and suggestions, I really appreciate it.
+
+#############
+#Directories#
+#############
+All the files were classified by weeks, under each [WEEK] dircetory there are [code] directoy which contains scripts in .sh, .txt or other types; 
+[data] directory which contains data files that been used or can be used by scripts; 
+[sandbox] are for fun, that's where I play with(or torture) myself.
+under each [WEEK] directory, there is a seperate README.txt to give an overview of contents in the directory.
+
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 7 weekly directories: WEEK1, WEEK2, WEEK3, WEEK4, WEEK5, WEEK6, WEEK7
+
+The Week7 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK7...
+
+Found the following directories: code, data, results
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+CMEECoursework WEEK7
+==
+This directory includes my code, data, results of exercises and practical in CMEE bootcamp week7
+
+
+## Contents:
+
+##### Biological Computing in Python II
+
+
+## Practicals:
+
+#### `blackbirds`
+/code 
+
+the solution for black bird problem
+
+
+
+#### `DrawFw.py`
+/code
+
+plot food web network and save it
+
+#### `fmr.R`
+/code
+
+the R file for run_fmr_R.py
+
+#### `LV1.py`
+/code
+
+solving the Lotka-Volterra model for a predator-prey
+system in two dimensional space
+
+#### `LV2.py`
+/code
+
+solving the Lotka-Volterra model for a predator-prey
+system in two dimensional space, modified from LV1 
+
+#### `LV3.py`
+/code
+
+solving the Lotka-Volterra model for a predator-prey
+system in two dimensional space, with discrete time.
+
+#### `profileme.py`
+/code
+
+profiling practices
+
+#### `profileme2.py`
+/code
+
+alternative way of profiling practices
+
+#### `regexs.py`
+/code
+
+practices of regexs
+
+#### `run_fmr_R.py`
+/code
+
+the script that run the fmr.R file
+
+#### `run_LV.py`
+/code
+
+the script that run the LV1.py, LV2.py, LV3.py files.
+
+#### `TestR.py`
+/code
+
+python script that run the TestR.R, 
+
+
+#### `TestR.R`
+/code
+
+the R file be ran by the TestR.py
+
+#### `Timeitme.py`
+/code
+
+how long would it takes to run certain file.
+
+#### `using_os.py`
+/code
+
+the tasks to use os
+
+
+
+
+
+
+
+
+**********************************************************************
+
+Found following files in results directory: fmr_plot.pdf, FWnetwork.pdf, LV1_models.pdf, LV2_models.pdf, LV3_models.pdf...
+ideally, Results directory should be empty other than, perhaps, a readme. 
+
+Found 15 code files: TestR.py, regexs.py, LV3.py, profileme2.py, timeitme.py, blackbirds.py, TestR.R, profileme.py, fmr.R, using_os.py, LV1.py, DrawFW.py, run_fmr_R.py, run_LV.py, LV2.py
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file TestR.py...
+
+File contents are:
+**********************************************************************
+#!/bin/env python3
+
+# Author:
+# Scrippt: 
+# Desc:
+# Input: 
+# Output:
+# Argument:
+# Date:
+
+"""profiling and export outputs"""
+
+__appname__=="TestR"
+__author__=="YSun"
+__version__=="0.01"
+__liscence__=="code.program"
+
+import subprocess
+
+subprocess.Popen("Rscript --verbose TestR.R > ../results/TestR.Rout 2> ../results/TestR_errFile.Rout", shell=True).wait()
+
+subprocess.Popen("Rscript --verbose NonExistScript.R > ../results/outputFile.Rout 2> ../results/errorFile.Rout", shell=True).wait()
+**********************************************************************
+
+Testing TestR.py...
+
+TestR.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Traceback (most recent call last):
+  File "TestR.py", line 13, in <module>
+    __appname__=="TestR"
+NameError: name '__appname__' is not defined
+
+======================================================================
+Inspecting script file regexs.py...
+
+File contents are:
+**********************************************************************
+import re
+"""regex practices"""
+
+MyStr = 'an example'
+match = re.search(r'\w*\s', MyStr) # match character that followed by space
+
+if match:                      
+    print('found a match:', match.group()) 
+else:
+    print('did not find a match')    
+
+match = re.search(r'2', "it takes 2 to tango")# match '2'
+match.group()
+
+match = re.search(r'\d', "it takes 2 to tango")# match numeric character
+match.group()
+
+match = re.search(r'\d.*', "it takes 2 to tango")# match numeric character and whatever the following.
+match.group()
+
+match = re.search(r'\d.', "it takes 2 to tango")# match the numeris character and the one character following.
+match.group()
+
+match = re.search(r'\s\w{1,3}\s', "once upon a time") # match characters the in between two spaces and length is in between 1-3
+match.group()
+
+
+match = re.search(r'\s\w*$', "once upon a time")# find a space a character what ever in the middle and the end
+match.group()
+
+
+re.search(r'\w*\s\d.*\d', 'take 2 grams of H2O').group() # find a bunch of characters followed by a space, a numeric cha, whatever thingsend up with a numeric cha
+
+re.search(r'^\w*.*\s', 'once upon a time').group() # find the start, a bunch of character, what ever in between and a space.
+
+re.search(r'<.+>', 'This is a <EM>first</EM> test').group() # find the characters or space in bewtwen <>
+
+re.search(r'<.+?>', 'This is a <EM>first</EM> test').group() # find the character between <>, repeat only once(i.e. 2 characters/spaces)
+
+re.search(r'\d*\.?\d*','1432.75+60.22i').group() # find the bunch of numbers with one/ zero "." in the middle and end with a number.
+
+re.search(r'[AGTC]+', 'the sequence ATTCGT').group() # match any character listed(without space or number in between)
+
+re.search(r'\s+[A-Z]\w+\s*\w+', "The bird-shit frog's name is Theloderma asper.").group() # find a space, a capital letter, a bunch of characters, 
+
+MyStr = 'Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory'
+match = re.search(r"[\w\s]+,\s[\w\.@]+,\s[\w\s]+",MyStr)# find any s[ace or characters,a comma, a space, any charracters+.+@
+match.group()
+
+MyStr = 'Samraat Pawar, s-pawar@imperial.ac.uk, Systems biology and ecological theory'
+match = re.search(r"[\w\s]+,\s[\w\.@]+,\s[\w\s&]+",MyStr)
+match.group()
+
+match = re.search(r"[\w\s]?,\s[\w\.-]+@[\w\.-]+,\s[\w\s&]+",MyStr)
+match.group()
+
+
+    # Try the regex we used above for finding names ([\w\s]+) for cases where the person's name has something unexpected, 
+    # like a ? or a +. Does it work? 
+    # How can you make it more robust?
+    ###by including the potential symbols in the name to the regex, e.g. [\w\s\+\?\.]
+
+    # Translate the following regular expressions into regular English:
+    #     r'^abc[ab]+\s\t\d'
+    ##    match the start of string, match exactly "abc", match "a" or "b" one or more times, a space, match a tab, match a integer
+
+    #     r'^\d{1,2}\/\d{1,2}\/\d{4}$'
+    ##    [match a date]match the start of string, match integers at least 1 but no more than 2 times, match a slash, match a integer 1 or 2 times, match a slash, ainteger 4 times, the end
+    #     r'\s*[a-zA-Z,\s]+\s*'
+    ##    match a space several times, any characters including upper lower space comma space multiple times, a space, the end.
+
+    # Write a regex to match dates in format YYYYMMDD, making sure that:
+    #     Only seemingly valid dates match (i.e., year greater than 1900)
+    #     First digit in month is either 0 or 1
+    #     First digit in day ≤3
+ re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
+
+####3 grouping regex patterns 
+MyStr = 'Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory'
+match = re.search(r"[\w\s]+,\s[\w\.-]+@[\w\.-]+,\s[\w\s&]+",MyStr)
+match.group()
+match.group(0)
+match = re.search(r"([\w\s]+),\s([\w\.-]+@[\w\.-]+),\s([\w\s&]+)",MyStr)
+if match:
+    print(match.group(0))
+    print(match.group(1))
+    print(match.group(2))
+    print(match.group(3))
+
+####finding all matches
+
+MyStr = "Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory; Another academic, a-academic@imperial.ac.uk, Some other stuff thats equally boring; Yet another academic, y.a_academic@imperial.ac.uk, Some other stuff thats even more boring"
+emails = re.findall(r'[\w\.-]+@[\w\.-]+', MyStr) 
+for email in emails:
+    print(email)
+# first use re.findall to match all the strings
+# then use loop the print all the strings that you are looking for in the long string.
+emails
+
+#### finding files
+f= open("../data/TestOaksData.csv",'r')
+
+found_oaks = re.findall(r"Q[\w\s].*\s", f.read())
+# read the file and match the words start with Q that followed by a character or space and any thing except new line break
+# end up with a space.
+
+found_oaks
+
+#### group with multiple matches:
+MyStr = "Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory; Another academic, a.academic@imperial.ac.uk, Some other stuff thats equally boring; Yet another academic, y.a.academic@imperial.ac.uk, Some other stuff thats even more boring"
+
+found_matches = re.findall(r'([\w\s]+),\s([\w\.-]+@[\w\.-]+)', MyStr)
+found_matches
+#### find all matches of: character or spaces, a comma, a space followed by characters or dot or dash more than onces
+# , at symbol , characters or dot or dash more than onces from the string.
+
+for item in found_matches:
+    print(item)
+
+#### exxtracting text from webpages:
+import urllib3
+
+conn =  urllib3.PoolManager()
+r = conn.request('GET', 'https://www.imperial.ac.uk/silwood-park/academic-staff/') 
+webpage_html = r.data 
+
+type(webpage_html)
+
+My_Data = webpage_html.decode()
+print(My_Data)
+
+pattern= r'Dr\s+\w+\s+\w+|Pro\w+\s+\w+\s+\w+'
+regex = re.compile(pattern)
+for match in regex.finditer(My_Data):
+    print(match.group())
+##### replace text
+New_Data = re.sub(r'\t',' ',My_Data)
+
+
+**********************************************************************
+
+Testing regexs.py...
+
+regexs.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+  File "regexs.py", line 76
+    re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
+    ^
+IndentationError: unexpected indent
+
+======================================================================
+Inspecting script file LV3.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+""" a discrete-time version of the LV model """
+_appname_="LV3"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+def LV3 ():
+    """a discrete-time version of the LV model"""
+    import scipy as sc
+    import scipy.integrate as integrate
+    import sys
+
+    def CR_t1(pops, t=0):
+        """a discrete-time version of the LV model"""
+        Rt = pops[0]
+        Ct = pops[1]
+        Rt1 = Rt*(1+r*(1-Rt/k) - a * Ct )
+        Ct1 = Ct*(1-z+ e * a * Rt)
+        
+        return sc.array([Rt1,Ct1])
+
+    if len(sys.argv) != 5:
+        r = 1.0
+        a = 0.1
+        z = 1.5
+        e = 0.75
+    else:
+        r = float(sys.argv[1])
+        a = float(sys.argv[2])
+        z = float(sys.argv[3])
+        e = float(sys.argv[4])
+    k = 50
+
+    t = sc.linspace(0, 15, 1000)
+    ## generate 
+    R0 = 10
+    C0 = 5 
+    RC0 = sc.array([R0, C0])
+
+    pops, infodict = integrate.odeint(CR_t1, RC0, t, full_output=True)
+    ######################################################
+    #   do a loop with iteration instead  change it later#
+    ######################################################
+    # for i in range()
+    
+
+    print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
+
+    import matplotlib.pylab as p
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
+
+    with PdfPages("../results/LV3_models.pdf")as pdf:
+    
+
+        f1 = p.figure()
+
+        p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+        p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Time')
+        p.ylabel('Population density')
+        p.title('Consumer-Resource population dynamics\n(Discrete-time)')
+        
+        pdf.savefig(f1) #Save figure
+
+        f2 = p.figure()
+
+        p.plot(pops[:,0], pops[:,1]  , 'r-')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Resource density')
+        p.ylabel('Consumer density')
+        p.title('Consumer-Resource population dynamics\n(Discrete time)\nr=%s,a=%s,z=%s,e=%s,k=%s'%(r,a,z,e,k))
+
+        pdf.savefig(f2)#Save figure
+
+
+LV3()**********************************************************************
+
+Testing LV3.py...
+
+LV3.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+the final population density is
+ 12.5765834977 for Resourses
+ 17.0434895539 for Consumers
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.78857s
+
+======================================================================
+Inspecting script file profileme2.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""alternative way of profiling practices"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+def my_squares(iters):
+    """practice"""
+    out = [i ** 2 for i in range(iters)]
+    return out
+
+def my_join(iters, string):
+    """practice"""
+    out = ''
+    for i in range(iters):
+        out += ", " + string
+    return out
+
+def run_my_funcs(x,y):
+    """practice"""
+    print(x,y)
+    my_squares(x)
+    my_join(x,y)
+    return 0
+
+run_my_funcs(10000000,"My string")
+
+**********************************************************************
+
+Testing profileme2.py...
+
+profileme2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 3.61852s
+
+======================================================================
+Inspecting script file timeitme.py...
+
+File contents are:
+**********************************************************************
+#!/bin/env python3
+
+"""how long would it takes"""
+
+__appname__=="TestR"
+__author__=="YSun"
+__version__=="0.01"
+__liscence__=="code.program"
+
+##############################################################################
+# loops vs. list comprehensions: which is faster?
+##############################################################################
+
+iters = 1000000
+
+import timeit
+
+from profileme import my_squares as my_squares_loops
+
+from profileme2 import my_squares as my_squares_lc
+
+%timeit my_squares_loops(iters)
+%timeit my_squares_lc(iters)
+
+
+##############################################################################
+# loops vs. the join method for strings: which is faster?
+##############################################################################
+
+mystring = "my string"
+
+from profileme import my_join as my_join_join
+
+from profileme2 import my_join as my_join
+
+%timeit(my_join_join(iters, mystring))
+%timeit(my_join(iters, mystring))
+
+**********************************************************************
+
+Testing timeitme.py...
+
+timeitme.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+  File "timeitme.py", line 22
+    %timeit my_squares_loops(iters)
+    ^
+SyntaxError: invalid syntax
+
+======================================================================
+Inspecting script file blackbirds.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""The solution for black bird problem"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+import re
+
+# Read the file (using a different, more python 3 way, just for fun!)
+with open('../data/blackbirds.txt', 'r') as f:
+    text = f.read()
+# replace \t's and \n's with a spaces:
+text = text.replace('\t',' ')
+text = text.replace('\n',' ')
+# You may want to make other changes to the text. 
+
+# In particular, note that there are "strange characters" (these are accents and
+# non-ascii symbols) because we don't care for them, first transform to ASCII:
+
+text = text.encode('ascii', 'ignore') # first encode into ascii bytes
+text = text.decode('ascii', 'ignore') # Now decode back to string
+
+# Now extend this script so that it captures the Kingdom, Phylum and Species
+# name for each species and prints it out to screen neatly.
+
+# Hint: you may want to use re.findall(my_reg, text)... Keep in mind that there
+# are multiple ways to skin this cat! Your solution could involve multiple
+# regular expression calls (easier!), or a single one (harder!)
+my_reg= r'Kingdom\s\w+\s|Phylum\s\w+\s|Species\s\w+\s\w+'
+found = re.findall(my_reg,text)
+
+count = 0
+for i in found:
+    count = count+1
+    print(i)
+    if count % 3 ==0:
+        print("\n")
+**********************************************************************
+
+Testing blackbirds.py...
+
+blackbirds.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Kingdom Animalia 
+Phylum Chordata 
+Species Euphagus carolinus
+
+
+Kingdom Animalia 
+Phylum Chordata 
+Species Euphagus cyanocephalus
+
+
+Kingdom Animalia 
+Phylum Chordata 
+Species Turdus boulboul
+
+
+Kingdom Animalia 
+Phylum Chordata 
+Species Agelaius assimilis
+
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.02769s
+
+======================================================================
+Inspecting script file TestR.R...
+
+File contents are:
+**********************************************************************
+print("Hello, I am from R")
+**********************************************************************
+
+Testing TestR.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+[1] "Hello, I am from R"
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.09915s
+
+======================================================================
+Inspecting script file profileme.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""profiling test"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+
+
+def my_squares(iters):
+    """practice"""
+    out = []
+    for i in range(iters):
+        out.append(i ** 2)
+    return out
+
+def my_join(iters, string):
+    """practice"""
+    out = ''
+    for i in range(iters):
+        out += string.join(", ")
+    return out
+
+def run_my_funcs(x,y):
+    """practice"""
+    print(x,y)
+    my_squares(x)
+    my_join(x,y)
+    return 0
+
+run_my_funcs(10000000,"My string")**********************************************************************
+
+Testing profileme.py...
+
+profileme.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 6.44760s
+
+======================================================================
+Inspecting script file fmr.R...
+
+File contents are:
+**********************************************************************
+# Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
+# 1999 dataset to a file fmr.pdf.
+# Writes the list of species names to species.csv 
+
+cat("Reading CSV\n")
+
+nagy <- read.csv('../data/NagyEtAl1999.csv', stringsAsFactors = FALSE)
+
+cat("Creating graph\n")
+pdf('../results/fmr_plot.pdf', 11, 8.5)
+col <- c(Aves='purple3', Mammalia='red3', Reptilia='green3')
+plot(log10(nagy$M.g), log10(nagy$FMR.kJ.day.1), pch=19, col=col[nagy$Class], 
+     xlab=~log[10](M), ylab=~log[10](FMR))
+for(class in unique(nagy$Class)){
+    model <- lm(log10(FMR.kJ.day.1) ~ log10(M.g), data=nagy[nagy$Class==class,])
+    abline(model, col=col[class])
+}
+dev.off()
+
+cat("Finished in R!\n")
+**********************************************************************
+
+Testing fmr.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Reading CSV
+Creating graph
+null device 
+          1 
+Finished in R!
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.17323s
+
+======================================================================
+Inspecting script file using_os.py...
+
+File contents are:
+**********************************************************************
+#!/bin/env python3
+
+
+"""some tasks to complete"""
+
+
+# Use the subprocess.os module to get a list of files and  directories 
+# in your ubuntu home directory 
+
+# Hint: look in subprocess.os and/or subprocess.os.path and/or 
+# subprocess.os.walk for helpful functions
+
+import subprocess
+import re
+
+#################################
+#~Get a list of files and 
+#~directories in your home/ that start with an uppercase 'C'
+
+# Type your code here:
+
+# Get the user's home directory.
+home = subprocess.os.path.expanduser("~")
+# Create a list to store the results.
+FilesDirsStartingWithC = []
+
+# Use a for loop to walk through the home directory.
+for (dir, subdir, files) in subprocess.os.walk(home):  
+#################################
+# Get files and directories in your home/ that start with either an 
+# upper or lower case 'C'
+# Type your code here:
+    FilesDirsStartingWithC.extend(re.findall(r'/[Cc]\w*/',str(dir)))
+    FilesDirsStartingWithC.extend(re.findall(r'/[Cc]\w*/',str(subdir)))
+    FilesDirsStartingWithC.extend(re.findall(r'/[Cc]\w*\W\w*/',str(files)))
+
+
+FilesDirsStartingWithC=set(FilesDirsStartingWithC)
+print(FilesDirsStartingWithC)
+#################################
+# Get only directories in your home/ that start with either an upper or 
+#~lower case 'C' 
+
+# Type your code here:
+HomeDirWithC=[]
+for (dir, subdir, files) in subprocess.os.walk(home):  
+    HomeDirWithC.extend(re.findall(r'home/[Cc]\w*/',str(dir)))
+
+
+HomeDirWithC=set(HomeDirWithC)
+print(HomeDirWithC)**********************************************************************
+
+Testing using_os.py...
+
+using_os.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+{'/calendar/', '/cmeeminiproject/', '/command/', '/Clementine/', '/Committees/', '/cryptiles/', '/ComplexCommunities_JansenEwers/', '/Correspondence/', '/Capercaillie/', '/Crypto/', '/CMEE_Handbook2015/', '/CMEEMiniproject/', '/Conda/', '/Comments/', '/certifi/', '/concurrent/', '/Code_n_script/', '/ConOrder/', '/components/', '/CompBio/', '/CourseScheduling/', '/China/', '/Compat/', '/Code_error/', '/CMEEMainProject/', '/corrected/', '/CertificateTransparency/', '/CarnivoreOnly/', '/CiliatesOld/
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 3.36172s
+
+======================================================================
+Inspecting script file LV1.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""solving the Lotka-Volterra model 
+    for a predator-prey system in two-dimensional space"""
+_appname_="LV1"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+def LV1():
+    """solving the Lotka-Volterra model 
+    for a predator-prey system in two-dimensional space"""
+    import scipy as sc
+    import scipy.integrate as integrate
+
+    def dCR_dt(pops, t=0):
+        """ a function that returns the growth rate of 
+        consumer and resource population at any given time step"""
+        R = pops[0]
+        C = pops[1]
+        dRdt = r * R - a * R * C 
+        dCdt = -z * C + e * a * R * C
+        
+        return sc.array([dRdt, dCdt])
+
+    r = 1.
+    a = 0.1 
+    z = 1.5
+    e = 0.75
+
+    t = sc.linspace(0, 15, 1000)
+    ## generate 
+    R0 = 10
+    C0 = 5 
+    RC0 = sc.array([R0, C0])
+
+    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+    import matplotlib.pylab as p
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
+    
+    with PdfPages("../results/LV1_models.pdf")as pdf:
+        
+        f1 = p.figure()
+
+        p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+        p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Time')
+        p.ylabel('Population density')
+        p.title('Consumer-Resource population dynamics')
+
+
+        pdf.savefig(f1) #Save figure
+
+        f2 = p.figure()
+
+        p.plot(pops[:,0], pops[:,1]  , 'r-')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Resource density')
+        p.ylabel('Consumer density')
+        p.title('Consumer-Resource population dynamics')
+
+
+        pdf.savefig(f2) #Save figure
+
+
+LV1()**********************************************************************
+
+Testing LV1.py...
+
+LV1.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.78650s
+
+======================================================================
+Inspecting script file DrawFW.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""Plot food web network and save it"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+import networkx as nx
+
+import scipy as sc
+
+import matplotlib.pyplot as p
+
+def GenRdmAdjList(N = 2, C = 0.5):
+    """ 
+generate ramdon list
+    """
+    Ids = range(N)
+    ALst = []
+    for i in Ids:
+        if sc.random.uniform(0,1,1) < C:
+            Lnk = sc.random.choice(Ids,2,replace=False).tolist()
+            # if Lnk[0] != Lnk[1]: #avoid self (e.g., cannibalistic) loops
+            ALst.append(Lnk)
+    
+    return ALst
+
+
+#c is the probablity of observe a connection btwn two random things. In nature it is 10-20%
+###things in nature usually shown in log scale as it could be really dramatically vary in size
+MaxN = 30
+c = 0.75
+
+AdjL = sc.array(GenRdmAdjList(MaxN , c))
+AdjL
+
+Sps = sc.unique(AdjL)
+SizRan = ([-10,10])
+Sizs =  sc.random.uniform(SizRan[0],SizRan[1],MaxN)
+Sizs
+
+
+
+pos = nx.circular_layout(Sps)
+
+G = nx.Graph()
+
+G.add_nodes_from(Sps)
+
+G.add_edges_from(tuple(AdjL))
+
+NodSizs = 1000 * (Sizs-min(Sizs))/(max(Sizs)-min(Sizs))
+
+nx.draw_networkx(G, pos, node_size= NodSizs, node_color="red", edge_color="black")
+p.savefig("../results/FWnetwork.pdf")
+
+**********************************************************************
+
+Testing DrawFW.py...
+
+DrawFW.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+/usr/lib/python3/dist-packages/networkx/drawing/nx_pylab.py:522: MatplotlibDeprecationWarning: The is_string_like function was deprecated in version 2.1.
+  if not cb.is_string_like(edge_color) \
+/usr/lib/python3/dist-packages/networkx/drawing/nx_pylab.py:543: MatplotlibDeprecationWarning: The is_string_like function was deprecated in version 2.1.
+  if cb.is_string_like(edge_color) or len(edge_color) == 1:
+/usr/lib/python3/dist-packages/networkx/drawing/nx_pylab.py:724: MatplotlibDeprecationWarning: The is_string_like function was deprecated in version 2.1.
+  if not cb.is_string_like(label):
+
+======================================================================
+Inspecting script file run_fmr_R.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""script to run fmr.R"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+import subprocess
+try:
+    subprocess.Popen("Rscript --verbose fmr.R", shell=True).wait()
+    print("\npython says: 'Yay!! The run was sccessful'")
+except:
+    print("\npython says: 'Opps! The run was unsccessful'")
+**********************************************************************
+
+Testing run_fmr_R.py...
+
+run_fmr_R.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+Reading CSV
+Creating graph
+null device 
+          1 
+Finished in R!
+
+python says: 'Yay!! The run was sccessful'
+
+**********************************************************************
+
+Encountered error (or warning):
+running
+  '/usr/lib/R/bin/R --slave --no-restore --file=fmr.R'
+
+
+======================================================================
+Inspecting script file run_LV.py...
+
+File contents are:
+**********************************************************************
+#!/bin/env python3
+
+"""profiling and export outputs"""
+_appname_="blackbirds"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+
+import cProfile
+
+import LV1
+import LV2
+import LV3
+
+cProfile.run("LV1.LV1()", sort="tottime")
+cProfile.run("LV2.LV2()", sort="tottime")
+cProfile.run("LV3.LV3()", sort="tottime")
+
+
+**********************************************************************
+
+Testing run_LV.py...
+
+run_LV.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+the final population density is
+ 19.7295442774 for Resourses
+ 5.73740236978 for Consumers
+the final population density is
+ 12.5765834977 for Resourses
+ 17.0434895539 for Consumers
+         236256 function calls (231138 primitive calls) in 0.308 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        2    0.031    0.015    0.031    0.015 {built-in method _tkinter.create}
+      148    0.012    0.000    0.012    0.000 {method 'call' of '
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 2.43259s
+
+======================================================================
+Inspecting script file LV2.py...
+
+File contents are:
+**********************************************************************
+#!/usr/bin/env python3
+"""modified LV1, with taken in parameters
+r,a,z,e(in this order)"""
+_appname_="LV2"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
+
+
+def LV2 ():
+    """modified LV1, with taken in parameters
+r,a,z,e(in this order)"""
+    import scipy as sc
+    import scipy.integrate as integrate
+    import sys
+
+    def dCR_dt(pops, t=0):
+        """Lotka-Volterra model"""
+        R = pops[0]
+        C = pops[1]
+        dRdt = r * R*(1-R/k) - a * R * C 
+        dCdt = -z * C + e * a * R * C
+        
+        return sc.array([dRdt, dCdt])
+
+    if len(sys.argv) != 5:
+        r = 1.0
+        a = 0.1
+        z = 1.5
+        e = 0.75
+    else:
+        r = float(sys.argv[1])
+        a = float(sys.argv[2])
+        z = float(sys.argv[3])
+        e = float(sys.argv[4])
+    k = 50
+
+    t = sc.linspace(0, 15, 1000)
+    ## generate 
+    R0 = 10
+    C0 = 5 
+    RC0 = sc.array([R0, C0])
+
+    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+    print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
+
+    import matplotlib.pylab as p
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
+
+    with PdfPages("../results/LV2_models.pdf")as pdf:
+    
+
+        f1 = p.figure()
+
+        p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+        p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Time')
+        p.ylabel('Population density')
+        p.title('Consumer-Resource population dynamics')
+        
+        pdf.savefig(f1) #Save figure
+
+        f2 = p.figure()
+
+        p.plot(pops[:,0], pops[:,1]  , 'r-')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Resource density')
+        p.ylabel('Consumer density')
+        p.title('Consumer-Resource population dynamics\nr=%s,a=%s,z=%s,e=%s,k=%s'%(r,a,z,e,k))
+
+        pdf.savefig(f2)#Save figure
+
+
+LV2()**********************************************************************
+
+Testing LV2.py...
+
+LV2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+**********************************************************************
+the final population density is
+ 19.7295442774 for Resourses
+ 5.73740236978 for Consumers
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.75990s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 5 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
