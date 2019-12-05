@@ -121,7 +121,7 @@ st_distance(uk_eire)
 st_distance(uk_eire_centroids)
 # distance between centroids for sure.
 
-?st_distance
+
 ### plotting sf objects
 plot(uk_eire['n_km2'], asp=1)
 

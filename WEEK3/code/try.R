@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: try.R
+# Desc: try function exercise, random sampling from the population
+# Arguments: 0
+# Input:Rscript try.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
+
 ######### Functions ##########
 
 ## A function to take a sample of size n from a population "popn" and return its mean

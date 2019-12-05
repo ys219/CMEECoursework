@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: basic_io1.py
+# Desc: print the lines from input file
+# Arguments: 0
+# Input: ipython3 basic_io1.py
+# Output: output the lines in test file
+# Date: Oct 2019
+
+"""output the contents, and output comtents and remvove blank lines"""
 #############################
 # FILE INPUT
 #############################

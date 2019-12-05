@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: dictionary.py
+# Desc: practical that convert list to dictionary
+# Arguments: 0
+# Input:ipython3 dictionary.py
+# Output: printed output in python terminal
+# Date: Oct 2019
+"""practical that convert list to dictionary"""
+
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
          ('Peromyscus crinitus', 'Rodentia'),

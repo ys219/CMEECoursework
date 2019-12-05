@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""some functions exwmplifying the use of control statements """
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: control_flow.py
+# Desc: some functions exwmplifying the use of control statements the function can be called from this script
+# Arguments: 0
+# Input:ipython3 control_flow.py
+# Output: printed output in python terminal
+# Date: Oct 2019
+
+"""some functions exwmplifying the use of control statements 
+the function can be called from this script"""
 ##docstring, would be shown in help()
 _appname_="boilerplate"
 _author_="ys"
@@ -69,6 +79,7 @@ def find_all_primes(x=22):
 #find_all_primes(100)
 
 def main(argv):
+    """main function"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))

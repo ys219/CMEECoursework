@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: MyBars.R
+# Desc: annotating the plot in ggplot2
+# Arguments: 0
+# Input:Rscript MyBars.R
+# Output: ../results/MyBars.pdf
+# Date: Oct 2019
+
+
 setwd("~/Documents/CMEECoursework/WEEK3/code")
 a <- read.table("../data/Results.txt", header = TRUE)
 library(ggplot2)

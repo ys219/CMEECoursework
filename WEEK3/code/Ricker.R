@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: Ricker.R
+# Desc: practical with ricker model
+# Arguments: 0
+# Input:Rscript Ricker.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
+
 Ricker <- function(N0=1, r=1, K=10, generations=50)
 {
   # Runs a simulation of the Ricker model, parental generation have 1 individual, 

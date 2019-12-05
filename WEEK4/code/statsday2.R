@@ -12,7 +12,7 @@ seTarsus2001
 
 t.test(d2001$Tarsus, mu=18.5 , na.rm =T)
 
-t.test (d2001~)
+#t.test (d2001~)
 quantile(d2001$Tarsus , 0.05)
 quantile(d2001$Tarsus , 0.95)
 ##########body mass
@@ -50,7 +50,7 @@ mf2001t
 mfttest <- t.test(dwing$Wing~dwing$Sex)
 mfttest
 ##
-?t.test
+
 require(pwr)
 
 

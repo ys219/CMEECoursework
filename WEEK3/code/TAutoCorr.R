@@ -1,3 +1,13 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: TAutoCorr.R
+# Desc: practical, work out the correlation of n-1 pair of years with given data
+# Arguments: 0
+# Input:Rscript TAutoCorr.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
 
 #load("/home/yige/Documents/CMEECoursework/WEEK3/data/KeyWestAnnualMeanTemperature.RData")
 load("../data/KeyWestAnnualMeanTemperature.RData")

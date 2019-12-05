@@ -1,3 +1,13 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: control_flow.R
+# Desc: exercises of control flow function in r language, using for and while loop
+# Arguments: 0
+# Input:Rscript control_flow.R
+# Output: printed result in r terminal
+# Date: Oct 2019
+
 ## If statement
 a <- TRUE
 if (a == TRUE){

@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: basic_io3.py
+# Desc: save dictionary in binary form and print with python
+# Arguments: 0
+# Input:ipython3 basic_io3.py
+# Output: a binary file testp.p saved in sandbox and contents printed out on terminal
+# Date: Oct 2019
+
+"""save dictionary in binary form and print with python"""
 #############################
 # STORING OBJECTS
 #############################

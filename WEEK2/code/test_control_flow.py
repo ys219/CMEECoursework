@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 
-"""Some functions exemplifying the use of control statements"""
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: test_control_flow.py
+# Desc: docstring exercises
+# Arguments: 0
+# Input:in ipython3: run test_control_flow.py -v
+# Output: output printed in pythone terminal
+# Date: Oct 2019
+
+"""docstring exercises"""
 
 __author__ = 'Your Name (Your.Name@your.email.address)'
 __version__ = '0.0.1'
@@ -32,7 +41,7 @@ def even_or_odd(x=0):
     return "%d is Odd!" % x
 
 ####### I SUPPRESSED THIS BLOCK: WHY? #######
-
+#because it is testing with docstring? and taking the argument in docstrings?
 # def main(argv): 
 #     print even_or_odd(22)
 #     print even_or_odd(33)

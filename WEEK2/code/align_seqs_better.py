@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""This scrpit can work out the matches of two alignments, and out put the best match"""
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: align_seqs_better.py
+# Desc: Two example sequences to match,it takes two sequences from two fasta sequence files and save all the best match to alignment output
+# Arguments: 2
+# Input:ipython3 align_seqs_fasta.py <fasta1><fasta2>
+# Output: ../results/alignment_better_output.p; best matches printed in python terminal
+# Date: Oct 2019
+"""Two example sequences to match,it takes two sequences from two fasta sequence files
+and save all the best match to alignment output"""
 import sys
 import pickle
 
@@ -77,6 +86,7 @@ else:
 # A function that computes a score by returning the number of matches starting
 # from arbitrary startpoint (chosen by user)
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """work out best score"""
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):
@@ -134,6 +144,7 @@ pickle.dump(readytowrite,f)
 f.close()
 
 def main(argv):
+    """main function"""
     print(my_best_align)
     print(s1)
     print("Best score:", my_best_score)

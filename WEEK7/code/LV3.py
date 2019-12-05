@@ -11,41 +11,46 @@ def LV3 ():
     import scipy.integrate as integrate
     import sys
 
-    def CR_t1(pops, t=0):
-        """a discrete-time version of the LV model"""
+    def CR_t1(pops, t = 0):
+        """a discrete-time version of the LV model
+        with iteration"""
         Rt = pops[0]
         Ct = pops[1]
-        Rt1 = Rt*(1+r*(1-Rt/k) - a * Ct )
-        Ct1 = Ct*(1-z+ e * a * Rt)
-        
+        Rt1 = Rt*(1 + r * (1-Rt / k) - a * Ct )
+        Ct1 = Ct*(1 - z + e * a * Rt)
+
         return sc.array([Rt1,Ct1])
 
+
+### main inputs:
     if len(sys.argv) != 5:
         r = 1.0
         a = 0.1
         z = 1.5
         e = 0.75
+        print("using default parameters")
     else:
         r = float(sys.argv[1])
         a = float(sys.argv[2])
         z = float(sys.argv[3])
         e = float(sys.argv[4])
-    k = 50
 
-    t = sc.linspace(0, 15, 1000)
-    ## generate 
+    k = 30#define constant parameter, without exceeding the carrying capacity
+    t = sc.linspace(0, 15, 20)#define time series(1000 number between 0-15)
+    ## generate data
     R0 = 10
     C0 = 5 
     RC0 = sc.array([R0, C0])
+    pops = sc.zeros((len(t),2))
 
-    pops, infodict = integrate.odeint(CR_t1, RC0, t, full_output=True)
-    ######################################################
-    #   do a loop with iteration instead  change it later#
-    ######################################################
-    # for i in range()
-    
+    for i in range(0,len(t)):
+        pops[i] = RC0
+        RC0 = CR_t1(RC0,t=t)
 
     print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
+
+
+
 
     import matplotlib.pylab as p
     import matplotlib.pyplot as plt

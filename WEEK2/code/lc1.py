@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: lc1.py
+# Desc: practical
+# Arguments: 0
+# Input:ipython3 lc1.py
+# Output: output list printed in python terminal 
+# Date: Oct 2019
+"""python practical"""
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

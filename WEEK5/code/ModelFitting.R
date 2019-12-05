@@ -37,7 +37,7 @@ predict2plotpow<- powmod(Length, coef(Powfit)["a"], coef(Powfit)["b"])
 plot(Data2fit$TotalLength, Data2fit$BodyWeight)
 lines(Length, predict2plotpow, col = "blue", lwd = 2.5)
 
-?confint
+
 confint(Powfit)
 ########exercise 
 exerciseAline<- function(x){

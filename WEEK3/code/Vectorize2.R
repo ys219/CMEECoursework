@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: Vectorize2.R
+# Desc: to improve the ricker model runnitng time
+# Arguments: 0
+# Input:Rscript Vectorize2.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
+
 # Runs the stochastic (with gaussian fluctuations) Ricker Eqn .
 
 rm(list=ls())
@@ -30,14 +41,14 @@ stochrickvect<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
  
     for (yr in 2:numyears) #for each pop, loop through the years
       {
-        N[yr,1:length(p0)]<-N[yr-1,length(p0)]*exp(r*(1-N[yr-1,length(p0)]/K)+rnorm(1,0,sigma))
+        N[yr,]<-N[yr-1,]*exp(r*(1-N[yr-1,]/K)+rnorm(1,0,sigma))
        }
     return(N)
     
     }
 
+print("unVectorized Stochastic Ricker takes:")
+print(system.time(res2<-stochrick()))
 print("Vectorized Stochastic Ricker takes:")
 print(system.time(res2<-stochrickvect()))
-print("Vectorized Stochastic Ricker takes:")
-print(system.time(res2<-stochrick()))
 

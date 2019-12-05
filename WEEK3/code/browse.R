@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: browse.R
+# Desc: adding break point in scripet for debugging
+# Arguments: 0
+# Input:Rscript browse.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
+
 Exponential <- function(N0 = 1, r = 1, generations = 10){
   # Runs a simulation of exponential growth
   # Returns a vector of length generations

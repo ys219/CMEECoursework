@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: oaks.py
+# Desc: find the taxa for oak trees from the list
+# Arguments: 0
+# Input:ipython3 oaks.py
+# Output: printed results in python terminal
+# Date: Oct 2019
+"""find the taxa for oak trees from the list"""
 taxa = [ 'Quercus robur',
          'Fraxinus excelsior',
          'Pinus sylvestris',
@@ -6,6 +16,7 @@ taxa = [ 'Quercus robur',
        ]
 
 def is_an_oak(name):
+    """find the oaktree by detecting quercus"""
     return name.lower().startswith('quercus ')
 
 ##Using for loops

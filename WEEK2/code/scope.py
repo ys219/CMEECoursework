@@ -1,6 +1,17 @@
+#!/usr/bin/env python3
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: scope.py
+# Desc: variable scope exercise(what is global scope?)
+# Arguments: 0
+# Input:ipython3 scope.py
+# Output: printed output in python terminal
+# Date: Oct 2019
+"""variable scope exercise(what is global scope?)"""
 _a_global = 10
 
 def a_function():
+    """scope exercise """
     _a_global=5
     _a_local=4
     print("Inside the function, the value is ", _a_global)
@@ -15,6 +26,7 @@ print("Outside the function the value is ", _a_global)
 _a_global=10
 
 def a_function():
+    """scope exercise"""
     global _a_global
     _a_global=5
     _a_local=4
@@ -35,6 +47,7 @@ if _a_global >=5: #condition
     _b_global =_a_global+5 #action
 
 def _a_function(): #defining a function
+    """scope exercise"""
     _a_global = 5 #local variable
     if _a_global >= 5: #local condition
         _b_global = _a_global + 5 #local action

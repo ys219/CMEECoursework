@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: align_seqs.py
+# Desc: Two example sequences to match
+# Arguments: 0
+# Input:ipython3 align_seqs.py
+# Output: ../results/alignment_output.txt; printted result in python terminal
+# Date: Oct 2019
 # Two example sequences to match
+"""Two example sequences to match,it takes two sequences from a single csv file
+and save the best match to alignment output"""
 import csv
 path="../data/twosequences.csv"
 with open(path)as csvfile:
@@ -24,6 +33,7 @@ else:
 # A function that computes a score by returning the number of matches starting
 # from arbitrary startpoint (chosen by user)
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """workout the match score of 2 seqences"""
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):

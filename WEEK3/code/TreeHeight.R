@@ -1,3 +1,13 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: TreeHeight.R
+# Desc: load trees.csv and work out the height then output as a csv file
+# Arguments: 0
+# Input:Rscript TreeHeight.R
+# Output: ../results/TreeHts.csv; printed output in r terminal
+# Date: Oct 2019
+
 # This function calculates heights of trees given distance of each tree 
 # from its base and angle to its top, using  the trigonometric formula 
 #

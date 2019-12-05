@@ -1,3 +1,13 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: boilerplate.R
+# Desc: function exercises in r language
+# Arguments: 0
+# Input:Rscript boilerplate.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
 # A boilerplate R script
 
 MyFunction <- function(Arg1, Arg2){

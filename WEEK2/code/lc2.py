@@ -1,5 +1,13 @@
+#!/usr/bin/env python3
 
-
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: lc2.py
+# Desc: practical to get certain rainfall month
+# Arguments: 0
+# Input:ipython3 lc2.py
+# Output: printed output in python terminal
+# Date: Oct 2019
+"""python practical"""
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
 rainfall = (('JAN',111.4),

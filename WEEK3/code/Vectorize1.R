@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: Vectorize1.R
+# Desc: Use the vectorization rather than loop, then compare the system time 
+# Arguments: 0
+# Input:Rscript Vectorize1.R
+# Output: printed output in r terminal
+# Date: Oct 2019
+
+
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M){

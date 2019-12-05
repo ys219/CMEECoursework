@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: basic_io2.py
+# Desc: print numbers in newlines and save them to a file
+# Arguments: 0
+# Input: ipython3 basic_io2.py
+# Output: save testout.txt at sandbox
+# Date: Oct 2019
+"""print numbers in newlines and save them to a file"""
 #############################
 # FILE OUTPUT
 #############################

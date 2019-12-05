@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: plotLin.R
+# Desc: mathmatical annotation in ggplot2
+# Arguments: 0
+# Input:Rscript plotLin.R
+# Output: ../results/MyLinReg.pdf
+# Date: Oct 2019
+
+
 #######mathmatical display
 library(ggplot2)
 x <- seq(0, 100, by = 0.1)
@@ -31,7 +42,7 @@ p <- p + geom_text(aes(x = 60, y = 0,
                    parse = TRUE, size = 6, 
                    colour = "blue")
 
-p
+
 
 pdf("../results/MyLinReg.pdf")
 print(p)

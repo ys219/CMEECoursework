@@ -1,3 +1,14 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Script: Girko.R
+# Desc: plotting dataframe for GIirko's law
+# Arguments: o
+# Input:Rscript Girko.R
+# Output: ../results/Girko.pdf
+# Date: Oct 2019
+
+
 library(ggplot2)
 build_ellipse <- function(hradius, vradius){ # function that returns an ellipse
   npoints = 250

@@ -13,6 +13,6 @@ echo $1
 for file in $1;
     do
         echo -e "Creating a space delimited version of $file ...";
-        cat $file | tr -s "," " " >> $file.txt;
+        cat $file | tr -s "," " " >> ../data/$file.txt;
         echo "Done!";
     done

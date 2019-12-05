@@ -27,7 +27,7 @@ Fst_fun<- function(fa,fb) {
   }
   mean(Fst, na.rm = TRUE)
 }
-snps <- which(apply(FUN=sum, X=data2, MAR=2)/(nrow(data2))>0.03)
+snps <- which(apply(FUN=sum, X=genotypes, MAR=2)/(nrow(genotypes))>0.03)
 ## to ignore some positions that have very little amount of derived alleles(would be considered as noise.)
 fst_ab<- Fst_fun(alleles[1:20,], alleles[21:40,])  
 fst_bc<- Fst_fun(alleles[21:40,], alleles[41:60,])  

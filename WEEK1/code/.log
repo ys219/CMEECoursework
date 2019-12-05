@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.8)  11 OCT 2019 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.8)  4 DEC 2019 18:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -11,25 +11,55 @@ File ignored)
 (Please type a command or say `\end')
 *
 (Please type a command or say `\end')
-*
-(Please type a command or say `\end')
-*
-(Please type a command or say `\end')
-*
-(Please type a command or say `\end')
-*
+*\end
+
+*`\end`
+
+! LaTeX Error: \begin{document} ended by \end{`}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+<*> `
+     \end`
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+<*> `
+     \end`
+? 
+
+! LaTeX Error: \begin{document} ended by \end{`}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+<*> `\end`
+          
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+<*> `\end`
+          
+? 
 ! Emergency stop.
-<*> 
-    
+\GenericError  ...                                
+                                                  \endgroup 
+<*> `\end`
+          
 End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
- 5 strings out of 492982
- 242 string characters out of 6134896
+ 6 strings out of 492982
+ 246 string characters out of 6134896
  53981 words of memory out of 5000000
- 3671 multiletter control sequences out of 15000+600000
+ 3672 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 5i,0n,1p,84b,8s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 5i,0n,6p,84b,14s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!
