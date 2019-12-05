@@ -14,7 +14,7 @@ ids = list(node.id)
 ##load data and generate the ids
 
 AdjList = []
-#empty list for data
+#empty list for edge data
 
 for i in range(len(edge)):
     for j in range(len(edge)):
