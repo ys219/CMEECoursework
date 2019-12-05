@@ -23,8 +23,11 @@ data files that been used or can be used by scripts;
 ## **Environment**
 
 ubuntu 18.04.3 
+
 GNU bash, version 4.4.20
+
 R version 3.6.1
+
 ipython3 version 5.5.0
 
 
