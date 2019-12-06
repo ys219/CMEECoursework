@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """alternative way of profiling practices"""
-_appname_="blackbirds"
+_appname_="profileme2"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
@@ -26,3 +26,4 @@ def run_my_funcs(x,y):
 
 run_my_funcs(10000000,"My string")
 
+##defining fuctions for profiling

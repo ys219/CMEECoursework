@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Plot food web network and save it"""
-_appname_="blackbirds"
+_appname_="DrawFW"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"

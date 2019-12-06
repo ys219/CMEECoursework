@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-
+_appname_="Nets"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 # Author: Y_Sun ys219@ic.ac.uk
 
 """python script that recreat the outcome of Nets.R"""

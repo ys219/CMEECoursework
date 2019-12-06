@@ -1,7 +1,7 @@
 #!/bin/env python3
 
 """profiling and export outputs"""
-_appname_="blackbirds"
+_appname_="run_LV"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"

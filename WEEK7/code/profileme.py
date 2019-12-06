@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """profiling test"""
-_appname_="blackbirds"
+_appname_="profileme"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"

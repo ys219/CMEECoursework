@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ a discrete-time version of the LV model """
-_appname_="LV3"
+_appname_="LV5"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"

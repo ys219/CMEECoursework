@@ -7,11 +7,11 @@ This directory includes my code, data, results of exercises and practical in CME
 
 ##### statistical analysis
 
+### [**code**](https://github.com/ys219/CMEECoursework/tree/master/WEEK4/code)
 
-## Practicals:
+#### Practicals:
 
 #### `statsday1-copy.R`
-/code 
 
 This first day practice of data analysis
 

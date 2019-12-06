@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+_appname_="regexs"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 import re
 """regex practices"""
 
@@ -48,8 +53,7 @@ match = re.search(r"[\w\s]+,\s[\w\.@]+,\s[\w\s]+",MyStr)# find any s[ace or char
 match.group()
 
 MyStr = 'Samraat Pawar, s-pawar@imperial.ac.uk, Systems biology and ecological theory'
-match = re.search(r"[\w\s]+,\s[\w\.@]+,\s[\w\s&]+",MyStr)
-match.group()
+
 
 match = re.search(r"[\w\s]?,\s[\w\.-]+@[\w\.-]+,\s[\w\s&]+",MyStr)
 match.group()
@@ -73,7 +77,9 @@ match.group()
     #     Only seemingly valid dates match (i.e., year greater than 1900)
     #     First digit in month is either 0 or 1
     #     First digit in day ≤3
- re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
+
+
+re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
 
 ####3 grouping regex patterns 
 MyStr = 'Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory'

@@ -1,5 +1,9 @@
 #!/bin/env python3
 
+_appname_="usingos"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 
 """some tasks to complete"""
 

@@ -7,8 +7,9 @@ This directory includes my code, data, results of exercises and practical in CME
 
 ##### Model Fitting & GIS
 
+### [**code**](https://github.com/ys219/CMEECoursework/tree/master/WEEK5/code)
 
-## Practicals:
+#### Practicals:
 
 #### `GIS.R`
 /code 
