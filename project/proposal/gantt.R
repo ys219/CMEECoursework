@@ -9,6 +9,7 @@ gantt <- data.frame(
 )
 mdfr <- melt(gantt, measure.vars = c("start", "end"))
 # mdfr$tasks<- as.character(mdfr$tasks)
+png(file="gantt.png",width=925,height=552)
 ggplot(mdfr, aes(value, tasks, color = type)) + 
   geom_line(size = 20) +
   scale_y_discrete( labels = c("Report:Abstract","Report:Results","Report:Methods","Report:Introduction","Taxonomic assignment","Novel method exploration","Data filtering","Literature Review"))+
@@ -21,5 +22,5 @@ ggplot(mdfr, aes(value, tasks, color = type)) +
 
 seq.Date(as.Date("2019-12-09"),as.Date("2020-08-27"), by = "month")
 
-
+dev.off()
   
