@@ -1,7 +1,7 @@
 # CMEE 2019 HPC excercises R code HPC run code proforma
 
 rm(list=ls()) # good practice 
-# setwd("/home/yige/Documents/CMEECoursework/WEEK9/code/")
+setwd("/home/yige/Documents/CMEECoursework/WEEK9HPC/code/")
 source("ySun_HPC_2019_main.R")
 # it should take a faction of a second to source your file
 # if it takes longer you're using the main file to do actual simulations
@@ -28,7 +28,7 @@ neutral_step(c(13,56,24,78,65,28))
 ## Q6:
 neutral_generation(init_community_max(9))
 ## Q7:
-neutral_time_series(init_community_max(9), 20)
+neutral_time_series(init_community_max(9), 10)
 ## Q8:
 question_8()
 ## Q9:
@@ -51,6 +51,15 @@ question_16()
 cluster_run(speciation_rate = 0.1, size = 100, wall_time = 0.5, 
             interval_rich = 1, interval_oct = 10, burn_in_generations = 200,
             output_file_name = "../results/my_test_file_1.rda")
+
+# Questions 18 and 19 involve writing code elsewhere to run your simulations on the cluster
+
+## Q20:
+process_cluster_results()
+## Q21:
+question_21()
+## Q22:
+question_22()
 ## Q23:
 chaos_game()
 ## Q24:
@@ -76,3 +85,19 @@ draw_fern()
 
 ##Q30:
 draw_fern2()
+
+## challenge A
+Challenge_A()
+
+## challenge B
+Challenge_B()
+
+## challenge C
+Challenge_C()
+## chanllenge D
+
+## chanllenge E
+Challenge_E()
+
+## challenge F
+Challenge_F()
