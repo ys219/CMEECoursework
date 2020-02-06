@@ -1,2 +1,2 @@
 # WEEK8 
-`No cpntenes yet, this is for  consistancy`
+This repository is for CMEE MiniProject
