@@ -45,7 +45,7 @@ for(id in unique(raw_data$ID)){
   mod_x = seq(min(sub_raw$ResDensity), max(sub_raw$ResDensity), length.out = 100)
   hol_y = HollingMod(mod_x, sub_out$a_hol, sub_out$h_hol)
   g_hol_y = g_HollingMod(mod_x, sub_out$a_gen, sub_out$h_gen, sub_out$q_gen)
-  hol_I_y = Holling_I(mod_x, sub_out$k_hol_I)
+  hol_I_y = Holling_I(mod_x, sub_out$a_hol_I)
   p3_y = poly_3(mod_x, sub_out$p3_c0, sub_out$p3_c1, sub_out$p3_c2, sub_out$p3_c3)
   p2_y = poly_2(mod_x, sub_out$p2_c0, sub_out$p2_c1, sub_out$p2_c2)
 ## plots

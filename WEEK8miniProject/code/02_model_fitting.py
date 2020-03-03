@@ -7,6 +7,20 @@ import pandas as pd ## for data handling
 import random
 
 ## Define Functions##
+def lmf_holling_I(param,Xr,data = None):
+    """this is describing Type II functional response by Holling in 1959.
+    It is modifed for using lmfit
+    Args:
+        param(lmfit.parameter.parameters): contain the dictionary for parameters
+    Returns:
+        C(float): number of prey be attacked in unit time """
+    vals =  param.valuesdict()
+    a = vals['a']
+    C = a * Xr
+    if data is None:
+        return C
+    return C - data
+
 def lmf_holling(param,Xr,data = None):
     """this is describing Type II functional response by Holling in 1959.
     It is modifed for using lmfit
@@ -111,7 +125,7 @@ output_frame = pd.DataFrame(columns=
 ['ID',
 'a_hol','h_hol','AIC_hol','BIC_hol','R_hol',
 'a_gen','h_gen','q_gen','AIC_gen','BIC_gen','R_gen',
-'k_hol_I','AIC_hol_I','BIC_hol_I','R_hol_I',
+'a_hol_I','AIC_hol_I','BIC_hol_I','R_hol_I',
 'p3_c0','p3_c1','p3_c2','p3_c3', 'AIC_p3','BIC_p3','R_p3',
 'p2_c0','p2_c1','p2_c2', 'AIC_p2','BIC_p2','R_p2'])
 
@@ -131,11 +145,12 @@ for id in np.unique(fitting_data['ID']):
         params.add('h',value = h_est,min=0)
         hol_fit_output = lmfit.minimize(lmf_holling, params, args = (x_array, y_array))#actual fittiing happens!
         hol_coeff = hol_fit_output.params.valuesdict()
+        exp_y = lmf_holling(hol_fit_output.params, x_array)
         hol_a = hol_coeff['a']# output
         hol_h = hol_coeff['h']# output
         hol_aic = hol_fit_output.aic# output
         hol_bic = hol_fit_output.bic# output
-        hol_rsq = 1-hol_fit_output.chisqr/sum_of_sq(y_array)# output    
+        hol_rsq = 1-hol_fit_output.chisqr/sum_of_sq(y_array,exp_y)# output    
     except BaseException:
         hol_a = None
         hol_h = None
@@ -149,16 +164,17 @@ for id in np.unique(fitting_data['ID']):
         q_est = find_q()
         params = lmfit.Parameters()#add to parameters for model fitting:
         params.add('q', value= q_est,min = 0)
-        params.add('a', value= hol_a, min=hol_a)
-        params.add('h', value= hol_h, min=hol_h)
+        params.add('a', value= hol_a, min= 0)
+        params.add('h', value= hol_h, min= 0)
         g_hol_output = lmfit.minimize(lmf_g_holling, params, args = (x_array, y_array))# model fitting
         g_hol_coeff = g_hol_output.params.valuesdict()
+        exp_y = lmf_g_holling(g_hol_output.params, x_array)
         g_hol_a = g_hol_coeff['a']# output
         g_hol_h = g_hol_coeff['h']# output
         g_hol_q = g_hol_coeff['q']# output
         g_hol_aic = g_hol_output.aic# output
         g_hol_bic = g_hol_output.bic# output
-        g_hol_rsq = 1-g_hol_output.chisqr/sum_of_sq(y_array)# output
+        g_hol_rsq = 1-g_hol_output.chisqr/sum_of_sq(y_array,exp_y)# output
     except BaseException:
         g_hol_a = None
         g_hol_h = None
@@ -171,6 +187,7 @@ for id in np.unique(fitting_data['ID']):
         poly_3 = lmfit.models.PolynomialModel(3)
         poly_3_param = poly_3.guess(y_array, x= x_array) # starting values ##optentially not needed
         poly_3_fit = poly_3.fit(y_array, poly_3_param ,x = x_array) # actual fitting
+        exp_y = poly_3_fit.best_fit
         # data to store and export
         p3_c0 = poly_3_fit.best_values['c0']# output
         p3_c1 = poly_3_fit.best_values['c1']# output
@@ -178,7 +195,7 @@ for id in np.unique(fitting_data['ID']):
         p3_c3 = poly_3_fit.best_values['c3']# output
         p3_aic= poly_3_fit.aic # AIC
         p3_bic= poly_3_fit.bic # BIC
-        p3_rs = 1 - poly_3_fit.chisqr/sum_of_sq(y_array) # R square
+        p3_rs = 1 - poly_3_fit.chisqr/sum_of_sq(y_array,exp_y) # R square
     except BaseException:
         p3_c0 = None
         p3_c1 = None
@@ -189,17 +206,19 @@ for id in np.unique(fitting_data['ID']):
         p3_rs = None
     
     try:
-        holling_one = lmfit.models.LinearModel()
-        hol_one_param = holling_one.guess(y_array, x=x_array)
-        hol_one_output = holling_one.fit(y_array, hol_one_param, x = x_array)
+        a_est = find_a(y_array,x_array)
+        hol_one_param = lmfit.Parameters()
+        hol_one_param.add('a',value = a_est, min = 0)
+        hol_one_output = lmfit.minimize(lmf_holling_I,hol_one_param,args=(x_array, y_array))
+        exp_y = lmf_holling_I(hol_one_output.params,x_array)
         # data to store and export
-        k_hol_I = hol_one_output.best_values['slope']
+        a_hol_I = hol_one_output.params.valuesdict()['a']
         # b_hol_I = hol_one_output.best_values['intercept']
         AIC_hol_I= hol_one_output.aic # AIC
         BIC_hol_I= hol_one_output.bic # BIC
-        R_hol_I = 1 - hol_one_output.chisqr/sum_of_sq(y_array) # R square
+        R_hol_I = 1 - hol_one_output.chisqr/sum_of_sq(y_array,exp_y) # R square
     except BaseException:
-        k_hol_I = None
+        a_hol_I = None
         # b_hol_I = None
         AIC_hol_I= None
         BIC_hol_I= None
@@ -209,13 +228,14 @@ for id in np.unique(fitting_data['ID']):
         poly_2 = lmfit.models.PolynomialModel(2)
         poly_2_param = poly_2.guess(y_array, x= x_array) # starting values ##optentially not needed
         poly_2_fit = poly_2.fit(y_array, poly_2_param ,x = x_array) # actual fitting
+        exp_y = poly_2_fit.best_fit
         # data to store and export
         p2_c0 = poly_2_fit.best_values['c0']# output
         p2_c1 = poly_2_fit.best_values['c1']# output
         p2_c2 = poly_2_fit.best_values['c2']# output
         p2_aic= poly_2_fit.aic # AIC
         p2_bic= poly_2_fit.bic # BIC
-        p2_rs = 1 - poly_2_fit.chisqr/sum_of_sq(y_array) # R square
+        p2_rs = 1 - poly_2_fit.chisqr/sum_of_sq(y_array,exp_y) # R square
     except BaseException:
         p2_c0 = None
         p2_c1 = None
@@ -227,7 +247,7 @@ for id in np.unique(fitting_data['ID']):
     output_frame.loc[id] = [str(id), 
     hol_a, hol_h, hol_aic, hol_bic, hol_rsq, 
     g_hol_a, g_hol_h, g_hol_q, g_hol_aic, g_hol_bic, g_hol_rsq, 
-    k_hol_I,AIC_hol_I,BIC_hol_I,R_hol_I,
+    a_hol_I,AIC_hol_I,BIC_hol_I,R_hol_I,
     p3_c0, p3_c1, p3_c2, p3_c3, p3_aic, p3_bic, p3_rs,
     p2_c0,p2_c1,p2_c2,p2_aic,p2_bic,p2_rs]
 
@@ -299,10 +319,12 @@ fit_output.chisqr# R square
 
 fit_output.success # check success of model
 fit_output.params
-holling_one(test_x)
+
+exp = lmf_holling(fit_output.params,test_x)
+1-fit_output.chisqr/sum_of_sq(test_y,exp)
 fit_output.
 p
-
+output_coeff
 
 # ## polynomial 做三项，四项，?五项
 # poly_4 = lmfit.models.PolynomialModel(4)
@@ -312,10 +334,10 @@ p
 # poly_fit.aic # AIC
 # poly_fit.bic # BIC
 # 1 - poly_fit.chisqr/sum_of_sq(test_y) # R square
-poly_4 = lmfit.models.PolynomialModel(4)
-poly_4_param = poly_4.guess(y_array,x= x_array) # starting values ##optentially not needed
-poly_4_fit = poly_4.fit(test_y, x = test_x) # actual fitting
-
+# poly_4 = lmfit.models.PolynomialModel(4)
+# poly_4_param = poly_4.guess(y_array,x= x_array) # starting values ##optentially not needed
+# poly_4_fit = poly_4.fit(test_y, poly_4_param,x = test_x) # actual fitting
+# poly_4_fit
 # ##Note：
 # # 1 按id subset
 # # 2 转换两列 为list #目前看来不必了
@@ -333,6 +355,17 @@ poly_4_fit = poly_4.fit(test_y, x = test_x) # actual fitting
 holling_one = lmfit.models.LinearModel()
 hol_one_param = holling_one.guess(test_y, x=test_x)
 hol_one_output = holling_one.fit(test_y, hol_one_param, x = test_x)
-hol_one_output.best_values['slope']
+hol_one_output.best_fit
 hol_one_param
 
+a_est = find_a(test_y,test_x)
+hol_one_param = lmfit.Parameters()
+hol_one_param.add('a',value = a_est, min = 0)
+hol_one_output = lmfit.minimize(lmf_holling_I,hol_one_param,args=(test_x, test_y))
+exp_y = lmf_holling_I(hol_one_output.params,x_array)
+        # data to store and export
+a_hol_I = hol_one_output.params.valuesdict()
+# b_hol_I = hol_one_output.best_values['intercept']
+AIC_hol_I= hol_one_output.aic # AIC
+BIC_hol_I= hol_one_output.bic # BIC
+R_hol_I = 1 - hol_one_output.chisqr/sum_of_sq(y_array,exp_y) # R square

@@ -1,8 +1,8 @@
 setwd('/home/yige/Documents/CMEECoursework/WEEK8miniProject/code/')
 rm(list = ls())# clear workspace
 require("ggplot2")
-require("dplyr")
-require("tidyr")
+require("dplyr") # function select
+require("tidyr") # function gather
 # import raw data
 # raw_data = read.csv('../data/fitting_data.csv', header = TRUE, stringsAsFactors = FALSE)
 
@@ -35,9 +35,9 @@ best_fit = data_frame(out_put$ID,aic_best,bic_best,rsq_best) ; names(best_fit)[1
 
 best_fit_plot = gather(best_fit[2:4])
 ggplot(best_fit_plot, aes(x = key, fill = value))+geom_bar(position = "fill")+theme_classic()
-  
-# names(which.min(aic_out[i,]))
-# colnames(aic_out[1,] == min(aic_out[1,]))
+ana_table= table(best_fit_plot)[1:2,]
+## check if AIC BIC perform differently
+chisq.test(ana_table)## p = 0.9859
 
 aic_out = gather(aic_out[2:6])
 bic_out = gather(bic_out[2:6])
@@ -48,4 +48,5 @@ rsq_out = gather(rsq_out[2:6])
 ggplot()+geom_violin(data = aic_out, aes(x= key, y = value, fill = key))
 ggplot()+geom_violin(data = bic_out, aes(x= key, y = value, fill = key))
 ggplot()+geom_violin(data = rsq_out, aes(x= key, y = value, fill = key))+ylim(0,1)
-  
+
+

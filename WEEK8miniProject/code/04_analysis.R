@@ -5,24 +5,24 @@ fr_data = read.csv('../data/CRat.csv',header = T, stringsAsFactors = FALSE)
 # import fitting output data
 out_put = read.csv('../data/fitting_output.csv', header = TRUE, stringsAsFactors = FALSE)# data were sorted by ID
 ## extract fitting outputs
-aic_out = select(out_put,ID, starts_with("AIC")) ; names(aic_out) = c('ID','hol_II','hol_III','hol_I','poly_cubic')# extract aic and rename column
-bic_out = select(out_put,ID, starts_with('BIC')); names(bic_out) = c('ID','hol_II','hol_III','hol_I','poly_cubic')# extrac bic and rename column
-rsq_out = select(out_put,ID, starts_with("R")); names(rsq_out) = c('ID','hol_II','hol_III','hol_I','poly_cubic')# extract R-square and rename column
+aic_out = select(out_put,ID, starts_with("AIC")) ; names(aic_out) = c('ID','hol_II','hol_III','hol_I','poly_cubic','poly_sq')# extract aic and rename column
+bic_out = select(out_put,ID, starts_with('BIC')); names(bic_out) = c('ID','hol_II','hol_III','hol_I','poly_cubic','poly_sq')# extrac bic and rename column
+rsq_out = select(out_put,ID, starts_with("R")); names(rsq_out) = c('ID','hol_II','hol_III','hol_I','poly_cubic','poly_sq')# extract R-square and rename column
 
 ## model selection:
 aic_best = c()
 for(i in 1:nrow(aic_out)){
-  aic_best = c(aic_best, names(which.min(aic_out[i,2:4])))
+  aic_best = c(aic_best, names(which.min(aic_out[i,2:6])))
   }
 
 bic_best = c()
 for(i in 1:nrow(bic_out)){
-  bic_best = c(bic_best, names(which.min(bic_out[i,2:4])))
+  bic_best = c(bic_best, names(which.min(bic_out[i,2:6])))
 }
 
 rsq_best = c()
 for(i in 1:nrow(rsq_out)){
-  rsq_best = c(rsq_best, names(which.max(rsq_out[i,2:4])))
+  rsq_best = c(rsq_best, names(which.max(rsq_out[i,2:6])))
 }
 
 ## add output to new dataframe and rename the first column
@@ -50,7 +50,7 @@ Foraging = unique(fr_data[c('ID', 'Con_ForagingMovement','Res_ForagingMovement')
 # generalise foraging type description.
 Foraging$Con_ForagingMovement[Foraging$Con_ForagingMovement == "Sessile"] = "sessile" ; Foraging$Res_ForagingMovement[Foraging$Res_ForagingMovement == "passive"] = "sessile"
 ## combind the foraging type information
-Foraging$predation_type = paste(Foraging$Con_ForagingMovement,Foraging$Res_ForagingMovement, sep = ",")
+Foraging$predation_type = paste('C:',Foraging$Con_ForagingMovement,';R:',Foraging$Res_ForagingMovement)
 Foraging = subset(Foraging, select = c(ID, predation_type))
 # & add it to best fit output
 best_fit_out = merge(best_fit_out,Foraging, by = "ID")
