@@ -7,6 +7,14 @@ require(minpack.lm)
 data = read.csv("../data/CRat.csv", header = TRUE)
 colnames(data)
 # wranged = subset(data,)
+length(unique(data$ID))
+ID_length=c()
+for (i in unique(data$ID)){
+  subs=subset(data, ID == i )
+  ID_length=c(ID_length,nrow(subs))
+}
+  
+
 
 sub= subset(data, ID=="687")
 #### define models
