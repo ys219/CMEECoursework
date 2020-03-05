@@ -12,10 +12,14 @@ notes = data.frame(
   y = c(2,10.5),
   label = c("a = slope ","asymptote = 1/h")
 )
+
+png(filename = "../results/01_intro.png",width = 480, height = 480)
 ggplot(plot_data,aes(x,y))+
   geom_line(color = "red")+
   theme_classic()+
   ylim(0,11)+
   geom_abline(slope = 0, intercept = 10, linetype = "dashed")+
   geom_vline(xintercept = 250, linetype = "dashed")+
-  geom_text(data = notes, aes(x=x,y=y,label= label))
+  geom_text(data = notes, aes(x=x,y=y,label= label))+
+  labs(x = "Resource Density", y = "Consumption rate")
+try(dev.off(),silent = TRUE)

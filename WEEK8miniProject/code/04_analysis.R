@@ -1,5 +1,7 @@
 rm(list = ls())
 setwd('/home/yige/Documents/CMEECoursework/WEEK8miniProject/code/')
+require('ggplot2')
+require('dplyr')
 fr_data = read.csv('../data/CRat.csv',header = T, stringsAsFactors = FALSE)
 
 # import fitting output data
@@ -60,26 +62,78 @@ habi_table = table(best_fit_out$Habitat,best_fit_out$aic_best)
 ther_con_table = table(best_fit_out$Con_Thermy,best_fit_out$aic_best)
 ther_res_table = table(best_fit_out$Res_Thermy,best_fit_out$aic_best)
 feeding_table = table(best_fit_out$predation_type,best_fit_out$aic_best)
+
 # chi_square tests
-chisq.test(habi_table)
-chisq.test(ther_con_table)
-chisq.test(ther_res_table)
-chisq.test(feeding_table)
+
+# chisq.test(ther_con_table)
+# chisq.test(ther_res_table)
+
 
 # plot the results
+chisq.test(habi_table)
 habi_plot = subset(best_fit_out, select = c(aic_best,Habitat))
-ggplot(habi_plot,aes(x = Habitat, fill = aic_best))+geom_bar(position = "fill")
 
-ther_con_plot = subset(best_fit_out,select = c(aic_best,Con_Thermy))
-ggplot(ther_con_plot,aes(x = Con_Thermy, fill = aic_best))+geom_bar(position = "fill")
+png(filename = "../results/04_habitats.png",width = 480, height = 480)
+ggplot(habi_plot,aes(x = Habitat, fill = aic_best))+
+  geom_bar(position = "fill", color = "black")+
+  theme_classic()+scale_fill_grey(start = 0.4, end = 1, labels = c("Hol I","Hol II","Hol III","Cubic",'Quadratic'))+
+  labs(x = "Habitats", y = "Proportion of best fit models")
+try(dev.off(),silent = TRUE)
+# habi_table
+prop.table(habi_table[1,])# freshwater
+sum(habi_table[1,])
+sum(prop.table(habi_table[1,])[4:5]) #mechanistic
+sum(prop.table(habi_table[1,])[1:3]) #phenomilogical
 
-ther_res_plot = subset(best_fit_out,select = c(aic_best,Res_Thermy))
-ggplot(ther_res_plot,aes(x = Res_Thermy, fill = aic_best))+geom_bar(position = "fill")
+
+prop.table(habi_table[2,])# marine
+sum(habi_table[2,])
+sum(prop.table(habi_table[2,])[4:5]) #mechanistic
+sum(prop.table(habi_table[2,])[1:3]) #phenomilogical
+
+prop.table(habi_table[3,])# terrestrial
+sum(habi_table[3,])
+sum(prop.table(habi_table[3,])[4:5]) #mechanistic
+sum(prop.table(habi_table[3,])[1:3]) #phenomilogical
 
 
+# ther_con_plot = subset(best_fit_out,select = c(aic_best,Con_Thermy))
+# ggplot(ther_con_plot,aes(x = Con_Thermy, fill = aic_best))+
+#   geom_bar(position = "fill", color = "black")+
+#   theme_classic()+scale_fill_grey(start = 0.4, end = 1)
+# 
+# ther_res_plot = subset(best_fit_out,select = c(aic_best,Res_Thermy))
+# ggplot(ther_res_plot,aes(x = Res_Thermy, fill = aic_best))+
+#   geom_bar(position = "fill", color = "black")+
+#   theme_classic()+scale_fill_grey(start = 0.4, end = 1)
+
+chisq.test(feeding_table)
 feeding_plot = subset(best_fit_out,select = c(aic_best,predation_type))
-ggplot(feeding_plot,aes(x = predation_type, fill = aic_best))+geom_bar(position = "fill")
+
+png(filename = "../results/04_feeding.png",width = 480, height = 480)
+ggplot(feeding_plot,aes(x = predation_type, fill = aic_best))+
+  geom_bar(position = "fill", color = "black")+
+  theme_classic()+
+  scale_fill_grey(start = 0.4, end = 1, labels = c("Hol I","Hol II","Hol III","Cubic",'Quadratic'))+
+  labs(x = "Feeding types", y = "Portion of best fit models")+
+  scale_x_discrete(labels = c("hunter", "grazor", "passive"))
+try(dev.off(),silent = TRUE)
 
 
 
+prop.table(feeding_table[1,])# active active
+sum(feeding_table[1,])
+sum(prop.table(feeding_table[1,])[1:3])
+sum(prop.table(feeding_table[1,])[4:5])
 
+
+prop.table(feeding_table[2,])# active sessile
+sum(feeding_table[2,])
+sum(prop.table(feeding_table[2,])[1:3])
+sum(prop.table(feeding_table[2,])[4:5])
+
+prop.table(feeding_table[3,])# sessil active
+sum(feeding_table[3,])
+sum(prop.table(feeding_table[3,])[1:3])  
+sum(prop.table(feeding_table[3,])[4:5])  
+  
