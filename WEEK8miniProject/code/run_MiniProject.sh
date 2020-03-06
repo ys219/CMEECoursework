@@ -51,8 +51,10 @@ pdflatex 05_writeup.tex
 pdflatex 05_writeup.tex
 bibtex 05_writeup
 pdflatex 05_writeup.tex 
+pdflatex 05_writeup.tex
 mv 05_writeup.pdf ../results
 
+wait
 
 ## Cleanup
 rm *~
@@ -64,5 +66,7 @@ rm *.bbl
 rm *.blg
 rm *.fls
 rm *.fdb*
+rm *.gz
+rm *.pdf
 
 Rscript 06_supplementary_plots.R
