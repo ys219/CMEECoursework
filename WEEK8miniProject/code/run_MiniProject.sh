@@ -62,5 +62,7 @@ rm *.log
 rm *.sum
 rm *.bbl
 rm *.blg
+rm *.fls
+rm *.fdb*
 
 Rscript 06_supplementary_plots.R

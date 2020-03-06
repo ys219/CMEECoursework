@@ -39,7 +39,7 @@ poly_2 = function(Xr, c0, c1, c2){
   return(c)
 }
 
-citation[citation$ID == 2,2]
+# citation[citation$ID == 2,2]
 for(id in unique(raw_data$ID)){
   sub_raw = subset(raw_data, ID == id)
   sub_out = subset(out_put, ID == id)
