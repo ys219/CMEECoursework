@@ -1,3 +1,10 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Desc: analyse out_put data
+# Output: feeding & habi png
+# Date: Mar 2020
+
 rm(list = ls())
 setwd('/home/yige/Documents/CMEECoursework/WEEK8miniProject/code/')
 require('ggplot2')
@@ -70,7 +77,7 @@ feeding_table = table(best_fit_out$predation_type,best_fit_out$aic_best)
 
 
 # plot the results
-chisq.test(habi_table)
+# chisq.test(habi_table)
 habi_plot = subset(best_fit_out, select = c(aic_best,Habitat))
 
 png(filename = "../results/04_habitats.png",width = 480, height = 480)
@@ -80,34 +87,25 @@ ggplot(habi_plot,aes(x = Habitat, fill = aic_best))+
   labs(x = "Habitats", y = "Proportion of best fit models")
 try(dev.off(),silent = TRUE)
 # habi_table
-prop.table(habi_table[1,])# freshwater
-sum(habi_table[1,])
-sum(prop.table(habi_table[1,])[4:5]) #mechanistic
-sum(prop.table(habi_table[1,])[1:3]) #phenomilogical
+# prop.table(habi_table[1,])# freshwater
+# sum(habi_table[1,])
+# sum(prop.table(habi_table[1,])[4:5]) #mechanistic
+# sum(prop.table(habi_table[1,])[1:3]) #phenomilogical
 
 
-prop.table(habi_table[2,])# marine
-sum(habi_table[2,])
-sum(prop.table(habi_table[2,])[4:5]) #mechanistic
-sum(prop.table(habi_table[2,])[1:3]) #phenomilogical
+# prop.table(habi_table[2,])# marine
+# sum(habi_table[2,])
+# sum(prop.table(habi_table[2,])[4:5]) #mechanistic
+# sum(prop.table(habi_table[2,])[1:3]) #phenomilogical
 
-prop.table(habi_table[3,])# terrestrial
-sum(habi_table[3,])
-sum(prop.table(habi_table[3,])[4:5]) #mechanistic
-sum(prop.table(habi_table[3,])[1:3]) #phenomilogical
+# prop.table(habi_table[3,])# terrestrial
+# sum(habi_table[3,])
+# sum(prop.table(habi_table[3,])[4:5]) #mechanistic
+# sum(prop.table(habi_table[3,])[1:3]) #phenomilogical
 
 
-# ther_con_plot = subset(best_fit_out,select = c(aic_best,Con_Thermy))
-# ggplot(ther_con_plot,aes(x = Con_Thermy, fill = aic_best))+
-#   geom_bar(position = "fill", color = "black")+
-#   theme_classic()+scale_fill_grey(start = 0.4, end = 1)
-# 
-# ther_res_plot = subset(best_fit_out,select = c(aic_best,Res_Thermy))
-# ggplot(ther_res_plot,aes(x = Res_Thermy, fill = aic_best))+
-#   geom_bar(position = "fill", color = "black")+
-#   theme_classic()+scale_fill_grey(start = 0.4, end = 1)
 
-chisq.test(feeding_table)
+# chisq.test(feeding_table)
 feeding_plot = subset(best_fit_out,select = c(aic_best,predation_type))
 
 png(filename = "../results/04_feeding.png",width = 480, height = 480)
@@ -121,19 +119,19 @@ try(dev.off(),silent = TRUE)
 
 
 
-prop.table(feeding_table[1,])# active active
-sum(feeding_table[1,])
-sum(prop.table(feeding_table[1,])[1:3])
-sum(prop.table(feeding_table[1,])[4:5])
-
-
-prop.table(feeding_table[2,])# active sessile
-sum(feeding_table[2,])
-sum(prop.table(feeding_table[2,])[1:3])
-sum(prop.table(feeding_table[2,])[4:5])
-
-prop.table(feeding_table[3,])# sessil active
-sum(feeding_table[3,])
-sum(prop.table(feeding_table[3,])[1:3])  
-sum(prop.table(feeding_table[3,])[4:5])  
-  
+# prop.table(feeding_table[1,])# active active
+# sum(feeding_table[1,])
+# sum(prop.table(feeding_table[1,])[1:3])
+# sum(prop.table(feeding_table[1,])[4:5])
+# 
+# 
+# prop.table(feeding_table[2,])# active sessile
+# sum(feeding_table[2,])
+# sum(prop.table(feeding_table[2,])[1:3])
+# sum(prop.table(feeding_table[2,])[4:5])
+# 
+# prop.table(feeding_table[3,])# sessil active
+# sum(feeding_table[3,])
+# sum(prop.table(feeding_table[3,])[1:3])  
+# sum(prop.table(feeding_table[3,])[4:5])  
+#   

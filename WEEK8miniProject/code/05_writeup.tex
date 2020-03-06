@@ -6,13 +6,10 @@
 % page style anf spaceing setting
 \pagestyle{plain}
 \linespread{2}
-
-%\setlength{\parindent}{0cm}
-%\usepackage{helvet}
-%\renewcommand{\familydefault}{\sfdefault}
 \usepackage{graphicx}
 \usepackage{lineno}
 \usepackage[numbers]{natbib}
+\newcommand\wordcount{\input{05_writeup.sum}}
 
 \begin{document}
  
@@ -22,10 +19,6 @@
 		
 		
 		\vspace*{\baselineskip} 
-		
-		%------------------------------------------------
-		%	Title
-		%------------------------------------------------
 		
 		\vspace{0.75\baselineskip} % Whitespace above the title
 		
@@ -39,76 +32,191 @@
 		MRes. Computational Methods in Ecology and Evolution
 		
 		{\large \textbf{Miniproject}}\\ %large font
-		%------------------------------------------------
-		%	name
-		%------------------------------------------------
+
 		\vspace*{2\baselineskip} % Whitespace under the course
 		{\Large Yige Sun} \\% large font	
 		CID: 01768241\\
-		yige.sun19@imperial.ac.uk
-		
-		\vfill % Whitespace between editor names and publisher logo
-		%------------------------------------------------
-		%	year
-		%------------------------------------------------
+		yige.sun19@imperial.ac.uk\\
+		\vspace*{1\baselineskip}
+		%Word counts: \wordcount 
+		\vfill % Whitespace between editor names
 		
 		{\LARGE 2019-2020} 
 		\vspace{1\baselineskip}
 	\end{titlepage}
 
 \linenumbers
-\section{Abstract}
-not decided ye will write finally
-
 \section{Introduction}
-In nature, the food consumption rate of would respond to the changing density of accessible resources. This feeding relationship was termed as the Functional response. In 1959, the pioneer in this field Holling suggested the model of functional response arise from an experiment of the small mammal's predation behavior of the European Pine Saw fly. It addressed different influential components of predation and parameterized them to form mechanistic models. Since then, 
-Consumption rate is constraint by the searching rate(a), handling time(h) and is a dependent variable of the density of resources. 
-The functional responses were classified into three types:
-Type 1 described a linear relationship between resden & consum rate. It is neglecting the handling process in res consumption only one parameter, the capture rate, was considered, and it is constant across the entire predation behaviour. As the type I response has only one parameter and linearly described the relationships, it is commonly applied on the explaination of passive feeder(jeschke,2004), such as spider which capture prey with web, and oyster, a sessile filter feeder that solely rely on the resource density to increase the  consumption rate.
+In nature, the food consumption rate would respond to the changing density of accessible resources. This feeding relationship was termed as the Functional response\cite{Holling1959}\cite{Holling1959b}\cite{Jeschke2004}. In 1959, the pioneer in this field Holling suggested the model of functional response arise from an experiment of the small mammal's predation behaviour of the European Pine Saw fly\cite{Holling1959}It addressed different influential components of resources consumption process and parametrized them to form mechanistic models. Since then, numerous of studies were examine the functional response from predator-prey to parasite-host\cite{Jeschke2002}  
 
-Type 2 holling model considered the time to handle the resources (e.g. kill, eat and ingeste) in addition to the searching rate. The searching rate is still constant across the hunting process. However, the consumption rate would be constraint by the handling time as predator would have to spend time utilize the resources they gained. When the resource density is in high level, consumption rate would be determined by handling time, as resources are easily to access and searching is barely needed.
+The functional responses were classified into three types by Holling in 1959 followed by his previous study\cite{Holling1959b}, which are:
 
-When the ability of consumer acquire the resources are vary across the prey densities, type 3 holling could more precisely describe this circumstance. This could depends on the searching ability, habitat type that may affect the searching difficulties and potentially,  kairomeons screted by prey. Both Type 2 and type 3 can be describe with a generalise equation: 
-When q =1, it is the holling type 2 model, when q>1 the model tend to shift to type III
+Type I (eq.\ref{hol i}) described a linear relationship between Resources density and consumption rate. It is neglecting the handling,  only one parameter, the capture rate(\textit{a}), was considered, it is constant across the entire predation behaviour. As the type I response has only one parameter it illustrate a linear relationship. This model is commonly applied on passive feeders, and only been studied on filter feeder before 2004\cite{Jeschke2004}. These consumers solely rely on the resource density to increase the  consumption rate.
+\begin{equation}\label{hol i}
+ C = a * Xr 
+\end{equation}
 
-Three types of model are increasing number of parameters and complexity of the models, and potentially have various ability to interpret the data. Which generated a question, how different models perform when they are fitted to functional response data? And if mechanistic models perform better than phenomenological one. Here, this comparison analysis investigated how different types of functional response models performs across the data from 113 functional response research. Different Holling models were fitted with data and undergo with model selections. Phenomenological model, the cubic polynomial model, also been applied with the fitting and selection with same set of data. Also, according to the characteristics of three types of Holling models, model performance across different habitats; thermal characteristics; resource and consumer foraging behaviour were also analysed.
+Type II Holling model (eq.\ref{hol ii}) considered the time(\textit{h})to handle one individual of the resources (e.g. kill, eat and ingest) in addition to the searching rate which is also constant along the hunting process. However, the consumption rate would be constraint by the handling time as predator would have to spend time utilize the resources they gained. When the resource density is in high level, consumption rate would be determined by handling time, as resources are easily to access and searching is barely needed. When \textit{h}=0, type II is equivalent to type I. 
 
+\begin{equation}\label{hol ii}
+C = \frac{a *Xr}{1+a*h*Xr}
+\end{equation}
 
+When the ability of consumer access resources are various across the prey densities, type III Holling models could more precisely describe this circumstance. Encounter rate ,searching ability, habitat type that may affect the consumption rate. Type II and type III can be describe with a generalise equation: 
+\begin{equation}\label{hol g}
+C = \frac{a*Xr^{q+1}}{1+a*h*Xr^{q+1}}
+\end{equation}
+
+When \textit{q}=1, it is the type II model, when \textit{q} greater than 1 the model shift to type III. \textit{q} is a phenomenological parameter which mechanistic meaning is remain unclear that shift from the Type II decelerating curve to sigmoid\cite{Real1977}\cite{Dunn2020}.
+
+Three types of models have increasing number of parameters and complexities. Which potentially have various ability to interpret the data. These differences generated a question, how different models perform when they are fitted to empirical functional response data? And if mechanistic models perform better than phenomenological one. This comparison analysis investigated how different types of functional response models performs across the data from 113 research. Different types of Holling model were fitted with data and undergo with model selections. Phenomenological models: quadratic (eq.\ref{qua}) and cubic (eq.\ref{cub}) polynomial model, also been applied with the fitting and selection with same set of data. Moreover, according to the characteristics of Holling models, model fitting performance across different habitats; and feeding behaviours were also analysed.
+
+\begin{equation}\label{qua}
+C = c_{0}+c_{1}*Xr+c_{2}*Xr^{2}
+\end{equation}
+
+\begin{equation}\label{cub}
+C = c_{0}+c_{1}*Xr+c_{2}*Xr^{2}+c_{3}*Xr^{3}
+\end{equation}
+
+ 
+ 
 \section{Methods}
-The data for model fitting were provided via GitHub repository(link). Which contain the measurement of consumption rate, the density of accessible resources and other habitats, thermal characteristics, taxonomic information. Individual set of functional response data were classified with a unique identity number (ID). The functional data for model fitting were extracted from the large original dataset with the ID. 
-Holling type I model was defined as C = ax, C is the consumption rate of predator/grazer; a is the searching rate of consumers and x is independent variable, the density of resources, in this model. 
-Holling type II model was defined as C = ax/(1+ahx) , where introducing a new parameter, which is the  handling time. 
-Holling type III model was modified from the generalized Holling model: C = ax^(q+1)/(1+ahx^(q+1)) ,where q is the parameter that shift from the decelerating curve of Type II Holling model to sigmodal curve when q>0(DUNN2020[12]). The mechanistic meaning of q in remain unclear, however, it phenomenologically indicated the consuming ability: search, capture and handle resources, is different across the changing resource density. 
-Purely phenomenological model, quadratic and cubic polynomial model were identified as control group. Selection of mathematical model was based on the number of parameters, as the model selection method applied in this study would consider the complexity of model. 
-The Holling models were fitted with Nonlinear Least Square method implemented in python module lmfit v.0.9.14(lmfit ref). Model fitting were operated with input original data, the starting value of parameter, models in suitable format that can take up parameter input and original fitting data of each ID. The selections of starting values were written in independent functions. 
-The starting value for searching rate (a) were defined by the slope of segment from initial resource density to the resource density of maximum consumption rate. That is because when the resource density has not yet saturated for the consumer, consumer would spend most of the time on searching. The relationship between Consumption rate and resource density is linear, and the slope of the line is approximately equaling to the searching rate. 
-The starting value for handling time(h)was predicted as one divided by the maximum consumption rate. The Holling disc equation (Holling type II model) is original is y = T *a *x /(1+a*h*x); where y is the number of prey been attacked and T is the total time of consuming resources(T = T searching + h). As resource density increased and getting saturated, the major part total consuming time would be handling, to visualize it, the response curve would infinitely approach the asymptote which is y = T/h. As the consumption rate equals to y/T, therefore, the asymptote for C is C(max)= 1/h, then we convert it to get h = 1/Cmax . All the converged parameters output from NLLS fitting were saved. 
-Polynomial models were fitted with implemented model in python lmfit module which equations,
-𝑓(𝑥;𝑐0,𝑐1,…,𝑐7)=∑𝑖=0,7𝑐𝑖𝑥  where for quadratic model where degree is 2 (i = 2), and cubic model is degree is 3 (i=3). And parameter outputs were saved.
+The data for model fitting contain the measurement of consumption rate(\textit{C}), the density of accessible resources(\textit{Xr}) and informations including habitats and feeding types. Individual set of functional response data were classified with a unique identity number (ID). The functional data for model fitting were extracted from the large original dataset along with the IDs. 
 
-Akaike Information Criterion (AIC) and Bayesian Information Criterion(BIC) were used as estimator of model fitting quality. The AIC and BIC calculation were also implemented in lmfit module which 𝑁ln(𝜒2/𝑁)+2𝑁varys. For AIC and 𝑁ln(𝜒2/𝑁)+ln(𝑁)𝑁varys. For BIC . The Chi square in lmfit is defined as 𝜒2=∑𝑁𝑖[Resid𝑖]2.  The model fittings of each ID, AIC and BIC were recorded and save.
+Purely phenomenological model, quadratic and cubic polynomial model were identified as comparison group. This election of mathematical model was based on the complexity of them. 
+The Holling models were fitted with Nonlinear Least Square method implemented in  lmfit module with python \cite{lmfit}. A model fitting were operated with input original data, the starting value of parameter and model in suitable format that can take up parameters dictionary input and original fitting data of each ID. The selections of starting values were written in independent functions. 
 
-For all the fitting, coefficient of determination(R^2) were also calculate and recorded. This is worked out by calling the lmfit implemented chi^2 (eq.)function which is the sum of residuals. Then with the equation R^2 = 1 - chi^2/tss , where tss – total sum of square is [sum(observation – mean(predictio))^2]
-Initial data extraction, modewith model selections. Phenomenological model, the cubic polynomial model, also been applied with the fitting and selection with same set of data. Also, according to the characteristics of three types of Holling models, model performance across different habitats; thermal characteristics; resource and consumer foraging behaviour were also analysed.
-l fitting, model fitting quality estimator calculation were written in python script 02_model_fitting.py. The output for model fitting was exported and saved for model selection, results illustration and further analysis. 
+The starting value for searching rate (\textit{a}) were defined by the slope of segment from initial resource density(\textit{Xr}) to the \textit{Xr} at maximum consumption rate. That is because when the resource density has not yet saturated for the consumers, they would spend most of their time on searching or attacking. The relationship between consumption rate and resource density is linear, and slope of  the line is approximately equals to the searching rate (fig.\ref{fig1: staring values selection}). 
+
+
+\begin{figure}\label{fig1}
+	\centering
+	\includegraphics[width=100mm]{../results/01_intro}
+	\caption{fig1: staring values estimation}
+	\label{staring values selection}
+\end{figure}
+\subsection{Model Fitting}
+\vspace{0.1\baselineskip}
+The starting value for handling time(\textit{h})was predicted as one divided by the maximum consumption rate. The Holling disc equation (eq\ref{hol ii}) is originally as 
+
+\begin{equation}\label{hol disc}
+y = \frac{T *a *Xr }{1+a*h*Xr}
+\end{equation}
+
+; where \textit{y} is the number of prey been attacked; \textit{T} is the total time of consuming resources($T = T_{searching} + h$). As resource density increase and getting saturated, the major part total consumption would be handling, to visualize it, the response curve would infinitely approach the asymptote which is 
+
+\begin{equation}\label{est h}
+y = \frac{T}{h}
+\end{equation}
+
+As  
+\begin{equation}\label{con rate}
+C = \frac{y}{T}
+\end{equation}
+
+ therefore, the asymptote for \textit{C} is
+  \begin{equation}\label{key}
+  C_{max}= \frac{1}{h}
+  \end{equation}
+  
+   then, convert it to get 
+   \begin{equation}\label{key}
+   h = \frac{1}{C_{max}}
+   \end{equation}
+
+As \textit{q} is a penological parameter, the staring value of it was defined as a random number generated from 0 to 2. All the data, parameters dictionary and models were fed to NLLS in lmfit 
+C
+onverged parameters output from NLLS fitting were saved in data frame.
+ 
+Polynomial models were fitted with implemented polynomial method( $degree = 3$) in python lmfit module. For quadratic model where degree is 2 (i = 2). Parameter outputs were saved in data frame.
+
+Akaike Information Criterion (AIC) and Bayesian Information Criterion(BIC) were used as estimator of model fitting quality.The AIC and BIC calculation were also implemented in lmfit module. The model fittings of each ID, AIC and BIC were recorded and saved.
+
+For all the fitting, coefficient of determination ${R^{2}}$ were also calculate and recorded. This is worked out by calling the lmfit implemented $\chi^{2}$ function which is the sum of residuals square. Then with the equation $R^{2}$ = 1 - / \textit{tss} , where \textit{tss} is the total sum of square.
+
+
+ 
+All of model fitting, quality estimators calculation and records were written in python script $02 model fitting.py$. The output for model fitting was exported and saved for model selection, results illustration and further analysis. 
 
 \subsection{Model Selection}
-Model fitting quality (AIC, BIC & R^2) for all sets of data and different models were presented with violin plot. For every set of data, the model with smaller estimator (both AIC & BIC) value was favoured and selected. The best-fit model information was collected and plotted. All the results plotting were written in R script 03_fitting_results.R and 
-Further analysis: 
-The mechanical model fitting performance across habitats, thermal characteristic of consumer and resource, and feeding type were investigated with chi-squared test.  All of the analysis and plotting were written in R script 04_
+
+Model fitting quality (AIC, BIC and $R^{2}$) for all sets of data and different models were presented with violin plots. For every set of data, the model with smaller estimator (both AIC and BIC) value was favoured and selected. The best-fit model information was collected and plotted. All the results plotting were written in R script $03 fitting results.R$ and 
+
+
+\subsection{Further analysis}
+The mechanical model fitting performance across habitats and feeding types were investigated with $\chi^{2}$ test.  All of the analysis and plotting were written in R script $04_analysis.R$
 
 \subsection{Computing tools}
 Three scripting languages were used for this project:
-R was used for plotting, output data wrangling and data analysis because it is an environment designed for statistical computing and graphics with a range of robust packages and implemented statistical tests. The R scripts include: 01_intro_plots.R where package ggplot2 was used for plotting and customize annotations on the plot; 03_fitting_results.R with packages dplyr, tidyr and ggplot2 were used. Function select() in dplyr package is used to extract all the AIC, BIC and R^2 estimators,  gather() in tidyr were used to reshape data and prepare for plotting.  04_analysis.R, select() in dplyr was used and 06_supplemmentary_plot.R 
-Python was used for model fitting and data wranling. Python module pandas was used for import , wrangling, save and export data and fitting output. Numerical functions in Numpy module were used for transforming data type and calculations. Module random were used to generate random number to estimate the staring value of q in Holling type III model 
-Bash was used for building all the script into a reproduceable workflow and compile this report
+
+ \textbf{R} \cite{R} was used for plotting, output data wrangling and data analysis because it is an environment designed for statistical computing and graphics with a range of robust packages and implemented statistical tests. 
+ The \textbf{R} scripts include: $01 intro plots.R$ where package \textit{ggplot2} \cite{ggplot2} was used for plotting and customize annotations on the plot; $03 fitting results.R$ with packages \textit{dplyr} \cite{dplyr},\textit{tidyr} \cite{tidyr} and \textit{ggplot2}were used. Function \textit{select$()$} in \textit{dplyr} package is used to extract all the AIC, BIC and $R^{2}$ estimators,  \textit{gather$ () $} in \textit{tidyr} were used to reshape data and prepare for plotting.  $04 analysis.R $, \textit{select$ () $} in \textit{dplyr} was used and $ 06 supplemmentary plot.R  $
+
+\textbf{Python} was used for model fitting and data wranling. Python module \textit{pandas}\cite{pandas} was used for import , wrangling, save, export data and fitting output. Numerical functions in \textit{Numpy}\cite{Numpy} module were used for transforming data type and calculations. Module \textit{random} were used to generate random number to estimate the staring value of q in Holling type III model and \textit{lmfit}\cite{lmfit} were used for model fittings.
+
+\textbf{Bash} was used for building all the script into a reproducible workflow and compile this report
 
 \section{Results}
+308 subsets of data were fitted with five models include three mechanistic Holling models and two phenomenological polynomial model.The fitting could be checked from $ results/supplementary_plots $ The best fitted model was extracted under both AIC and BIC the results for both criterion show a consistent result ($ \chi^{2} $ = 0.2198, \textit{df} = 4, \textit{p} = 0.9944) (fig\ref{fig:03bestfit} ). More than a half of data sets was fitted better with phenomenological model and the majority of best fitting model among phenomenological models is cubic polynomial model. The most frequent best fitting mechanistic model is type II model.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=100mm]{../results/03_best_fit}
+	\caption{the model performance by AIC and BIC }
+	\label{fig:03bestfit}
+\end{figure}
+\vspace{0.1\baselineskip}
+Cubic polynomial model performs the best among all the model, followed with type III model. And type I has the worst performance. Both group of models showing more complex model tend to give better fitting results ( fig\ref{fig:03aic},fig\ref{fig:03bic} ).  
+\begin{figure}
+	\centering
+	\includegraphics[width=100mm]{../results/03_AIC}
+	\caption{AIC score for all the data subset: dashed line indicated median among all AICs}
+	\label{fig:03aic}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=100mm]{../results/03_BIC}
+	\caption{BIC score for all the data subset: dashed line indicated median among all BICs}
+	\label{fig:03bic}
+\end{figure}
+\vspace{0.1\baselineskip}
+The $ R^{2} $ result show cubic polynomial model has the best ability to explain the variability of response data. The variations of data are poor explained by type I. Type II model has shown the best explanatory power among mechanistic models.
+
+The best fitting models across habitats (fig\ref{fig:04habitats})of functional responses occurrence are showing different patterns($ \chi^{2} $ = 18.167, df = 8, p = 0.02). In freshwater (N=176), type II and cubic polynomial models are showing similar portion of best fitting ($ 31.25\% $ and $ 31.18\% $),
+ phenomenological models($ 52.84\% $) are more common than mechanistic ones($ 47.16\% $). 
+ In the ocean,(62 datasets) polynomial cubic is the most common model ($ 37.10\% $), followed by the Type II  model (25.81\%), overall  phenomenological models(53.23\%) are more common among best fitting model. Among terrestrial habitats(N = 70), half of the data set got best fitted by polynomial models (50.00\%), followed by type II model (24.29\%), phenomenological models are dominant(62.86\%).
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=100mm]{../results/04_habitats}
+ 	\caption{Model fitting performance across habitats}
+ 	\label{fig:04habitats}
+ \end{figure}
+ \vspace{0.1\baselineskip}
+
+The best fitting models across feeding(fig\ref{fig:04feeding}) forms are not significantly different($ \chi^{2} $ = 13.80, df = 8 , p = 0.08). The functional responses for the hunters (N = 172)  were best fitted cubic Polynomial models(37.79\%)  among all the models, followed by the type II model(28.49\%), phenomenological models(54.07\%) performs better than mechanistic ones. For grazers(N = 80), polynomials models(42.5\%) fit the best as well, and the most common best fit models are phenomenological ones(62.5\%). For the passive feeders(N=56), Holling type II model is the most common model(33.93\%), followed by cubic polynomial models (26.79\%). Mechanistic models(51.79\%) perform slightly better than  phenomenological models(48.21\%).
+\begin{figure}
+	\centering
+	\includegraphics[width=100mm]{../results/04_feeding}
+	\caption{Model fitting performance across Feeding types, Hunter for both consumer and resource are active; grazer for active consumer and passive resource; passive for passive consumer active resource}
+	\label{fig:04feeding}
+\end{figure}
+
+
+\vspace{0.1\baselineskip}
 \section{Discussion}
+Phenomenological models perform better than mechanistic models according to both AIC and BIC criterion as they are more focus on the explanatory ability of the data. They, in fact, have shown a  better explanatory ability in this study with the evidence of $ R^{2} $ results.  Phenomenological models do not have as many restriction as mechanistic models do, for instance, the parameters of  models (all three types), have to be set with NLLS approximation boundary. The searching rate and handling time would not to be negative in the real world. Among the mechanistic models, type II is  the best performing model. It considered reasonable explanatory parameters in the model while keeping the model neat and simple, It actually is the most commonly used mechanistic  models in functional response studies\cite{Jeschke2002}.
+The AIC and BIC results show similar outcomes in model selection, however, BIC are more likely to give better score to simpler models. BIC have same components for marking explanatory ability as AIC, which is the negative log-likelihood, but have an extra penalty term to penalize the complex model where AIC only have a component bias correction factor\cite{Johnson2004}. According to this, BIC would be particularly useful if the purpose of model selection is to generate a simpler but powerful model. For this study, AIC would be perfectly functional and balancing both explanatory and model complexity. Therefore, I used AIC as the estimator for the model selection across habitats and feeding behaviour.
+
+The best fitting models portion are different across marine, freshwater and terrestrial  habitats, but portion pattern of best fitting models in all habitats are largely accordance to the general results in all three habitats. There are various environmental conditions and structural complexity of resource  among different habitats, which would potentially shift types of functional responses via consumers adaption behaviour in changing surroundings. An example of this point was examined with the predation behaviour of blue crabs, which tend to display type III response on the sand but type II response on the mud, as the muddy hunting field would decelerate the hunting speed and efficiency therefore, increase the asymptote for maximum consumption rate\cite{Lipcius1986}
+
+Among different feeding types, it’s been assumed that eh hunter would have more type III best fit, grazer and type I would be more commonly found in passive feeders. However, these assumptions were not reflected on the results. Potential reasons might be the inconsistency of sample size among different feeding types, but more likely is the complexity of nature and predator, prey adaptions.  An examples of complex resource structures that was examined by study a on sea shore habitats\cite{Griffen2012}. It pointed out the sessile resources are usually not evenly distributed. In nature, sessile prey like calm would settle in cluster to dilute the predation risks and enhance reproductive success. It would hugely increase the consumption rate with dense local resource densities, and functional response could be mix  by type I and II. Moreover, most of the consumers are acquiring multiple resources in nature, therefore the boundaries of different functional response types  are blur. 
+In many functional response research, the model would modified from Holling Type II which could enhance the explanatory ability without compromise the mechanism underlying\cite{Jeschke2002}\cite{Schmitz1997}. Such kind of study include the SSS(study -sate satiation) model which considered handling time and ability as active foraging and passive digesting progress, attack success and  the hunger level of consumer. The model suggested by\cite{Pawar2012} which considered the dimensionality where functional response occurs, body mass of resources, detecting distance and ability of prey escape by resource velocity. 
+
+In conclusion, phenomenological models fitted better for empirical data, and the Holling type II model fit the best among mechanistic models. It reveals for particular functional response study, It would be a ideal option to build the model from Holling type II model and introduce behavioural, environmental, adaptive, or phenomenological parameter according to the circumstances, to optimise the explanatory ability of model without complete compromise the mechanisms. Besides, It would be interesting to check the performance of model fitting strategy. The NLLS method used in this study is optimising the models changing parameters from the starting values with iterations to minimize the residuals between observed and predicted data. Whereas, Maximum Likelihood Estimation(MLE) deduce most likely fitted parameters of the model based on observed data, which might have better explanatory ability.  
 
 
-
-\bibliographystyle{unstrnat}
-\bibliography{05_references}
+\bibliographystyle{unsrtnat}
+\bibliography{05_ref}
 \end{document}

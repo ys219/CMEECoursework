@@ -1,3 +1,9 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Desc: plot fot write up
+# Output: intro plot png
+# Date: Mar 2020
 rm(list = ls())
 require(ggplot2)
 x = seq(1000)# make dummy data

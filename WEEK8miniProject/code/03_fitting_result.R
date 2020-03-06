@@ -1,3 +1,10 @@
+#!/usr/bin/env Rscript
+
+# Author: Y_Sun ys219@ic.ac.uk
+# Desc: analyse out_put data and plot
+# Output: best fit, AIC BIC png
+# Date: Mar 2020
+
 setwd('/home/yige/Documents/CMEECoursework/WEEK8miniProject/code/')
 rm(list = ls())# clear workspace
 require("ggplot2")
@@ -46,11 +53,11 @@ try(dev.off(),silent = TRUE)
 
 ana_table= table(best_fit_plot)[1:2,]
 ## best fit portion of each model 
-prop.table(table(best_fit_plot)[1,])
-prop.table(table(best_fit_plot)[2,])
+# prop.table(table(best_fit_plot)[1,])
+# prop.table(table(best_fit_plot)[2,])
 
 ## check if AIC BIC perform differently
-chisq.test(ana_table)## p = 0.9859
+# chisq.test(ana_table)## p = 0.9859
 
 aic_out = gather(aic_out[2:6])
 bic_out = gather(bic_out[2:6])
