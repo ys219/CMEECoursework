@@ -9,13 +9,13 @@ Note that:
 
 ======================================================================
 ======================================================================
-Your Git repo size this week is about 1.55 MiB on disk 
+Your Git repo size this week is about 118.59 MiB on disk 
 
 PART 1: Checking project workflow...
 
-Found the following directories in parent directory: WEEK1, Assessment, .git, WEEK2
+Found the following directories in parent directory: WEEK1, Assessment, WEEK4, project, WEEK7, WEEK8miniProject, WEEK6, .git, WEEK9HPC, WEEK5, WEEK2, WEEK3
 
-Found the following files in parent directory: README.txt, .gitignore
+Found the following files in parent directory: .gitignore, README.md
 
 Checking for key files in parent directory...
 
@@ -23,41 +23,102 @@ Found .gitignore in parent directory, great!
 
 Printing contents of .gitignore:
 **********************************************************************
-*~ 
+*~
 *.tmp
-*.docx 
-*.pdf 
+*.temp
+*.docx
 *.jpeg
+*.RData
+*.Rhistory
+
+*.png
 **********************************************************************
 
-Found README in parent directory, named: README.txt
+Found README in parent directory, named: README.md
 
-Printing contents of README.txt:
+Printing contents of README.md:
 **********************************************************************
-###########################
-#CMEECoursework Repository#
-###########################
+# **CMEE Repository**
 
-this repository includs codes and data that have been run and used in CMEE bootcamp
-All the codes [until 11th Oct. 2019] were written and tested with ubuntu 18.04.3 terminal, python3.* 
-please provide feedbacks and suggestions, I really appreciate it.
+> by Yige Sun   --MRes.CMEE 2019-20
 
-#############
-#Directories#
-#############
-All the files were classified by weeks, under each [WEEK] dircetory there are [code] directoy which contains scripts in .sh, .txt or other types; 
-[data] directory which contains data files that been used or can be used by scripts; 
-[sandbox] are for fun, that's where I play with(or torture) myself.
-under each [WEEK] directory, there is a seperate README.txt to give an overview of contents in the directory.
+This repository is for my MRes.CMEE course.  Including courseworks, practicals, proposals etc.
 
 
+![](https://pic2.zhimg.com/737434d0c6b06a6ef29684c754790019_1200x500.jpg)
+## **Structure**
+All the files were classified by [WEEK] .
+Each week contains
+
+[code]:
+scripts in .sh, .py .R or other types; 
+
+[data]:
+data files that been used or can be used by scripts; 
+
+[sandbox]: are for fun, that's where I play with(or torture) myself.
+
+[results]:where the outputs stored
+
+## **Environment**
+
+ubuntu 18.04.3 
+
+GNU bash, version 4.4.20
+
+R version 3.6.1
+
+ipython3 version 5.5.0
+
+
+## **Contents**
+
+### [**WEEK1**](https://github.com/ys219/CMEECoursework/tree/master/WEEK1)
+
+Unix basics
+
+Shell Scripts
+
+LaTex
+
+### [**WEEK2**](https://github.com/ys219/CMEECoursework/tree/master/WEEK2)
+
+Python week I
+
+### [**WEEK3**](https://github.com/ys219/CMEECoursework/tree/master/WEEK3)
+
+R week
+
+### [**WEEK4**](https://github.com/ys219/CMEECoursework/tree/master/WEEK4)
+
+Statistics Analysis
+
+### [**WEEK5**](https://github.com/ys219/CMEECoursework/tree/master/WEEK5)
+
+GIS in R
+
+### [**WEEK6**](https://github.com/ys219/CMEECoursework/tree/master/WEEK6)
+
+Genomics applications
+
+### [**WEEK7**](https://github.com/ys219/CMEECoursework/tree/master/WEEK7)
+
+Python week II
+
+### [**WEEK8miniProject**](https://github.com/ys219/CMEECoursework/tree/master/WEEK8miniProject)
+
+Mini Project Heckathon
+
+### [**WEEK9HPC**](https://github.com/ys219/CMEECoursework/tree/master/WEEK9HPC)
+
+Neutral Theory, Coalescence, HPC, fractal
 
 **********************************************************************
 
 ======================================================================
 Looking for the weekly directories...
 
-Found 2 weekly directories: WEEK1, WEEK2
+Found 9 weekly directories: WEEK1, WEEK2, WEEK3, WEEK4, WEEK5, WEEK6, WEEK7, WEEK8miniProject, WEEK9HPC
 
 The Week1 directory will be assessed 
 
@@ -84,77 +145,68 @@ This directory includes my code and data of exercises and practical in CMEE boot
 
 ## Contents:
 
-##### 01 Unix 
-##### 02 Shell Script
-##### 03 Git
-##### 04 LaTex
+### `01 Unix `
+### `02 Shell Script`
+### `03 Git`
+### `04 LaTex`
 
-## Practicals:
+### [**code**](https://github.com/ys219/CMEECoursework/tree/master/WEEK1/code)
 
-#### `UnixPrac1.txt`
-/code 
+#### Practicals:
+
+##### `UnixPrac1.txt`
+
 
 single line solutions for 5 fasta handling tasks, all the command were called from /data
 
 this file also includes the Bash Command chanllenge
 
 
-#### `csvtosapce.sh`
-/code
+##### `csvtosapce.sh`1
 
 A shell script that can convert comma seperated values to space seperated values, and save the output as an .txt file
 
 a loop were written in the script, therefore is it able to handle multiple csv files at once.
 
-#### `CompileLaTeX.sh`
-/code
+##### `CompileLaTeX.sh`1
 
 this script can compile LaTex by bash with FirstExemple.tex and output a pdf file
 
-#### `FirstExemple.tex`
-/code
+##### `FirstExemple.tex`1
 
 this includes all the index and contents for the pdf file, it can yield a pdf output by bash CompileLaTex.sh
 
-## Exercises:
+#### Exercises:
 
-#### `boilerplate.sh`
-/code
+##### `boilerplate.sh`1
 
 print out a sentence, also -e enabled the interpretation of back slash, which enabled the new line characters in this case
 
-#### `ConcatenateTwoFile.sh`
-/code
+##### `ConcatenateTwoFile.sh`1
 
 add two files to a new file and print out the merged new file
 
-#### `CountLines.sh`
-/code
+##### `CountLines.sh`1
 
 count and print the number of lines in a file
 
-#### `forlooptrail.sh`
-/code
+##### `forlooptrail.sh`1
 
 this script is showing how for loop works with bash
 
-#### `Readsum.sh`
-/code
+##### `Readsum.sh`1
 
 add up two input numbers, and print the out put
 
-#### `Showvar.sh`
-/code
+##### `Showvar.sh`1
 
 print the current input varible
 
-#### `tabtocsv.sh`
-/code
+##### `tabtocsv.sh`1
 
 convert tab seperated values to comma seperated values and export as a .csv file
 
-#### `tiff2png.sh`
-/code
+##### `tiff2png.sh`1
 
 convert .tiff file to .png file
 
@@ -162,7 +214,7 @@ convert .tiff file to .png file
 
 Found following files in results directory: ...
 
-Found 15 code files: .txt, Readsum.sh, CountLines.sh, ConcatenateTwoFile.sh, CompileLaTeX.sh, tiff2png.sh, forlooptrail.sh, FirstExemple.tex, csvtospace.sh, FirstBiblio.bib, UnixPrac1.txt, tabtocsv.sh, MyExempleScript.sh, Showvar.sh, boilerplate.sh
+Found 13 code files: .txt, CountLines.sh, variables.sh, ConcatenateTwoFile.sh, CompileLaTeX.sh, tiff2png.sh, csvtospace.sh, FirstExample.tex, FirstBiblio.bib, UnixPrac1.txt, tabtocsv.sh, MyExempleScript.sh, boilerplate.sh
 
 ======================================================================
 Testing script/code files...
@@ -177,39 +229,19 @@ File contents are:
 Testing .txt...
 
 ======================================================================
-Inspecting script file Readsum.sh...
-
-File contents are:
-**********************************************************************
-## Reading multiple values
-echo 'Enter two numbers separated by space(s)'
-read a b
-echo 'you entered' $a 'and' $b '. Their sum is:'
-mysum=`expr $a + $b`
-echo $mysum
-
-**********************************************************************
-
-Testing Readsum.sh...
-
-Output (only first 500 characters): 
-
-**********************************************************************
-Enter two numbers separated by space(s)
-you entered and . Their sum is:
-
-
-**********************************************************************
-
-Encountered error (or warning):
-expr: syntax error
-
-======================================================================
 Inspecting script file CountLines.sh...
 
 File contents are:
 **********************************************************************
 #!/bin/bash
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: CountLines.sh
+# Desc: count the number of lines of input file
+# Arguments: 1
+# Input: CountLines.sh <inputfile>
+# Output: number of line shown on terminals
+# Date: Oct 2019
 
 NumLines=`wc -l < $1`
 echo "The file $1 has $NumLines lines"
@@ -226,7 +258,51 @@ The file  has  lines
 **********************************************************************
 
 Encountered error (or warning):
-CountLines.sh: line 3: $1: ambiguous redirect
+CountLines.sh: line 11: $1: ambiguous redirect
+
+======================================================================
+Inspecting script file variables.sh...
+
+File contents are:
+**********************************************************************
+#!/bin/bash
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: variables.sh
+# Desc: examples of assign values to variables
+# Arguments: 0
+# Date: Oct 2019
+
+# Shows the use of variables
+MyVar='some string'
+echo 'the current value of the variable is' $MyVar
+echo 'Please enter a new string'
+read MyVar
+echo 'the current value of the variable is' $MyVar
+
+## Reading multiple values
+echo 'Enter two numbers separated by space(s)'
+read a b
+echo 'you entered' $a 'and' $b '. Their sum is:'
+mysum=`expr $a + $b`
+echo $mysum**********************************************************************
+
+Testing variables.sh...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+the current value of the variable is some string
+Please enter a new string
+the current value of the variable is
+Enter two numbers separated by space(s)
+you entered and . Their sum is:
+
+
+**********************************************************************
+
+Encountered error (or warning):
+expr: syntax error
 
 ======================================================================
 Inspecting script file ConcatenateTwoFile.sh...
@@ -234,6 +310,14 @@ Inspecting script file ConcatenateTwoFile.sh...
 File contents are:
 **********************************************************************
 #!/bin/bash
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: ConcatenateTwoFile.sh
+# Desc: merge two files into one file
+# Arguments: 1
+# Input: ConcatenateTwoFile.sh <file1><file2><outputfile>
+# Output: save the <outputfile> and print the output file contents
+# Date: Oct 2019
 cat $1 > $3
 cat $2 >> $3
 echo "Merged File is"
@@ -250,8 +334,8 @@ Merged File is
 **********************************************************************
 
 Encountered error (or warning):
-ConcatenateTwoFile.sh: line 2: $3: ambiguous redirect
-ConcatenateTwoFile.sh: line 3: $3: ambiguous redirect
+ConcatenateTwoFile.sh: line 10: $3: ambiguous redirect
+ConcatenateTwoFile.sh: line 11: $3: ambiguous redirect
 
 ======================================================================
 Inspecting script file CompileLaTeX.sh...
@@ -259,12 +343,27 @@ Inspecting script file CompileLaTeX.sh...
 File contents are:
 **********************************************************************
 #!/bin/bash
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: CompileLaTeX.sh
+# Desc: compile Latex file
+# Arguments: 1
+# Input: CompileLaTeX.sh <FirstExample.tex>
+# Output: <FirstExample.pdf> in data directory
+# Date: Oct 2019
+
+if [-z $1]
+    then
+    echo "NO INPUT FILE, THE END"
+    exit
+fi
+
 pdflatex $1.tex
 pdflatex $1.tex
 bibtex $1
 pdflatex $1.tex
 pdflatex $1.tex
-evince $1.pdf &
+mv $1.pdf ../data
+evince ../data/$1.pdf &
 
 ## Cleanup
 rm *~
@@ -276,7 +375,10 @@ rm *.out
 rm *.snm
 rm *.toc
 rm *.bbl
-rm *.blg**********************************************************************
+rm *.fls
+rm *.blg
+
+exit**********************************************************************
 
 Testing CompileLaTeX.sh...
 
@@ -300,8 +402,10 @@ This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (pre
 **********************************************************************
 
 Encountered error (or warning):
+CompileLaTeX.sh: line 10: [-z: command not found
 bibtex: Need exactly one file argument.
 Try `bibtex --help' for more information.
+mv: cannot stat '.pdf': No such file or directory
 rm: cannot remove '*~': No such file or directory
 rm: cannot remove '*.aux': No such file or directory
 rm: cannot remove '*.dvi': No such file or directory
@@ -311,31 +415,32 @@ rm: cannot remove '*.out': No such file or directory
 rm: cannot remove '*.snm': No such file or directory
 rm: cannot remove '*.toc': No such file or directory
 rm: cannot remove '*.bbl': No such file or directory
+rm: cannot remove '*.fls': No such file or directory
 rm: cannot remove '*.blg': No such file or directory
 
-** (evince:10898): WARNING **: Error when getting information for file '/home/mhasoba/Documents/Teaching/IC_CMEE/2019-20/Coursework/StudentRepos/YigeSun_YS219/WEEK1/code/.pdf': No such file or directory
+** (evince:12406): WARNING **: Error when getting information for file '/home/mhasoba/Documents/Teaching/IC_CMEE/2019-20/Coursework/StudentRepos/YigeSun_YS219/WEEK1/data/.pdf': No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
-** (evince:10898): WARNING **: Error setting file metadata: No such file or directory
+** (evince:12406): WARNING **: Error setting file metadata: No such file or directory
 
 ======================================================================
 Inspecting script file tiff2png.sh...
@@ -344,10 +449,18 @@ File contents are:
 **********************************************************************
 #!/bin/bash
 
-for f in *.TIF:
-    do
-        echo "Converting $f";
-        convert "$f" "$(basename "$f" .tif) . jpg";
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: tiff2sh.sh
+# Desc: convert tiff to png file
+# Arguments: 1
+# Input: tiff2png.sh <tif file>
+# Output: 
+# Date: Oct 2019
+
+for f in *.tif; 
+    do  
+        echo "Converting $f"; 
+        convert "$f"  "$(basename "$f" .tif).png"; 
     done
     **********************************************************************
 
@@ -356,48 +469,53 @@ Testing tiff2png.sh...
 Output (only first 500 characters): 
 
 **********************************************************************
-Converting *.TIF:
+Converting *.tif
 
 **********************************************************************
 
 Encountered error (or warning):
-convert: no decode delegate for this image format `*.TIF' @ error/constitute.c/ReadImage/501.
-convert: no images defined `*.TIF: . jpg' @ error/convert.c/ConvertImageCommand/3210.
+convert: unable to open image `*.tif': No such file or directory @ error/blob.c/OpenBlob/2712.
+convert: no images defined `*.png' @ error/convert.c/ConvertImageCommand/3210.
 
 ======================================================================
-Inspecting script file forlooptrail.sh...
+Inspecting script file csvtospace.sh...
 
 File contents are:
 **********************************************************************
-for num in {1..10}
-do
-  echo $num
-done**********************************************************************
+#!/bin/bash
+# Author: ys219@imperial.ac.uk
+# Script: csvtospace.sh
+# Description: substitute the comma in the files with a space
+# Saves the output into a *.txt file
+# Arguments: 1 -> tab delimited file
+# Date: Oct 2019
 
-Testing forlooptrail.sh...
+# Notice: if failed to bash it, try
+# bash csvtospace.sh "../data/18*.csv"
+
+echo $1
+for file in $1;
+    do
+        echo -e "Creating a space delimited version of $file ...";
+        cat $file | tr -s "," " " >> ../data/$file.txt;
+        echo "Done!";
+    done**********************************************************************
+
+Testing csvtospace.sh...
 
 Output (only first 500 characters): 
 
 **********************************************************************
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.00806s
+Time consumed = 0.00271s
 
 ======================================================================
-Inspecting script file FirstExemple.tex...
+Inspecting script file FirstExample.tex...
 
 File contents are:
 **********************************************************************
@@ -434,44 +552,7 @@ File contents are:
 
 **********************************************************************
 
-Testing FirstExemple.tex...
-
-======================================================================
-Inspecting script file csvtospace.sh...
-
-File contents are:
-**********************************************************************
-#!/bin/bash
-# Author: ys219@imperial.ac.uk
-# Script: csvtospace.sh
-# Description: substitute the comma in the files with a space
-# Saves the output into a *.txt file
-# Arguments: 1 -> tab delimited file
-# Date: Oct 2019
-
-# Notice: if failed to bash it, try
-# bash csvtospace.sh "../data/18*.csv"
-
-echo $1
-for file in $1;
-    do
-        echo -e "Creating a space delimited version of $file ...";
-        cat $file | tr -s "," " " >> $file.txt;
-        echo "Done!";
-    done**********************************************************************
-
-Testing csvtospace.sh...
-
-Output (only first 500 characters): 
-
-**********************************************************************
-
-
-**********************************************************************
-
-Code ran without errors
-
-Time consumed = 0.00703s
+Testing FirstExample.tex...
 
 ======================================================================
 Inspecting script file FirstBiblio.bib...
@@ -562,12 +643,12 @@ Inspecting script file tabtocsv.sh...
 File contents are:
 **********************************************************************
 #!/bin/bash
-# Author: ys219@imperial.ac.uk
+# Author: Y_Sun_ys219@ic.ac.uk
 # Script: tabtocsv.sh
-# Description: substitute the tabs in the files with commas
-#
-# Saves the output into a .csv file
+# Description: substitute the tabs in the files with commas and Saves the output into a .csv file
 # Arguments: 1 -> tab delimited file
+# Input: tabtocsv.sh <txt file with tabs>
+# Output: save the output file into a .csv
 # Date: Oct 2019
 
 echo "Creating a comma delimited version of $1 ..."
@@ -587,7 +668,7 @@ Done!
 
 Code ran without errors
 
-Time consumed = 0.00613s
+Time consumed = 0.00717s
 
 ======================================================================
 Inspecting script file MyExempleScript.sh...
@@ -595,6 +676,14 @@ Inspecting script file MyExempleScript.sh...
 File contents are:
 **********************************************************************
 #!/bin/bash
+
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: MyExampleScript.sh
+# Desc: print a greeting line in two ways
+# Arguments: 0
+# Input: MyExampleScript.sh
+# Output: two lines of greeting messages with user name
+# Date: Oct 2019
 
 msg1="Hello"
 msg2=$USER
@@ -616,36 +705,7 @@ Hello mhasoba
 
 Code ran without errors
 
-Time consumed = 0.00378s
-
-======================================================================
-Inspecting script file Showvar.sh...
-
-File contents are:
-**********************************************************************
-#!/bin/bash
-
-# Shows the use of variables
-MyVar='some string'
-echo 'the current value of the variable is' $MyVar
-echo 'Please enter a new string'
-read MyVar
-echo 'the current value of the variable is' $MyVar**********************************************************************
-
-Testing Showvar.sh...
-
-Output (only first 500 characters): 
-
-**********************************************************************
-the current value of the variable is some string
-Please enter a new string
-the current value of the variable is
-
-**********************************************************************
-
-Code ran without errors
-
-Time consumed = 0.00293s
+Time consumed = 0.00672s
 
 ======================================================================
 Inspecting script file boilerplate.sh...
@@ -653,6 +713,13 @@ Inspecting script file boilerplate.sh...
 File contents are:
 **********************************************************************
 #!/bin/bash
+###first line is the shebang, 
+# Author: Y_Sun_ys219@ic.ac.uk
+# Script: boilerplate.sh
+# Desc: simple boilerplate for shell scripts
+# Arguments: none
+# Date: Oct 2019
+
 echo -e "\nThis is a shell script!\n"
 **********************************************************************
 
@@ -669,7 +736,7 @@ This is a shell script!
 
 Code ran without errors
 
-Time consumed = 0.00233s
+Time consumed = 0.00495s
 
 ======================================================================
 ======================================================================

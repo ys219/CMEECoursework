@@ -1,0 +1,600 @@
+Starting weekly assessment for Yige, Week4
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 118.59 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: WEEK1, Assessment, WEEK4, project, WEEK7, WEEK8miniProject, WEEK6, .git, WEEK9HPC, WEEK5, WEEK2, WEEK3
+
+Found the following files in parent directory: .gitignore, README.md
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+**********************************************************************
+*~
+*.tmp
+*.temp
+*.docx
+*.jpeg
+*.RData
+*.Rhistory
+
+*.png
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+# **CMEE Repository**
+
+> by Yige Sun   --MRes.CMEE 2019-20
+
+This repository is for my MRes.CMEE course.  Including courseworks, practicals, proposals etc.
+
+
+![](https://pic2.zhimg.com/737434d0c6b06a6ef29684c754790019_1200x500.jpg)
+## **Structure**
+All the files were classified by [WEEK] .
+Each week contains
+
+[code]:
+scripts in .sh, .py .R or other types; 
+
+[data]:
+data files that been used or can be used by scripts; 
+
+[sandbox]: are for fun, that's where I play with(or torture) myself.
+
+[results]:where the outputs stored
+
+## **Environment**
+
+ubuntu 18.04.3 
+
+GNU bash, version 4.4.20
+
+R version 3.6.1
+
+ipython3 version 5.5.0
+
+
+## **Contents**
+
+### [**WEEK1**](https://github.com/ys219/CMEECoursework/tree/master/WEEK1)
+
+Unix basics
+
+Shell Scripts
+
+LaTex
+
+### [**WEEK2**](https://github.com/ys219/CMEECoursework/tree/master/WEEK2)
+
+Python week I
+
+### [**WEEK3**](https://github.com/ys219/CMEECoursework/tree/master/WEEK3)
+
+R week
+
+### [**WEEK4**](https://github.com/ys219/CMEECoursework/tree/master/WEEK4)
+
+Statistics Analysis
+
+### [**WEEK5**](https://github.com/ys219/CMEECoursework/tree/master/WEEK5)
+
+GIS in R
+
+### [**WEEK6**](https://github.com/ys219/CMEECoursework/tree/master/WEEK6)
+
+Genomics applications
+
+### [**WEEK7**](https://github.com/ys219/CMEECoursework/tree/master/WEEK7)
+
+Python week II
+
+### [**WEEK8miniProject**](https://github.com/ys219/CMEECoursework/tree/master/WEEK8miniProject)
+
+Mini Project Heckathon
+
+### [**WEEK9HPC**](https://github.com/ys219/CMEECoursework/tree/master/WEEK9HPC)
+
+Neutral Theory, Coalescence, HPC, fractal
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 9 weekly directories: WEEK1, WEEK2, WEEK3, WEEK4, WEEK5, WEEK6, WEEK7, WEEK8miniProject, WEEK9HPC
+
+The Week4 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK4...
+
+Found the following directories: code, data, results
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+CMEECoursework WEEK4
+==
+This directory includes my code, data, results of exercises and practical in CMEE bootcamp week4
+
+
+## Contents:
+
+### statistical analysis
+
+### [**code**](https://github.com/ys219/CMEECoursework/tree/master/WEEK4/code)
+
+#### Practicals:
+
+#### `statsday1-copy.R`
+
+This first day practice of data analysis
+
+
+
+#### `statsday2.R`
+/code
+
+This second day practice od data analysis
+
+#### `statsday3.R`
+/code
+
+This second day practice od data analysis
+
+#### `stats4.R`
+/code
+
+This second day practice od data analysis
+
+**********************************************************************
+
+Found following files in results directory: README.md...
+
+Found 4 code files: statday3.R, stats4.R, statsday2.R, statsday1-copy.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file statday3.R...
+
+File contents are:
+**********************************************************************
+x<- c(1,2,3,4,8)
+y<- c(3,4,5,7,9)
+statsmodel<-lm(y~x)
+statsmodel
+##Coefficients:
+#(Intercept)            x  
+#2.493        0.863  
+summary(statsmodel)
+
+anova(statsmodel)
+resid(statsmodel)
+cov(x,y)
+var(x)
+plot(y~x)
+
+par(mfrow=c(1,1))
+plot(statsmodel)
+
+
+setwd("../data/HandOutsandData'18")
+d<-read.table("SparrowSize.txt", header = TRUE)
+x<- c(1:100)
+b<- 0.5
+m<- 1.5
+y<-m*x+b
+plot(d$Mass~d$Tarsus, ylab= "Mass(g)", xlab = "Tarsus(mm)", pch=19,cex=0.4, ylim=c(-5,38), xlim=c(0,22))
+plot(d2$Mass~d2$Tarsus, ylab= "Mass(g)", xlab = "Tarsus(mm)", pch=19,cex=0.4)
+abline(lm(d2$Mass~d2$Tarsus))
+d1<-subset(d, d$Mass != "NA")
+d2 <- subset(d1, d1$Tarsus != "NA")
+statsmodel<- lm(Mass~Tarsus, data=d2)
+summary(statsmodel)
+hist(statsmodel$residuals)##bellshape
+head(statsmodel$residuals)
+
+d2$z.Tarsus <- scale(d2$Tarsus)
+statsmodel3<-lm(Mass~z.Tarsus, data = d2)  
+summary(statsmodel3)
+plot(d2$Mass~d2$z.Tarsus, pch=19, cex=0.4)
+abline(v=0, lty="dotted")
+head(d)
+str(d)
+**********************************************************************
+
+Testing statday3.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+Call:
+lm(formula = y ~ x)
+
+Coefficients:
+(Intercept)            x  
+      2.493        0.863  
+
+
+Call:
+lm(formula = y ~ x)
+
+Residuals:
+       1        2        3        4        5 
+-0.35616 -0.21918 -0.08219  1.05479 -0.39726 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)   2.4932     0.5582   4.466  0.02091 * 
+x             0.8630     0.1287   6.703  0.00677 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6957 on
+**********************************************************************
+
+Encountered error (or warning):
+Error in eval(predvars, data, env) : object 'd2' not found
+Calls: plot ... plot.formula -> eval -> eval -> <Anonymous> -> eval -> eval
+Execution halted
+
+======================================================================
+Inspecting script file stats4.R...
+
+File contents are:
+**********************************************************************
+setwd("../data/HandOutsandData'18")
+d<-read.table("SparrowSize.txt", header = TRUE)
+daphnia<-read.delim("daphnia.txt")
+summary(daphnia)
+par(mfrow = c(1,2))
+plot(Growth.rate~Detergent ,data = daphnia)
+plot(Growth.rate~Daphnia ,data = daphnia)
+
+par(mfrow = c(1,1))
+require(dplyr)
+daphnia%>%
+group_by(Detergent) %>%
+summarise(variance = var(Growth.rate))  
+
+hist(daphnia$Growth.rate)
+
+seFun <- function(x){
+  sqrt(var(x)/length(x))
+}
+detergentmean <- with(daphnia, tapply(Growth.rate, INDEX = Detergent, FUN = mean))
+detergentsem <- with(daphnia, tapply(Growth.rate, INDEX = Detergent, FUN = seFun))
+clonemean <- with(daphnia,tapply(Growth.rate, INDEX = Daphnia, FUN = mean))
+clonesem <- with(daphnia,tapply(Growth.rate, INDEX = Daphnia, FUN = seFun))
+
+par(mfrow =c (2,1), mar=c(4,4,1,1))
+barMIds <- barplot(detergentmean, xlab = "Detergent type", ylab = "Population growth rate", ylim = c(0,5))
+arrows(barMIds, detergentmean - detergentsem, barMIds, detergentmean + detergentsem, code = 3, angle = 90)
+
+barMIds <- barplot(clonemean, xlab = "Daphnia clone", ylab = "Population growth rate", ylim = c(0,5))
+arrows(barMIds, clonemean - clonesem, barMIds, clonemean + clonesem, code = 3, angle = 90)
+
+daphniaMod <- lm(Growth.rate~Detergent+Daphnia, data = daphnia)
+daphniaMod
+anova(daphniaMod)
+summary(daphniaMod)
+
+detergentmean - detergentmean[1]
+clonemean - clonemean[1]
+
+daphniaANOVAMod <- aov(Growth.rate ~ Detergent + Daphnia, data = daphnia)
+summary(daphniaANOVAMod)
+
+daphniaModHSD <- TukeyHSD(daphniaANOVAMod)
+daphniaModHSD
+
+par(mfrow=c(2,1))
+plot(daphniaModHSD)
+
+par(mfrow = c(2,2))
+plot(daphniaMod)
+
+
+######multiple regression
+timber <- read.delim("timber.txt")
+summary(timber)
+
+par(mfrow = c(2,2))
+boxplot(timber$volume)
+boxplot(timber$girth)
+boxplot(timber$height)
+
+
+var(timber$volume)
+
+var(timber$girth)
+
+var(timber$height)
+
+t2<-as.data.frame(subset(timber, timber$volume != "NA"))
+**********************************************************************
+
+Testing stats4.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+  Growth.rate     Water     Detergent    Daphnia  
+ Min.   :1.762   Tyne:36   BrandA:18   Clone1:24  
+ 1st Qu.:2.797   Wear:36   BrandB:18   Clone2:24  
+ Median :3.788             BrandC:18   Clone3:24  
+ Mean   :3.852             BrandD:18              
+ 3rd Qu.:4.807                                    
+ Max.   :6.918                                    
+# A tibble: 4 x 2
+  Detergent variance
+  <fct>        <dbl>
+1 BrandA        1.51
+2 BrandB        1.09
+3 BrandC        1.78
+4 BrandD        2.38
+
+**********************************************************************
+
+Encountered error (or warning):
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+======================================================================
+Inspecting script file statsday2.R...
+
+File contents are:
+**********************************************************************
+setwd("../data/HandOutsandData'18")
+data<- read.table("SparrowSize.txt", header = T)
+
+###########tarsus
+dtarsus <- subset(data , data$Tarsus != "NA" ,)
+seTarsus <- sqrt(var(dtarsus $ Tarsus) / length(dtarsus $ Tarsus))
+seTarsus
+d2001 <- subset( dtarsus, dtarsus $ Year == 2001)
+seTarsus2001 <- sqrt(var(d2001$Tarsus) / length(d2001$Tarsus))
+seTarsus2001
+
+
+t.test(d2001$Tarsus, mu=18.5 , na.rm =T)
+
+#t.test (d2001~)
+quantile(d2001$Tarsus , 0.05)
+quantile(d2001$Tarsus , 0.95)
+##########body mass
+dmass <- subset(data ,data$Mass != "NA")
+seMass <- sqrt(var(dmass$Mass) / length(dmass$Mass))
+seMass
+
+#########bill
+
+dbill <- subset(data , data$Bill != "NA")
+sebill <- sqrt(var(dbill$Bill) / length(dbill$Bill))
+sebill
+quantile(dbill$Bill , 0.05)
+quantile(dbill$Bill , 0.95)
+
+########wing
+
+dwing <- subset(data , data$Wing != "NA" , )
+dwing2001 <-subset(dwing , dwing$Year == 2001)
+sewing <- sebill <- sqrt(var(dbill$Bill) / length(dbill$Bill))
+
+wingt <- t.test(dwing2001$Wing, mu=mean(dwing$Wing))
+wingt
+######t.test
+t.test1 <- t.test(data$Mass~data$Sex.1)
+t.test1
+
+t.test2 <- t.test(data$Mass~data$Sex)
+t.test2
+######male & female wing 
+
+##2001
+mf2001t <- t.test(dwing2001$Wing~dwing2001$Sex)
+mf2001t
+mfttest <- t.test(dwing$Wing~dwing$Sex)
+mfttest
+##
+
+require(pwr)
+
+
+effective_size_=5/sd(dwing$Wing)
+
+pwr.t.test(d=(0-5)/effective_size_, power = 0.8, sig.level = .05, type = "two.sample", alternative = "two.sided")
+**********************************************************************
+
+Testing statsday2.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+[1] 0.02096211
+[1] 0.1030623
+
+	One Sample t-test
+
+data:  d2001$Tarsus
+t = -4.0446, df = 94, p-value = 0.0001074
+alternative hypothesis: true mean is not equal to 18.5
+95 percent confidence interval:
+ 17.87853 18.28779
+sample estimates:
+mean of x 
+ 18.08316 
+
+   5% 
+16.41 
+ 95% 
+19.5 
+[1] 0.0513209
+[1] 0.01771217
+  5% 
+12.3 
+ 95% 
+14.3 
+
+	One Sample t-test
+
+data:  dwing2001$Wing
+t = 1.1294, df = 94, p-value = 0.2616
+alternative hypothesis: true mean is not equal to 77.40206
+95 percent confidence i
+**********************************************************************
+
+Encountered error (or warning):
+Loading required package: pwr
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called ‘pwr’
+Error in pwr.t.test(d = (0 - 5)/effective_size_, power = 0.8, sig.level = 0.05,  : 
+  could not find function "pwr.t.test"
+Execution halted
+
+======================================================================
+Inspecting script file statsday1-copy.R...
+
+File contents are:
+**********************************************************************
+setwd("../data/HandOutsandData'18")
+#install.packages("lme4")
+require(lme4)
+data<-read.table("SparrowSize.txt",header=TRUE)
+str(data)
+names(data)
+head(data)
+hist(data$Tarsus)
+mean(data$Tarsus,na.rm=TRUE)
+median(data$Tarsus,na.rm = TRUE)
+par(mfrow =c(2,2))
+hist(data$Tarsus, breaks = 3, col = "grey")
+hist(data$Tarsus, breaks = 10, col = "grey")
+hist(data$Tarsus, breaks = 30, col = "grey")
+hist(data$Tarsus, breaks = 100, col = "grey")
+
+#install.packages("modeest")
+require(modeest)
+mlv(data$Tarsus, na.rm = TRUE)
+
+d2<-subset(data, data$Tarsus != "NA")
+length(d2$Tarsus)
+mlv(d2$Tarsus)
+range(data$Tarsus,na.rm = TRUE)
+range(d2$Tarsus,na.rm = TRUE)
+var(data$Bill,na.rm = TRUE)
+mean(data$Bill,na.rm = TRUE)
+sd(data$Bill,na.rm = TRUE)
+
+var(data$Mass,na.rm = TRUE)
+mean(data$Mass,na.rm = TRUE)
+sd(data$Mass,na.rm = TRUE)
+
+var(data$Wing,na.rm = TRUE)
+mean(data$Wing,na.rm = TRUE)
+sd(na.omit(data$Wing))
+
+scale(d2$Tarsus)
+
+**********************************************************************
+
+Testing statsday1-copy.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+'data.frame':	1770 obs. of  8 variables:
+ $ BirdID: int  1 2 2 2 2 2 2 2 2 2 ...
+ $ Year  : int  2002 2001 2002 2003 2004 2004 2004 2004 2004 2005 ...
+ $ Tarsus: num  16.9 16.8 17.2 17.5 17.8 ...
+ $ Bill  : num  NA NA NA 13.5 13.4 ...
+ $ Wing  : num  76 76 76 76 77 78 77 77 77 77 ...
+ $ Mass  : num  23.6 27.5 28.1 27.8 26.5 ...
+ $ Sex   : int  0 1 1 1 1 1 1 1 1 1 ...
+ $ Sex.1 : Factor w/ 2 levels "female","male": 1 2 2 2 2 2 2 2 2 2 ...
+[1] "BirdID" "Year"   "Tarsus" "Bill"   "Wing"   "Mass"   "S
+**********************************************************************
+
+Encountered error (or warning):
+Loading required package: lme4
+Loading required package: Matrix
+Loading required package: methods
+
+Attaching package: ‘lme4’
+
+The following object is masked from ‘package:stats’:
+
+    sigma
+
+Loading required package: modeest
+
+This is package 'modeest' written by P. PONCET.
+For a complete list of functions, use 'library(help = "modeest")' or 'help.start()'.
+
+Warning messages:
+1: In mlv.default(data$Tarsus, na.rm = TRUE) :
+  argument 'method' is missing. Data are supposed to be continuous. Default method 'shorth' is used
+2: In .deal.ties(ny, i, tie.action, tie.limit) :
+  encountered a tie, and the difference between minimal and maximal value is > length('x') * 'tie.limit'
+the distribution could be multimodal
+Warning messages:
+1: In mlv.default(d2$Tarsus) :
+  argument 'method' is missing. Data are supposed to be continuous. Default method 'shorth' is used
+2: In .deal.ties(ny, i, tie.action, tie.limit) :
+  encountered a tie, and the difference between minimal and maximal value is > length('x') * 'tie.limit'
+the distribution could be multimodal
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 4 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
