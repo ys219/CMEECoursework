@@ -1,0 +1,573 @@
+Starting weekly assessment for Yige, Week6
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 118.59 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: WEEK1, Assessment, WEEK4, project, WEEK7, WEEK8miniProject, WEEK6, .git, WEEK9HPC, WEEK5, WEEK2, WEEK3
+
+Found the following files in parent directory: .gitignore, README.md
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+**********************************************************************
+*~
+*.tmp
+*.temp
+*.docx
+*.jpeg
+*.RData
+*.Rhistory
+
+*.png
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+# **CMEE Repository**
+
+> by Yige Sun   --MRes.CMEE 2019-20
+
+This repository is for my MRes.CMEE course.  Including courseworks, practicals, proposals etc.
+
+
+![](https://pic2.zhimg.com/737434d0c6b06a6ef29684c754790019_1200x500.jpg)
+## **Structure**
+All the files were classified by [WEEK] .
+Each week contains
+
+[code]:
+scripts in .sh, .py .R or other types; 
+
+[data]:
+data files that been used or can be used by scripts; 
+
+[sandbox]: are for fun, that's where I play with(or torture) myself.
+
+[results]:where the outputs stored
+
+## **Environment**
+
+ubuntu 18.04.3 
+
+GNU bash, version 4.4.20
+
+R version 3.6.1
+
+ipython3 version 5.5.0
+
+
+## **Contents**
+
+### [**WEEK1**](https://github.com/ys219/CMEECoursework/tree/master/WEEK1)
+
+Unix basics
+
+Shell Scripts
+
+LaTex
+
+### [**WEEK2**](https://github.com/ys219/CMEECoursework/tree/master/WEEK2)
+
+Python week I
+
+### [**WEEK3**](https://github.com/ys219/CMEECoursework/tree/master/WEEK3)
+
+R week
+
+### [**WEEK4**](https://github.com/ys219/CMEECoursework/tree/master/WEEK4)
+
+Statistics Analysis
+
+### [**WEEK5**](https://github.com/ys219/CMEECoursework/tree/master/WEEK5)
+
+GIS in R
+
+### [**WEEK6**](https://github.com/ys219/CMEECoursework/tree/master/WEEK6)
+
+Genomics applications
+
+### [**WEEK7**](https://github.com/ys219/CMEECoursework/tree/master/WEEK7)
+
+Python week II
+
+### [**WEEK8miniProject**](https://github.com/ys219/CMEECoursework/tree/master/WEEK8miniProject)
+
+Mini Project Heckathon
+
+### [**WEEK9HPC**](https://github.com/ys219/CMEECoursework/tree/master/WEEK9HPC)
+
+Neutral Theory, Coalescence, HPC, fractal
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 9 weekly directories: WEEK1, WEEK2, WEEK3, WEEK4, WEEK5, WEEK6, WEEK7, WEEK8miniProject, WEEK9HPC
+
+The Week6 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK6...
+
+Found the following directories: code, data, results
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+**********************************************************************
+CMEECoursework WEEK6
+==
+This directory includes my code, data, results of exercises and practical in CMEE course week6
+
+
+## Contents:
+
+##### Genomics applications
+
+### [**code**](https://github.com/ys219/CMEECoursework/tree/master/WEEK6/code)
+
+#### Practicals:
+
+#### `01_alleles.R`
+/code 
+
+grab the atrget alleles
+
+
+
+#### ` 	02_divergence.R`
+/code
+
+work out the differences of alleles
+
+#### ` 	03_coalescence.R`
+/code
+
+coalescence practical
+
+#### ` 04_Demography.R`
+/code
+
+Demographic history practical
+**********************************************************************
+
+Found following files in results directory: README.md...
+
+Found 4 code files: 01_alleles.R, 03_coalescence.R, 04_Demography.R, 02_divergence.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file 01_alleles.R...
+
+File contents are:
+**********************************************************************
+setwd('/home/yige/Documents/CMEECoursework/WEEK6/code')
+data<- read.csv('../data/bears.csv', header = FALSE)
+str(data)
+
+
+### 1)how many SNPs and position of SNPs
+# 1. go through the 
+snps<- c()
+for(i in 1:ncol(data)) {
+  if(length(unique(data[,i])) !=1 ) {snps<- c(snps, i)}
+     }
+cat("there are", length(snps), "SNPs")
+cat("SNPs are in positions", snps)
+
+
+#### 2)allele frequency for ech SNPs
+
+# 1. extract the alleles using levels and save as a vector
+# 2.calculate the frequency by measuring the length
+   #which()可以用来限定条件
+# 3. print them out with cat()
+freq<- c()
+par(mfrow=c(4,4),mar=c(1.5,1.5,1.5,1.5))
+for (i in snps) {
+  alleles<- c(levels(data[,i]))
+  freq1<- length(which(data[,i]== alleles[1]))/length(data[,i])
+  freq2<- length(which(data[,i]== alleles[2]))/length(data[,i])
+  cat("\n\nSNP at location", i, "has alleles", alleles, "\nfrequency for allele", alleles[1],"is", freq1,"\nfrequency for allele", alleles[2],"is", freq2)
+  hist(as.numeric(data[,i]), main=c("position",as.character(i)))
+  }
+
+### 3) genotype frequences:
+data<- read.csv('../data/bears.csv', header = FALSE,stringsAsFactors = FALSE)
+str(data)
+gtype<-as.data.frame(matrix(nrow = 20, ncol = 0))
+for (i in snps){
+  tmp<-c()
+  for(a in seq(1, nrow(data), by= 2)){
+    geno<-c(data[a,i], data[(a+1),i])
+    tmp<-c(tmp,paste0(geno[order(geno)], collapse = ""))
+  }
+  gtype[paste("position",i,sep = "")] = tmp
+  tmp= table(tmp)
+  cat("\n\nIn position",i,"there are genotypes",names(tmp))
+  for(b in 1:length(tmp)){
+    freq<- c(unname(tmp[b])/20)
+    cat("\nfrequency for", names(tmp[b])," is", freq)
+  }
+}
+
+
+
+
+
+**********************************************************************
+
+Testing 01_alleles.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Error in setwd("/home/yige/Documents/CMEECoursework/WEEK6/code") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+Inspecting script file 03_coalescence.R...
+
+File contents are:
+**********************************************************************
+setwd('/home/yige/Documents/CMEECoursework/WEEK6/code')
+
+northern<- as.matrix(read.csv("../data/killer_whale_North.csv", header = FALSE, stringsAsFactors = FALSE))
+southern<- as.matrix(read.csv("../data/killer_whale_South.csv", header = FALSE, stringsAsFactors = FALSE))
+# 使用循环时， matrix的速度要远远快于data frame
+
+#### northern whales
+
+## tajima estimator
+northern_diff = 0 
+for (i in 1:nrow(northern)) {
+  for (a in 1:(i-1)){
+    if(i-1 != 0 ){
+     northern_diff = northern_diff + sum(abs(northern[i,]-northern[a,]))
+    }
+  }
+}
+
+n_northern = nrow(northern)
+norther_pie= northern_diff/(n_northern*(n_northern-1)/2)
+
+n_taji_size=norther_pie/(4*1e-8*50000)
+###an alternative loop.
+# for (i in 1:nrow(northern)) {
+#   for (a in 1:(i-1)){
+#     if(i-1 != 0 ){
+#       for (c in 1:ncol(northern)){
+#         if(northern[a,c] != northern[i,c]){score=score+1}
+#       }
+#     }
+#   }
+# }
+
+## watterson's estimator
+northern_S=0
+n_snps<- c()
+for(i in 1:ncol(northern)) {
+  if(length(unique(northern[,i])) !=1 ) {
+    northern_S = northern_S+1
+    n_snps<- c(n_snps,i)
+  }
+}
+
+northern_watterson= northern_S/(sum(1/1:(nrow(northern)-1)))
+n_watt_size= northern_watterson/(4*1e-8*50000)
+# Ne_S_watt <- watt_S / (4 * 1e-8 * len) 答案里为什么要多出一个len（50000）
+# because the mutation rate given is for single site, so we need to multiply the 50000 sites 
+# as more sites add up, mutation rate add up, we need to add nutation rate for each site up.
+
+
+
+#### southern whales
+
+## tajima estimator
+southern_diff = 0 
+for (i in 1:nrow(southern)) {
+  for (a in 1:(i-1)){
+    if(i-1 != 0 ){
+      southern_diff = southern_diff + sum(abs(southern[i,]-southern[a,]))
+    }
+  }
+}
+
+n_southern = nrow(southern)
+southern_pie= southern_diff/(n_southern*(n_southern-1)/2)
+s_taji_size=southern_pie/(4*1e-8*50000)
+## watterson's estimator
+southern_S=0
+s_snps<-c()
+for(i in 1:ncol(southern)) {
+  if(length(unique(southern[,i])) !=1 ) {
+    southern_S = southern_S+1
+    s_snps<-c(s_snps,i)
+  }
+}
+sum(1/1:nrow(northern))
+southern_watterson= southern_S/(sum(1/(1:(nrow(southern)-1))))
+s_watt_size=southern_watterson/(4*1e-8*50000)
+
+
+#### what we gonna do with tajima pie and watterson's estimator is use it to generate 
+#### an effective population, this population size the recent(not current population size)
+#### as population size is changeing over time, what we generated here is a expected(mixed)
+#### of current and the past, some how averged? applying some other method, we can work it exactly when.
+
+
+
+####SFS site frequency spectrum
+### analysing no of alternative alleles in population(how many 1s on each site)
+
+n_sfs<- apply(northern, 2, sum)
+##remove 0 s
+n_sfs[n_sfs==0]<- NA
+n_sfs<-na.omit(n_sfs)
+n_sfs<- table(as.vector(n_sfs))
+
+
+
+s_sfs<- apply(southern, 2, sum)
+
+s_sfs[s_sfs==0]<-NA
+s_sfs<- na.omit(s_sfs)
+s_sfs<- table(as.vector(s_sfs))
+
+
+##  barplot
+barplot(t(cbind(n_sfs,s_sfs)),beside = TRUE)
+
+
+**********************************************************************
+
+Testing 03_coalescence.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Error in setwd("/home/yige/Documents/CMEECoursework/WEEK6/code") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+Inspecting script file 04_Demography.R...
+
+File contents are:
+**********************************************************************
+setwd('/home/yige/Documents/CMEECoursework/WEEK6/code')
+
+alleles<- as.matrix(read.csv("../data/turtle.csv",header = FALSE, stringsAsFactors = FALSE,colClasses=rep("numeric", 2000)))
+
+genotypes<- as.matrix(read.csv('../data/turtle.genotypes.csv', header = FALSE, stringsAsFactors = FALSE))
+
+
+# fa<-c()
+# fb<-c()
+# fc<-c()
+# fd<-c()
+
+# fb<-c(fb,apply(alleles[21:40],MARGIN = 2, sum))
+# fc<-c(fa,apply(alleles[41:60],MARGIN = 2, sum))
+# fd<-c(fa,apply(alleles[61:80],MARGIN = 2, sum))
+
+Fst_fun<- function(fa,fb) {
+  fa<- apply(fa, MARGIN = 2, sum)/nrow(fa)
+  fb<- apply(fb, MARGIN = 2, sum)/nrow(fb)
+  Fst<- rep(NA, length(fa))
+  # create a empty vector for Fst s.
+  for (i in 1:length(fa)){
+    Hs<- (2*fa[i]*(1-fa[i])+2*fb[i]*(1-fb[i]))/2
+    Ht<- (2*(fa[i]+fb[i])/2)*(1-(fa[i]+fb[i])/2)
+    #work out Hs and Ht 
+    Fst[i]<- (Ht- Hs)/Ht
+  }
+  mean(Fst, na.rm = TRUE)
+}
+snps <- which(apply(FUN=sum, X=genotypes, MAR=2)/(nrow(genotypes))>0.03)
+## to ignore some positions that have very little amount of derived alleles(would be considered as noise.)
+fst_ab<- Fst_fun(alleles[1:20,], alleles[21:40,])  
+fst_bc<- Fst_fun(alleles[21:40,], alleles[41:60,])  
+fst_cd<- Fst_fun(alleles[41:60,], alleles[61:80,])  
+fst_ac<- Fst_fun(alleles[1:20,], alleles[41:60,])  
+fst_bd<- Fst_fun(alleles[21:40,], alleles[61:80,])  
+fst_ad<- Fst_fun(alleles[1:20,], alleles[61:80,])  
+
+**********************************************************************
+
+Testing 04_Demography.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Error in setwd("/home/yige/Documents/CMEECoursework/WEEK6/code") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+Inspecting script file 02_divergence.R...
+
+File contents are:
+**********************************************************************
+setwd('/home/yige/Documents/CMEECoursework/WEEK6/code')
+western<- read.csv("../data/western_banded_gecko.csv", header = FALSE, stringsAsFactors = FALSE)
+bent<- read.csv("../data/bent-toed_gecko.csv", header = FALSE, stringsAsFactors = FALSE)
+leopard<- read.csv("../data/leopard_gecko.csv", header = FALSE, stringsAsFactors = FALSE)
+
+#### omitting all the polymorphic sites(by replacing with NA).
+### bent-toed
+bentpoly<-c()
+for(i in 1:ncol(bent)) {
+  if(length(unique(bent[,i])) !=1 ) {
+    bent[,i]<- c(rep(NA, nrow(bent)))
+    # bentpoly<- c(bentpoly, i)
+    }
+}
+bent<- unique(bent)
+
+### leopard
+leopoly<-c()
+for(i in 1:ncol(leopard)) {
+  if(length(unique(leopard[,i])) !=1 ) {
+    leopard[,i]<- c(rep(NA, nrow(leopard)))
+    # leopoly<- c(leopoly, i)
+  }
+}
+leopard<- unique(leopard)
+
+### western
+westpoly<-c()
+for(i in 1:ncol(western)) {
+  if(length(unique(western[,i])) !=1 ) {
+    western[,i]<- c(rep(NA, nrow(western)))
+    # westpoly<- c(westpoly, i)
+  }
+}
+western<- unique(western)
+
+
+#### calculate the divergence frequency
+##bent & leopard
+total = 0
+diverged = 0 
+for(i in 1:ncol(bent)) {
+  if(is.na(bent[,i]) == FALSE & is.na(leopard[,i]) == FALSE ) {total= total+1}
+  if(is.na(bent[,i]) == FALSE & is.na(leopard[,i]) == FALSE & bent[,i] != leopard[,i]) {diverged= diverged+1}
+}
+
+b_l_divergence<- diverged/total
+b_l_divergence
+
+##bent & western
+total = 0
+diverged = 0 
+for(i in 1:ncol(bent)) {
+  if(is.na(bent[,i]) == FALSE & is.na(western[,i]) == FALSE ) {total= total+1}
+  if(is.na(bent[,i]) == FALSE & is.na(western[,i]) == FALSE & bent[,i] != western[,i]) {diverged= diverged+1}
+}
+
+b_w_divergence<- diverged/total
+b_w_divergence
+
+## leopard & western
+total = 0
+diverged = 0 
+for(i in 1:ncol(leopard)) {
+  if(is.na(leopard[,i]) == FALSE & is.na(western[,i]) == FALSE ) {total= total+1}
+  if(is.na(leopard[,i]) == FALSE & is.na(western[,i]) == FALSE & leopard[,i] != western[,i]) {diverged= diverged+1}
+}
+
+l_w_divergence<- diverged/total
+l_w_divergence
+#sort the divergence in order
+######################################
+#the species tree looks like: L,(W,B)#
+######################################
+
+###calculate the mutation rate 
+## from divergence betwee B&L and the time given
+mu_rate<- b_l_divergence/(2*30)
+mu_rate
+
+###calculate the divergenc time between B&W
+b_w_time<- b_w_divergence/(2*mu_rate)
+b_w_time
+#########################################################
+# divergence time between B&w is 12.1 million years ago.#
+#########################################################
+
+### Bonus question
+# easy way: calculate it with time difference
+l_bw_time<- 30 - b_w_time
+l_bw_divergence<- 2*l_bw_time*mu_rate
+l_bw_divergence
+
+# hard way: infer the sequence of B&w common ancestor
+**********************************************************************
+
+Testing 02_divergence.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Error in setwd("/home/yige/Documents/CMEECoursework/WEEK6/code") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 4 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

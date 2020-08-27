@@ -9,13 +9,13 @@ Note that:
 
 ======================================================================
 ======================================================================
-Your Git repo size this week is about 25.53 MiB on disk 
+Your Git repo size this week is about 118.59 MiB on disk 
 
 PART 1: Checking project workflow...
 
-Found the following directories in parent directory: WEEK1, Assessment, WEEK4, WEEK7, WEEK6, .git, WEEK5, CMEEminiPrject, WEEK2, WEEK3
+Found the following directories in parent directory: WEEK1, Assessment, WEEK4, project, WEEK7, WEEK8miniProject, WEEK6, .git, WEEK9HPC, WEEK5, WEEK2, WEEK3
 
-Found the following files in parent directory: README.txt, .gitignore
+Found the following files in parent directory: .gitignore, README.md
 
 Checking for key files in parent directory...
 
@@ -34,34 +34,91 @@ Printing contents of .gitignore:
 *.png
 **********************************************************************
 
-Found README in parent directory, named: README.txt
+Found README in parent directory, named: README.md
 
-Printing contents of README.txt:
+Printing contents of README.md:
 **********************************************************************
-###########################
-#CMEECoursework Repository#
-###########################
+# **CMEE Repository**
 
-this repository includs codes and data that have been run and used in CMEE bootcamp
-All the codes [until 11th Oct. 2019] were written and tested with ubuntu 18.04.3 terminal, python3.* 
-please provide feedbacks and suggestions, I really appreciate it.
+> by Yige Sun   --MRes.CMEE 2019-20
 
-#############
-#Directories#
-#############
-All the files were classified by weeks, under each [WEEK] dircetory there are [code] directoy which contains scripts in .sh, .txt or other types; 
-[data] directory which contains data files that been used or can be used by scripts; 
-[sandbox] are for fun, that's where I play with(or torture) myself.
-under each [WEEK] directory, there is a seperate README.txt to give an overview of contents in the directory.
+This repository is for my MRes.CMEE course.  Including courseworks, practicals, proposals etc.
 
 
+![](https://pic2.zhimg.com/737434d0c6b06a6ef29684c754790019_1200x500.jpg)
+## **Structure**
+All the files were classified by [WEEK] .
+Each week contains
+
+[code]:
+scripts in .sh, .py .R or other types; 
+
+[data]:
+data files that been used or can be used by scripts; 
+
+[sandbox]: are for fun, that's where I play with(or torture) myself.
+
+[results]:where the outputs stored
+
+## **Environment**
+
+ubuntu 18.04.3 
+
+GNU bash, version 4.4.20
+
+R version 3.6.1
+
+ipython3 version 5.5.0
+
+
+## **Contents**
+
+### [**WEEK1**](https://github.com/ys219/CMEECoursework/tree/master/WEEK1)
+
+Unix basics
+
+Shell Scripts
+
+LaTex
+
+### [**WEEK2**](https://github.com/ys219/CMEECoursework/tree/master/WEEK2)
+
+Python week I
+
+### [**WEEK3**](https://github.com/ys219/CMEECoursework/tree/master/WEEK3)
+
+R week
+
+### [**WEEK4**](https://github.com/ys219/CMEECoursework/tree/master/WEEK4)
+
+Statistics Analysis
+
+### [**WEEK5**](https://github.com/ys219/CMEECoursework/tree/master/WEEK5)
+
+GIS in R
+
+### [**WEEK6**](https://github.com/ys219/CMEECoursework/tree/master/WEEK6)
+
+Genomics applications
+
+### [**WEEK7**](https://github.com/ys219/CMEECoursework/tree/master/WEEK7)
+
+Python week II
+
+### [**WEEK8miniProject**](https://github.com/ys219/CMEECoursework/tree/master/WEEK8miniProject)
+
+Mini Project Heckathon
+
+### [**WEEK9HPC**](https://github.com/ys219/CMEECoursework/tree/master/WEEK9HPC)
+
+Neutral Theory, Coalescence, HPC, fractal
 
 **********************************************************************
 
 ======================================================================
 Looking for the weekly directories...
 
-Found 7 weekly directories: WEEK1, WEEK2, WEEK3, WEEK4, WEEK5, WEEK6, WEEK7
+Found 9 weekly directories: WEEK1, WEEK2, WEEK3, WEEK4, WEEK5, WEEK6, WEEK7, WEEK8miniProject, WEEK9HPC
 
 The Week7 directory will be assessed 
 
@@ -72,7 +129,7 @@ PART 2: Checking weekly code and workflow...
 ======================================================================
 Assessing WEEK7...
 
-Found the following directories: code, data, results
+Found the following directories: code, results
 
 Found the following files: README.md
 
@@ -84,110 +141,112 @@ Printing contents of README.md:
 **********************************************************************
 CMEECoursework WEEK7
 ==
-This directory includes my code, data, results of exercises and practical in CMEE bootcamp week7
-
+This directory includes my code, data, results of exercises and practical in CMEE week7
 
 ## Contents:
 
-##### Biological Computing in Python II
+### `06 Biological Computing in Python II`
 
+### [**code**](https://github.com/ys219/CMEECoursework/tree/master/WEEK7/code)
 
-## Practicals:
-
-#### `blackbirds`
-/code 
-
-the solution for black bird problem
-
-
-
-#### `DrawFw.py`
-/code
-
-plot food web network and save it
-
-#### `fmr.R`
-/code
-
-the R file for run_fmr_R.py
+### Practicals:
 
 #### `LV1.py`
-/code
 
 solving the Lotka-Volterra model for a predator-prey
 system in two dimensional space
 
 #### `LV2.py`
-/code
 
 solving the Lotka-Volterra model for a predator-prey
 system in two dimensional space, modified from LV1 
 
 #### `LV3.py`
-/code
 
 solving the Lotka-Volterra model for a predator-prey
 system in two dimensional space, with discrete time.
 
+#### `LV4.py`
+
+solving the Lotka-Volterra model for a predator-prey
+system in two dimensional space, with discrete time and epsilon
+
+#### `LV5.py`
+
+solving the Lotka-Volterra model for a predator-prey
+system in two dimensional space, with discrete timeand epsilon
+
+#### `run_LV.py`
+
+the script that run the LV1.py, LV2.py, LV3.py files.
+
+#### `DrawFw.py`
+
+plot food web network and save it
+
+
+#### `Nets.py`
+
+a python version that draw network as Nets.R
+
+#### `regexs.py`
+
+practices of regexs
+
+#### `blackbirds`
+
+the solution for black bird problem
+
+#### `using_os.py`
+
+the tasks to use os
+
+
+#### `fmr.R`
+
+the R file for run_fmr_R.py
+
+
+#### `run_fmr_R.py`
+
+the script that run the fmr.R file
+
+
+### Exercises:
+
 #### `profileme.py`
-/code
 
 profiling practices
 
 #### `profileme2.py`
-/code
 
 alternative way of profiling practices
 
-#### `regexs.py`
-/code
 
-practices of regexs
-
-#### `run_fmr_R.py`
-/code
-
-the script that run the fmr.R file
-
-#### `run_LV.py`
-/code
-
-the script that run the LV1.py, LV2.py, LV3.py files.
 
 #### `TestR.py`
-/code
 
 python script that run the TestR.R, 
 
 
 #### `TestR.R`
-/code
 
 the R file be ran by the TestR.py
 
 #### `Timeitme.py`
-/code
 
 how long would it takes to run certain file.
-
-#### `using_os.py`
-/code
-
-the tasks to use os
-
-
-
-
-
 
 
 
 **********************************************************************
 
-Found following files in results directory: fmr_plot.pdf, FWnetwork.pdf, LV1_models.pdf, LV2_models.pdf, LV3_models.pdf...
+Data directory missing!
+
+Found following files in results directory: FWnetwork.pdf, LV1_models.pdf, LV2_models.pdf, QMEENet_by_py.svg, LV3_models.pdf...
 ideally, Results directory should be empty other than, perhaps, a readme. 
 
-Found 15 code files: TestR.py, regexs.py, LV3.py, profileme2.py, timeitme.py, blackbirds.py, TestR.R, profileme.py, fmr.R, using_os.py, LV1.py, DrawFW.py, run_fmr_R.py, run_LV.py, LV2.py
+Found 14 code files: TestR.py, regexs.py, LV3.py, profileme2.py, timeitme.py, Nets.py, profileme.py, LV4.py, using_os.py, LV5.py, DrawFW.py, Nets.R, run_fmr_R.py, run_LV.py
 
 ======================================================================
 Testing script/code files...
@@ -199,27 +258,20 @@ File contents are:
 **********************************************************************
 #!/bin/env python3
 
-# Author:
-# Scrippt: 
-# Desc:
-# Input: 
-# Output:
-# Argument:
-# Date:
 
 """profiling and export outputs"""
 
-__appname__=="TestR"
-__author__=="YSun"
-__version__=="0.01"
-__liscence__=="code.program"
+# __appname__=="TestR"
+# __author__=="YSun"
+# __version__=="0.01"
+# __liscence__=="code.program"
 
 import subprocess
 
 subprocess.Popen("Rscript --verbose TestR.R > ../results/TestR.Rout 2> ../results/TestR_errFile.Rout", shell=True).wait()
 
 subprocess.Popen("Rscript --verbose NonExistScript.R > ../results/outputFile.Rout 2> ../results/errorFile.Rout", shell=True).wait()
-**********************************************************************
+##complile R and save the outcomes**********************************************************************
 
 Testing TestR.py...
 
@@ -237,17 +289,20 @@ Output (only first 500 characters):
 
 **********************************************************************
 
-Encountered error (or warning):
-Traceback (most recent call last):
-  File "TestR.py", line 13, in <module>
-    __appname__=="TestR"
-NameError: name '__appname__' is not defined
+Code ran without errors
+
+Time consumed = 0.06025s
 
 ======================================================================
 Inspecting script file regexs.py...
 
 File contents are:
 **********************************************************************
+#!/usr/bin/env python3
+_appname_="regexs"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 import re
 """regex practices"""
 
@@ -298,8 +353,7 @@ match = re.search(r"[\w\s]+,\s[\w\.@]+,\s[\w\s]+",MyStr)# find any s[ace or char
 match.group()
 
 MyStr = 'Samraat Pawar, s-pawar@imperial.ac.uk, Systems biology and ecological theory'
-match = re.search(r"[\w\s]+,\s[\w\.@]+,\s[\w\s&]+",MyStr)
-match.group()
+
 
 match = re.search(r"[\w\s]?,\s[\w\.-]+@[\w\.-]+,\s[\w\s&]+",MyStr)
 match.group()
@@ -323,7 +377,9 @@ match.group()
     #     Only seemingly valid dates match (i.e., year greater than 1900)
     #     First digit in month is either 0 or 1
     #     First digit in day ≤3
- re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
+
+
+re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
 
 ####3 grouping regex patterns 
 MyStr = 'Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory'
@@ -402,14 +458,22 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
+found a match: an 
+Samraat Pawar, s.pawar@imperial.ac.uk, Systems biology and ecological theory
+Samraat Pawar
+s.pawar@imperial.ac.uk
+Systems biology and ecological theory
+s.pawar@imperial.ac.uk
+a-academic@imperial.ac.uk
+y.a_academic@imperial.ac.uk
 
 **********************************************************************
 
 Encountered error (or warning):
-  File "regexs.py", line 76
-    re.search(r'19|20\d{2}(0[1-9]|1[0-2])(0[1-9]|[1|2]\d|3[0-1])',"20090101").group()
-    ^
-IndentationError: unexpected indent
+Traceback (most recent call last):
+  File "regexs.py", line 107, in <module>
+    f= open("../data/TestOaksData.csv",'r')
+FileNotFoundError: [Errno 2] No such file or directory: '../data/TestOaksData.csv'
 
 ======================================================================
 Inspecting script file LV3.py...
@@ -429,41 +493,46 @@ def LV3 ():
     import scipy.integrate as integrate
     import sys
 
-    def CR_t1(pops, t=0):
-        """a discrete-time version of the LV model"""
+    def CR_t1(pops, t = 0):
+        """a discrete-time version of the LV model
+        with iteration"""
         Rt = pops[0]
         Ct = pops[1]
-        Rt1 = Rt*(1+r*(1-Rt/k) - a * Ct )
-        Ct1 = Ct*(1-z+ e * a * Rt)
-        
+        Rt1 = Rt*(1 + r * (1-Rt / k) - a * Ct )
+        Ct1 = Ct*(1 - z + e * a * Rt)
+
         return sc.array([Rt1,Ct1])
 
+
+### main inputs:
     if len(sys.argv) != 5:
         r = 1.0
         a = 0.1
         z = 1.5
         e = 0.75
+        print("using default parameters")
     else:
         r = float(sys.argv[1])
         a = float(sys.argv[2])
         z = float(sys.argv[3])
         e = float(sys.argv[4])
-    k = 50
 
-    t = sc.linspace(0, 15, 1000)
-    ## generate 
+    k = 30#define constant parameter, without exceeding the carrying capacity
+    t = sc.linspace(0, 15, 20)#define time series(1000 number between 0-15)
+    ## generate data
     R0 = 10
     C0 = 5 
     RC0 = sc.array([R0, C0])
+    pops = sc.zeros((len(t),2))
 
-    pops, infodict = integrate.odeint(CR_t1, RC0, t, full_output=True)
-    ######################################################
-    #   do a loop with iteration instead  change it later#
-    ######################################################
-    # for i in range()
-    
+    for i in range(0,len(t)):
+        pops[i] = RC0
+        RC0 = CR_t1(RC0,t=t)
 
     print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
+
+
+
 
     import matplotlib.pylab as p
     import matplotlib.pyplot as plt
@@ -496,7 +565,8 @@ def LV3 ():
         pdf.savefig(f2)#Save figure
 
 
-LV3()**********************************************************************
+LV3()
+**********************************************************************
 
 Testing LV3.py...
 
@@ -511,15 +581,16 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
+using default parameters
 the final population density is
- 12.5765834977 for Resourses
- 17.0434895539 for Consumers
+ 19.1666125773 for Resourses
+ 3.79917302015 for Consumers
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.78857s
+Time consumed = 0.77729s
 
 ======================================================================
 Inspecting script file profileme2.py...
@@ -528,7 +599,7 @@ File contents are:
 **********************************************************************
 #!/usr/bin/env python3
 """alternative way of profiling practices"""
-_appname_="blackbirds"
+_appname_="profileme2"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
@@ -554,7 +625,7 @@ def run_my_funcs(x,y):
 
 run_my_funcs(10000000,"My string")
 
-**********************************************************************
+##defining fuctions for profiling**********************************************************************
 
 Testing profileme2.py...
 
@@ -575,7 +646,7 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 3.61852s
+Time consumed = 3.63482s
 
 ======================================================================
 Inspecting script file timeitme.py...
@@ -585,11 +656,11 @@ File contents are:
 #!/bin/env python3
 
 """how long would it takes"""
+_appname_="timtimte"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 
-__appname__=="TestR"
-__author__=="YSun"
-__version__=="0.01"
-__liscence__=="code.program"
 
 ##############################################################################
 # loops vs. list comprehensions: which is faster?
@@ -599,12 +670,12 @@ iters = 1000000
 
 import timeit
 
-from profileme import my_squares as my_squares_loops
+from profileme import my_squares as my_squares_ex
 
-from profileme2 import my_squares as my_squares_lc
+from profileme2 import my_squares as my_squares_im
 
-%timeit my_squares_loops(iters)
-%timeit my_squares_lc(iters)
+# %timeit my_squares_loops(iters)
+# %timeit my_squares_lc(iters)
 
 
 ##############################################################################
@@ -617,9 +688,17 @@ from profileme import my_join as my_join_join
 
 from profileme2 import my_join as my_join
 
-%timeit(my_join_join(iters, mystring))
-%timeit(my_join(iters, mystring))
+# %timeit(my_join_join(iters, mystring))
+# %timeit(my_join(iters, mystring))
+import time 
 
+start1 = time.time()#starting time point
+my_squares_ex(iters)#run the loop
+print("The explicit loops take %f seconds to run" % (time.time()-start1))
+
+start2 = time.time()#starting time point
+my_squares_im(iters)
+print("The implicit loops take %f seconds to run" % (time.time()-start2))
 **********************************************************************
 
 Testing timeitme.py...
@@ -638,59 +717,79 @@ Output (only first 500 characters):
 
 **********************************************************************
 
-Encountered error (or warning):
-  File "timeitme.py", line 22
-    %timeit my_squares_loops(iters)
-    ^
-SyntaxError: invalid syntax
+Code ran without errors
+
+Time consumed = 10.00355s
 
 ======================================================================
-Inspecting script file blackbirds.py...
+Inspecting script file Nets.py...
 
 File contents are:
 **********************************************************************
 #!/usr/bin/env python3
-"""The solution for black bird problem"""
-_appname_="blackbirds"
+_appname_="Nets"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
-import re
+# Author: Y_Sun ys219@ic.ac.uk
 
-# Read the file (using a different, more python 3 way, just for fun!)
-with open('../data/blackbirds.txt', 'r') as f:
-    text = f.read()
-# replace \t's and \n's with a spaces:
-text = text.replace('\t',' ')
-text = text.replace('\n',' ')
-# You may want to make other changes to the text. 
+"""python script that recreat the outcome of Nets.R"""
 
-# In particular, note that there are "strange characters" (these are accents and
-# non-ascii symbols) because we don't care for them, first transform to ASCII:
+import pandas as pd
+import networkx as nx
+import matplotlib.pyplot as plt 
 
-text = text.encode('ascii', 'ignore') # first encode into ascii bytes
-text = text.decode('ascii', 'ignore') # Now decode back to string
+edge = pd.read_csv("../data/QMEE_Net_Mat_edges.csv")
+node = pd.read_csv("../data/QMEE_Net_Mat_nodes.csv")
+ids = list(node.id)
+##load data and generate the ids
 
-# Now extend this script so that it captures the Kingdom, Phylum and Species
-# name for each species and prints it out to screen neatly.
+AdjList = []
+#empty list for edge data
 
-# Hint: you may want to use re.findall(my_reg, text)... Keep in mind that there
-# are multiple ways to skin this cat! Your solution could involve multiple
-# regular expression calls (easier!), or a single one (harder!)
-my_reg= r'Kingdom\s\w+\s|Phylum\s\w+\s|Species\s\w+\s\w+'
-found = re.findall(my_reg,text)
+for i in range(len(edge)):
+    for j in range(len(edge)):
+        if edge.iloc[i][j] != 0 and i<j:
+            AdjList.append((edge.columns[i],edge.columns[j],edge.iloc[i][j]))
+## get directionalities and get rig of 0s, and repeated(ie. (icl,ceh)&(ceh,icl) keep only one) , and diagnals.
 
-count = 0
-for i in found:
-    count = count+1
-    print(i)
-    if count % 3 ==0:
-        print("\n")
+edgewidth = [i[2]/10+0.5 for i in AdjList]
+
+nodescol = []
+## empty list for nodes colours
+for i in node.Type:
+    if i == "University":
+        nodescol.append("blue")
+    elif i =="Hosting Partner":
+        nodescol.append("green")
+    else:
+        nodescol.append("red")      
+
+f = plt.figure()
+
+
+## nodes layout
+G = nx.Graph()
+G.add_nodes_from(ids)
+G.add_weighted_edges_from(tuple(AdjList))
+## define the nodes and edge length
+
+nx.draw_networkx(G,node_size = 2000, node_color = nodescol, edge_color = "grey",width = edgewidth)
+## main network plot
+
+red, = plt.plot([],"ro",markersize = 10)
+green, = plt.plot([],"go",markersize = 10)
+blue, = plt.plot([],"bo",markersize = 10)
+plt.legend([red, green, blue,], ["Non-Hosting Partners","Hosting Partner", "University"], loc= "best")
+## set the legend "ro","bo"for red dots blue dots
+
+f.savefig("../results/QMEENet_by_py.svg", width = 10, height = 10)
+
 **********************************************************************
 
-Testing blackbirds.py...
+Testing Nets.py...
 
-blackbirds.py is a Python script file;
+Nets.py is a Python script file;
 
 checking for docstrings...
 
@@ -701,53 +800,26 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
-Kingdom Animalia 
-Phylum Chordata 
-Species Euphagus carolinus
-
-
-Kingdom Animalia 
-Phylum Chordata 
-Species Euphagus cyanocephalus
-
-
-Kingdom Animalia 
-Phylum Chordata 
-Species Turdus boulboul
-
-
-Kingdom Animalia 
-Phylum Chordata 
-Species Agelaius assimilis
-
-
 
 **********************************************************************
 
-Code ran without errors
-
-Time consumed = 0.02769s
-
-======================================================================
-Inspecting script file TestR.R...
-
-File contents are:
-**********************************************************************
-print("Hello, I am from R")
-**********************************************************************
-
-Testing TestR.R...
-
-Output (only first 500 characters): 
-
-**********************************************************************
-[1] "Hello, I am from R"
-
-**********************************************************************
-
-Code ran without errors
-
-Time consumed = 0.09915s
+Encountered error (or warning):
+Traceback (most recent call last):
+  File "Nets.py", line 14, in <module>
+    edge = pd.read_csv("../data/QMEE_Net_Mat_edges.csv")
+  File "/usr/lib/python3/dist-packages/pandas/io/parsers.py", line 498, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/lib/python3/dist-packages/pandas/io/parsers.py", line 275, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/lib/python3/dist-packages/pandas/io/parsers.py", line 590, in __init__
+    self._make_engine(self.engine)
+  File "/usr/lib/python3/dist-packages/pandas/io/parsers.py", line 731, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/usr/lib/python3/dist-packages/pandas/io/parsers.py", line 1103, in __init__
+    self._reader = _parser.TextReader(src, **kwds)
+  File "pandas/parser.pyx", line 353, in pandas.parser.TextReader.__cinit__ (pandas/parser.c:3246)
+  File "pandas/parser.pyx", line 591, in pandas.parser.TextReader._setup_parser_source (pandas/parser.c:6111)
+OSError: File b'../data/QMEE_Net_Mat_edges.csv' does not exist
 
 ======================================================================
 Inspecting script file profileme.py...
@@ -756,7 +828,7 @@ File contents are:
 **********************************************************************
 #!/usr/bin/env python3
 """profiling test"""
-_appname_="blackbirds"
+_appname_="profileme"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
@@ -805,51 +877,125 @@ Output (only first 500 characters):
 
 Code ran without errors
 
-Time consumed = 6.44760s
+Time consumed = 6.42267s
 
 ======================================================================
-Inspecting script file fmr.R...
+Inspecting script file LV4.py...
 
 File contents are:
 **********************************************************************
-# Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
-# 1999 dataset to a file fmr.pdf.
-# Writes the list of species names to species.csv 
+#!/usr/bin/env python3
+""" a discrete-time version of the LV model """
+_appname_="LV4"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 
-cat("Reading CSV\n")
+def LV4 ():
+    """a discrete-time version of the LV model"""
+    import scipy as sc
+    import scipy.stats as stats
+    import scipy.integrate as integrate
+    import sys
 
-nagy <- read.csv('../data/NagyEtAl1999.csv', stringsAsFactors = FALSE)
+    def CR_t1(pops, t = 0):
+        """a discrete-time version of the LV model
+        with iteration"""
+        Rt = pops[0]
+        Ct = pops[1]
+        eps = stats.norm.rvs(0.2, size = 1)[0]
+        Rt1 = Rt*(1 + (r + eps)* (1-Rt / k) - a * Ct )
+        Ct1 = Ct*(1 - z + e * a * Rt)
 
-cat("Creating graph\n")
-pdf('../results/fmr_plot.pdf', 11, 8.5)
-col <- c(Aves='purple3', Mammalia='red3', Reptilia='green3')
-plot(log10(nagy$M.g), log10(nagy$FMR.kJ.day.1), pch=19, col=col[nagy$Class], 
-     xlab=~log[10](M), ylab=~log[10](FMR))
-for(class in unique(nagy$Class)){
-    model <- lm(log10(FMR.kJ.day.1) ~ log10(M.g), data=nagy[nagy$Class==class,])
-    abline(model, col=col[class])
-}
-dev.off()
+        return sc.array([Rt1,Ct1])
 
-cat("Finished in R!\n")
+
+### main inputs:
+    if len(sys.argv) != 5:
+        r = 1.0
+        a = 0.1
+        z = 1.5
+        e = 0.75
+        print("using default parameters")
+    else:
+        r = float(sys.argv[1])
+        a = float(sys.argv[2])
+        z = float(sys.argv[3])
+        e = float(sys.argv[4])
+
+    k = 30#define constant parameter, without exceeding the carrying capacity
+    t = sc.linspace(0, 15, 20)#define time series(1000 number between 0-15)
+    ## generate data
+    R0 = 10
+    C0 = 5 
+    RC0 = sc.array([R0, C0])
+    pops = sc.zeros((len(t),2))
+
+    for i in range(0,len(t)):
+        pops[i] = RC0
+        RC0 = CR_t1(RC0,t = t)
+
+
+    print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
+
+
+    import matplotlib.pylab as p
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
+
+    with PdfPages("../results/LV4_models.pdf")as pdf:
+    
+
+        f1 = p.figure()
+
+        p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+        p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Time')
+        p.ylabel('Population density')
+        p.title('Consumer-Resource population dynamics\n(Discrete-time)')
+        
+        pdf.savefig(f1) #Save figure
+
+        f2 = p.figure()
+
+        p.plot(pops[:,0], pops[:,1]  , 'r-')
+        p.grid()
+        p.legend(loc='best')
+        p.xlabel('Resource density')
+        p.ylabel('Consumer density')
+        p.title('Consumer-Resource population dynamics\n(Discrete time)\nr=%s,a=%s,z=%s,e=%s,k=%s'%(r,a,z,e,k))
+
+        pdf.savefig(f2)#Save figure
+
+
+LV4()
 **********************************************************************
 
-Testing fmr.R...
+Testing LV4.py...
+
+LV4.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
 
 Output (only first 500 characters): 
 
 **********************************************************************
-Reading CSV
-Creating graph
-null device 
-          1 
-Finished in R!
+using default parameters
+the final population density is
+ -2825665.02524 for Resourses
+ 418820.447289 for Consumers
 
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 0.17323s
+Time consumed = 0.91238s
 
 ======================================================================
 Inspecting script file using_os.py...
@@ -858,6 +1004,10 @@ File contents are:
 **********************************************************************
 #!/bin/env python3
 
+_appname_="usingos"
+_author_="ys"
+_version_="0.0.1"
+_license_="code.program"
 
 """some tasks to complete"""
 
@@ -921,61 +1071,79 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
-{'/calendar/', '/cmeeminiproject/', '/command/', '/Clementine/', '/Committees/', '/cryptiles/', '/ComplexCommunities_JansenEwers/', '/Correspondence/', '/Capercaillie/', '/Crypto/', '/CMEE_Handbook2015/', '/CMEEMiniproject/', '/Conda/', '/Comments/', '/certifi/', '/concurrent/', '/Code_n_script/', '/ConOrder/', '/components/', '/CompBio/', '/CourseScheduling/', '/China/', '/Compat/', '/Code_error/', '/CMEEMainProject/', '/corrected/', '/CertificateTransparency/', '/CarnivoreOnly/', '/CiliatesOld/
+{'/concurrent/', '/Compiled/', '/CWeek/', '/code/', '/CMEE_Talk/', '/CERRONE/', '/calendar/', '/CS395T/', '/Cecile/', '/cutils/', '/CorrectedNewCerrado/', '/CiliatesOld/', '/CarnivoreOnly/', '/corebird/', '/cryptiles/', '/clipres/', '/chokidar/', '/contents/', '/coregrind/', '/chalkboard/', '/CMEE_Exams/', '/constantinople/', '/callgrind/', '/categories/', '/CMEE_Intro_Talk/', '/Comments/', '/Cartola/', '/Cluster/', '/coverage/', '/CVs/', '/Crydajam/', '/corecheck/', '/cSbw5/', '/Column1/', '/cme
 **********************************************************************
 
 Code ran without errors
 
-Time consumed = 3.36172s
+Time consumed = 3.41674s
 
 ======================================================================
-Inspecting script file LV1.py...
+Inspecting script file LV5.py...
 
 File contents are:
 **********************************************************************
 #!/usr/bin/env python3
-"""solving the Lotka-Volterra model 
-    for a predator-prey system in two-dimensional space"""
-_appname_="LV1"
+""" a discrete-time version of the LV model """
+_appname_="LV5"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
 
-def LV1():
-    """solving the Lotka-Volterra model 
-    for a predator-prey system in two-dimensional space"""
+def LV5 ():
+    """a discrete-time version of the LV model"""
     import scipy as sc
+    import scipy.stats as stats
     import scipy.integrate as integrate
+    import sys
 
-    def dCR_dt(pops, t=0):
-        """ a function that returns the growth rate of 
-        consumer and resource population at any given time step"""
-        R = pops[0]
-        C = pops[1]
-        dRdt = r * R - a * R * C 
-        dCdt = -z * C + e * a * R * C
-        
-        return sc.array([dRdt, dCdt])
+    def CR_t1(pops, t = 0):
+        """a discrete-time version of the LV model
+        with iteration"""
+        Rt = pops[0]
+        Ct = pops[1]
+        eps = stats.norm.rvs(0.02, size = 1)[0]
+        Rt1 = Rt*(1 + r + eps + (1-Rt / k) - a * Ct )
+        Ct1 = Ct*(1 - z + eps +e * a * Rt)
 
-    r = 1.
-    a = 0.1 
-    z = 1.5
-    e = 0.75
+        return sc.array([Rt1,Ct1])
 
-    t = sc.linspace(0, 15, 1000)
-    ## generate 
+
+### main inputs:
+    if len(sys.argv) != 5:
+        r = 0.5
+        a = 0.05
+        z = 0.7
+        e = 0.5
+        print("using default parameters")
+    else:
+        r = float(sys.argv[1])
+        a = float(sys.argv[2])
+        z = float(sys.argv[3])
+        e = float(sys.argv[4])
+
+    k = 20#define constant parameter, without exceeding the carrying capacity
+    t = sc.linspace(0, 15, 15)#define time series(15 number between 0-15)
+    ## generate data
     R0 = 10
     C0 = 5 
     RC0 = sc.array([R0, C0])
+    pops = sc.zeros((len(t),2))
 
-    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+    for i in range(0,len(t)):
+        pops[i] = RC0
+        RC0 = CR_t1(RC0,t = t)
+
+    print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
+
 
     import matplotlib.pylab as p
     import matplotlib.pyplot as plt
     from matplotlib.backends.backend_pdf import PdfPages
+
+    with PdfPages("../results/LV5_models.pdf")as pdf:
     
-    with PdfPages("../results/LV1_models.pdf")as pdf:
-        
+
         f1 = p.figure()
 
         p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
@@ -984,9 +1152,8 @@ def LV1():
         p.legend(loc='best')
         p.xlabel('Time')
         p.ylabel('Population density')
-        p.title('Consumer-Resource population dynamics')
-
-
+        p.title('Consumer-Resource population dynamics\n(Discrete-time)')
+        
         pdf.savefig(f1) #Save figure
 
         f2 = p.figure()
@@ -996,17 +1163,17 @@ def LV1():
         p.legend(loc='best')
         p.xlabel('Resource density')
         p.ylabel('Consumer density')
-        p.title('Consumer-Resource population dynamics')
+        p.title('Consumer-Resource population dynamics\n(Discrete time)\nr=%s,a=%s,z=%s,e=%s,k=%s'%(r,a,z,e,k))
+
+        pdf.savefig(f2)#Save figure
 
 
-        pdf.savefig(f2) #Save figure
+LV5()
+**********************************************************************
 
+Testing LV5.py...
 
-LV1()**********************************************************************
-
-Testing LV1.py...
-
-LV1.py is a Python script file;
+LV5.py is a Python script file;
 
 checking for docstrings...
 
@@ -1017,12 +1184,18 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
+using default parameters
+the final population density is
+ -2.10893507152e+234 for Resourses
+ -5.5706952966e+229 for Consumers
 
 **********************************************************************
 
-Code ran without errors
-
-Time consumed = 0.78650s
+Encountered error (or warning):
+LV5.py:21: RuntimeWarning: overflow encountered in double_scalars
+  Rt1 = Rt*(1 + r + eps + (1-Rt / k) - a * Ct )
+LV5.py:22: RuntimeWarning: overflow encountered in double_scalars
+  Ct1 = Ct*(1 - z + eps +e * a * Rt)
 
 ======================================================================
 Inspecting script file DrawFW.py...
@@ -1031,7 +1204,7 @@ File contents are:
 **********************************************************************
 #!/usr/bin/env python3
 """Plot food web network and save it"""
-_appname_="blackbirds"
+_appname_="DrawFW"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
@@ -1111,13 +1284,100 @@ Encountered error (or warning):
   if not cb.is_string_like(label):
 
 ======================================================================
+Inspecting script file Nets.R...
+
+File contents are:
+**********************************************************************
+library(igraph) # Load the igraph package
+
+rm(list = ls())
+
+# 	ICL	UoR	CEH	ZSL	CEFAS	Nonacademic/CASE
+# ICL	0	0	10	9	5	70
+# UoR		0	12	0	2	76
+# CEH			0	0	0	6
+# ZSL			       0 	0	28
+# CEFAS			       0	0
+# Nonacademic/CASE                        0
+
+links <- read.csv("../data/QMEE_Net_Mat_edges.csv", header=T, as.is=T)
+nodes <- read.csv("../data/QMEE_Net_Mat_nodes.csv", header=T, row.names = 1)
+
+#Create graph object
+net <- graph.adjacency(as.matrix(links), mode = "directed", weighted=TRUE, diag=F)
+        
+#Test plot
+# plot(net, edge.arrow.size=1, edge.curved=.1,
+#      vertex.color="orange", vertex.frame.color="#555555",
+#      vertex.label=V(net)$Type, vertex.label.color="black",
+#      vertex.label.cex=.7) 
+
+# Generate colors based on partner type:
+colrs <- c("green", "red", "blue")
+V(net)$color <- colrs[nodes$Type]
+
+# Set node size based on Number of PIs:
+# V(net)$size <- V(net)$Pis*0.9
+
+V(net)$size <- 50
+
+# Set edge width based on weight (PhD Students):
+E(net)$width <- E(net)$weight
+
+#change arrow size and edge color:
+E(net)$arrow.size <- 1
+E(net)$edge.color <- "gray80"
+
+E(net)$width <- 1+E(net)$weight/10
+
+graphics.off()
+
+svg("../results/QMEENet.svg",width=7,height=7)
+
+plot(net, edge.curved=0, vertex.label.color="black") 
+
+legend(x=-1.5, y=-0.1, c("Hosting Partner", "Non-hosting Partner", "University"), pch=21,
+       col="#777777", pt.bg=colrs, pt.cex=2, cex=.8, bty="n", ncol=1)
+
+dev.off()
+**********************************************************************
+
+Testing Nets.R...
+
+Output (only first 500 characters): 
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+Loading required package: methods
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Error in file(file, "rt") : cannot open the connection
+Calls: read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/QMEE_Net_Mat_edges.csv': No such file or directory
+Execution halted
+
+======================================================================
 Inspecting script file run_fmr_R.py...
 
 File contents are:
 **********************************************************************
 #!/usr/bin/env python3
 """script to run fmr.R"""
-_appname_="blackbirds"
+_appname_="run_fmr"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
@@ -1128,7 +1388,7 @@ try:
     print("\npython says: 'Yay!! The run was sccessful'")
 except:
     print("\npython says: 'Opps! The run was unsccessful'")
-**********************************************************************
+##use try to mute the error and print the status**********************************************************************
 
 Testing run_fmr_R.py...
 
@@ -1143,11 +1403,7 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
-Reading CSV
-Creating graph
-null device 
-          1 
-Finished in R!
+Fatal error: cannot open file 'fmr.R': No such file or directory
 
 python says: 'Yay!! The run was sccessful'
 
@@ -1166,24 +1422,51 @@ File contents are:
 #!/bin/env python3
 
 """profiling and export outputs"""
-_appname_="blackbirds"
+_appname_="run_LV"
 _author_="ys"
 _version_="0.0.1"
 _license_="code.program"
 
 
 import cProfile
+import pstats
 
 import LV1
 import LV2
 import LV3
+import LV4
+import LV5
+##import the script as module
 
-cProfile.run("LV1.LV1()", sort="tottime")
-cProfile.run("LV2.LV2()", sort="tottime")
-cProfile.run("LV3.LV3()", sort="tottime")
 
 
-**********************************************************************
+cProfile.run("LV1.LV1()", filename= "../results/LV1_prof.out")
+cProfile.run("LV2.LV2()", filename= "../results/LV2_prof.out")
+cProfile.run("LV3.LV3()", filename= "../results/LV3_prof.out")
+cProfile.run("LV4.LV4()", filename= "../results/LV4_prof.out")
+cProfile.run("LV5.LV5()", filename= "../results/LV5_prof.out")
+## call the functions in scripts and save output profile time
+
+LV1p = pstats.Stats("../results/LV1_prof.out")
+LV2p = pstats.Stats("../results/LV2_prof.out")
+LV3p = pstats.Stats("../results/LV3_prof.out")
+LV4p = pstats.Stats("../results/LV4_prof.out")
+LV5p = pstats.Stats("../results/LV5_prof.out")
+## read the output file.
+
+print("**********LV1 profile***************")
+LV1p.strip_dirs().sort_stats("tottime","cumulative").print_stats(5)
+print("**********LV2 profile***************")
+LV2p.strip_dirs().sort_stats("tottime","cumulative").print_stats(5)
+print("**********LV3 profile***************")
+LV3p.strip_dirs().sort_stats("tottime","cumulative").print_stats(5)
+print("**********LV4 profile***************")
+LV4p.strip_dirs().sort_stats("tottime","cumulative").print_stats(5)
+print("**********LV5 profile***************")
+LV5p.strip_dirs().sort_stats("tottime","cumulative").print_stats(5)
+
+# strip_dirs(), remove irrelevent path; sort_stats,sort by working time and total time, print_stats, print first 5 lines
+# cprofile usage and analysis tool: http://yunpiao.pub/2017/03/22/Python/2017-2-10%20python%20%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%20cProfile/**********************************************************************
 
 Testing run_LV.py...
 
@@ -1198,138 +1481,20 @@ Current Points = 100
 Output (only first 500 characters): 
 
 **********************************************************************
-the final population density is
- 19.7295442774 for Resourses
- 5.73740236978 for Consumers
-the final population density is
- 12.5765834977 for Resourses
- 17.0434895539 for Consumers
-         236256 function calls (231138 primitive calls) in 0.308 seconds
-
-   Ordered by: internal time
-
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-        2    0.031    0.015    0.031    0.015 {built-in method _tkinter.create}
-      148    0.012    0.000    0.012    0.000 {method 'call' of '
-**********************************************************************
-
-Code ran without errors
-
-Time consumed = 2.43259s
-
-======================================================================
-Inspecting script file LV2.py...
-
-File contents are:
-**********************************************************************
-#!/usr/bin/env python3
-"""modified LV1, with taken in parameters
-r,a,z,e(in this order)"""
-_appname_="LV2"
-_author_="ys"
-_version_="0.0.1"
-_license_="code.program"
-
-
-def LV2 ():
-    """modified LV1, with taken in parameters
-r,a,z,e(in this order)"""
-    import scipy as sc
-    import scipy.integrate as integrate
-    import sys
-
-    def dCR_dt(pops, t=0):
-        """Lotka-Volterra model"""
-        R = pops[0]
-        C = pops[1]
-        dRdt = r * R*(1-R/k) - a * R * C 
-        dCdt = -z * C + e * a * R * C
-        
-        return sc.array([dRdt, dCdt])
-
-    if len(sys.argv) != 5:
-        r = 1.0
-        a = 0.1
-        z = 1.5
-        e = 0.75
-    else:
-        r = float(sys.argv[1])
-        a = float(sys.argv[2])
-        z = float(sys.argv[3])
-        e = float(sys.argv[4])
-    k = 50
-
-    t = sc.linspace(0, 15, 1000)
-    ## generate 
-    R0 = 10
-    C0 = 5 
-    RC0 = sc.array([R0, C0])
-
-    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
-
-    print("the final population density is\n",str(pops[-1,0]),"for Resourses\n",pops[-1,1],"for Consumers")
-
-    import matplotlib.pylab as p
-    import matplotlib.pyplot as plt
-    from matplotlib.backends.backend_pdf import PdfPages
-
-    with PdfPages("../results/LV2_models.pdf")as pdf:
-    
-
-        f1 = p.figure()
-
-        p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
-        p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
-        p.grid()
-        p.legend(loc='best')
-        p.xlabel('Time')
-        p.ylabel('Population density')
-        p.title('Consumer-Resource population dynamics')
-        
-        pdf.savefig(f1) #Save figure
-
-        f2 = p.figure()
-
-        p.plot(pops[:,0], pops[:,1]  , 'r-')
-        p.grid()
-        p.legend(loc='best')
-        p.xlabel('Resource density')
-        p.ylabel('Consumer density')
-        p.title('Consumer-Resource population dynamics\nr=%s,a=%s,z=%s,e=%s,k=%s'%(r,a,z,e,k))
-
-        pdf.savefig(f2)#Save figure
-
-
-LV2()**********************************************************************
-
-Testing LV2.py...
-
-LV2.py is a Python script file;
-
-checking for docstrings...
-
-Found one or more docstrings and functions
-
-Current Points = 100
-
-Output (only first 500 characters): 
-
-**********************************************************************
-the final population density is
- 19.7295442774 for Resourses
- 5.73740236978 for Consumers
 
 **********************************************************************
 
-Code ran without errors
-
-Time consumed = 0.75990s
+Encountered error (or warning):
+Traceback (most recent call last):
+  File "run_LV.py", line 13, in <module>
+    import LV1
+ImportError: No module named 'LV1'
 
 ======================================================================
 ======================================================================
 Finished running scripts
 
-Ran into 5 errors
+Ran into 7 errors
 
 ======================================================================
 ======================================================================
