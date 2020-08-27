@@ -1,0 +1,221 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+
+\newcommand{\reporttitle}{The effect of sample composition and filtering options of bulk amplicon sequencing results}
+\newcommand{\reportauthor}{Yige Sun}
+\newcommand{\supervisor}{Alfried Vogler}
+\newcommand{\degreetype}{Master of Research}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% load some definitions and default packages
+\input{includes}
+
+% load some macros
+\input{notation}
+
+\date{August 2020}
+
+\begin{document}
+
+% load title page
+\input{titlepage}
+
+
+% page numbering etc.
+\pagenumbering{roman}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\large\textbf{Declaration}
+
+Qingling Mountain beetles metabarcoding data were extracted and sequenced before I joined the project.
+I was given raw sequencing data and a raw information table for sequencing to process, develop tools and analyse. 
+The data processing, development of Python tools were performed under the guidance and advice of Dr. Thomas J Creedy, a particular function that was originally developed by Dr. Creedy has been declared in the method section. 
+My supervisor and Dr. Creedy give me guidance and advice along the whole project.
+
+\section{abstract}
+1)Metabarcoding is a valid and reliable tool for biodiversity studies, in bringing ecological research to a high resolution. Using COI as the barcoding marker, diversity of many animal communities has been revealed. However,  how the property of sequencing data and parameters in the filtering pipeline that influence the ecosystem turnover outcomes remains vague. This study aims to reveal these relationships
+
+2)40,000 beetles were collected from Qinling mountain in 2016, the ecological samples were subdivided into sequencing samples with various numbers of specimens. The sequences are in various depths. By designing and applying a series of python tools the property of sequencing data were quantified and tracked in the bulk filtering and delimitation.
+
+3) Sequencing depth has a significant effect on the number of OTU be delimited. Sequences depth is a pre-existing bias. By unifying the number of reads, it shows the number of specimens that have a correlation to the OTU being delimited.
+
+4) Changing denoising alpha. beta diversity patterns across the geographical locations were not massively altered. The diversity index for particular location may vary due to the which diversity index being used
+
+%\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %--- table of contents
+% \fancyhead[RE,LO]{\sffamily {Table of Contents}}
+% \tableofcontents 
+
+
+% \clearpage{\pagestyle{empty}\cleardoublepage}
+% \pagenumbering{arabic}
+% \setcounter{page}{1}
+% \fancyhead[LE,RO]{\slshape \rightmark}
+% \fancyhead[LO,RE]{\slshape \leftmark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+The high throughput DNA sequencing that is performed by various next-generation sequencing platforms \cite{Shendure2008}  enormously expanded the possibility of biomonitoring and ecological community studies of traditional morphological identifications and binary assessment in the field \cite{Baird2012}.  With currently available genetic information, ecological research has reached resolution levels that have never been approached before. This is crucial for the rapidly declining biodiversity all around the world, allowing us to better understand the swiftly changing environment that we are changing.\cite{Hardulak2020,THOMSEN20154} 
+
+DNA barcoding, which uses the DNA sequences as an identity for taxonomic identification \cite{Hebert2003} and metabarcoding, which sequences bulk samples without over-purifying or separating into single specimen levels \cite{tablert2012} , are a rapidly developing technology that depend on high throughput sequencing. These robust techniques have revolutionised the methodologies for ecological research, and have enhanced our understanding of the biodiversity on the planet \cite{hamilton2010}. They have aided the discovery of ecological patterns across communities and habitats; canopy beetles \cite{Creedy2019}, terrestrial invasive beetles\cite{Hardulak2020}, marine biofouling communities that lead to enormous economical losses \cite{Azevedo2020}, and finally zooplanktons, the essential species in the freshwater and marine habitat food webs \cite{Chain2016}. These methods can even reveal hidden information from degraded environmental DNA and soil samples \cite{Carraro2020} such as revealing the ecological patterns for micro fungal communities \cite{Schmidt2013}. The outcomes of these analyses have proven that DNA barcoding and metabarcoding are highly valuable for ecological community assessments and biodiversity monitoring\cite{Elbrecht2017}. The reasons for their popularity are due to the efficiency, accuracy and level of resolution in their taxonomic identification, as well as in regional community biodiversity studies \cite{Hajibabaei2007}, making them ideal for large-scale ecological study biomonitoring.
+Although there can be no doubt of their utility, there are a few disadvantages of these methods that have yet to be tackled. Enzymatic PCR amplification erroneously produces artifacts which is assumed as an increase in biodiversity at the sample level\cite{Patin2013}. They are highly sensitive to laboratory contamination, parasites, gut content or bacteria that accompany the specimen\cite{Alberdi2020}. Also, the insertion of mitochondrial genes into the genome which can be extracted by primers can be a cause for more errors\cite{Lopez1994}. This has resulted in the use of numerous error-filtering tools to reduce the effect of these errors. The mechanisms of these tools are based on the property of the data, such as the length of the target sequence, stop codons being detected, and the sequencing quality \cite{Cock2009}, etc. 
+
+The property  for each read can be easily identified.  However, it is tricky to remove reads that have been mistakenly merged during PCR reactions or the contaminants by adjusting filtering parameters. Therefore, the filtering methods based on the frequency of reads, such as denoising \cite{Edgar2016b} and chimera filtering \cite{Edgar2011,Edgar2016}, have to be applied to remove them. This is based on errors and contaminants that are potentially low in quantity compared to the target biological data. Consequently, most studies would filter the samples in bulk and then perform an ecological analysis at a sample level, since the same enzymatic errors would be very unlikely to occur across all samples. These algorithms are complex and the parameters used are not consistently reported.  For instance, with UNOISE2 many studies  use the default settings without even stating the denoising threshold being used.The influence of this threshold to the outcomes of ecological studies are yet to be elucidated. Therefore, it is difficult to set this parameter in practice. 
+Furthermore, the sequencing technology may also limit the number of reads being sequenced. Due to this, limitations may occur in the number of PCR amplification cycles, the amount of sequencing and resequencing required as well as the amount of the specimen to be added. But the major challenges of investigating this is the difficulty to quantify the amount of ecological samples being used in microbial studies. The biomonitoring study of a kelp forest tried to construct a rough concept of taking sample composition into account by sequencing individual cobbles \cite{Shum2019} but this is not an exact quantification. Another challenge is how the unification of the sequencing depth can be achieved and standardised \cite{Lundin2012}. This is defined as the occurence of particular nucleotides in a random raw sequence, such as the number of reads in raw sample data. 
+
+To understand how data composition, filtering parameters and clustering might influence ecological studies, suitable experimental subjects are crucial.  Beetles are the largest order of insects which account for 40 percent of arthropods and a quarter of animals on the Earth \cite{Stork2015}, with over 400 thousands described species\cite{Hunt2007}. To date, their biodiversity and community ecology still remain scientifically ambiguous in many areas. The cause of this is the time consuming act of identifying morphological characteristics, and the problem of needing a heavy amount of fieldwork. 
+Qinling mountain is a biodiversity hotspot,with huge variation in vegetation and animals \cite{Zhang2014}. It also acts as a physical geographical boundary between Northern and Southern China, as well as a transition from the subtropical to temperate climate zone in the country \cite{Zhang2017}. However, all previous studies about the diversity of Arthropods in this area were performed using traditional methods\cite{Wei2016}. For instance in 2016, over 40,000 beetles were collected from four locations in the Qinling mountain area. The beetles were collected with different trapping methods and separated into subgroups by size. Specimens that were collected from the same location, trapping type and in the same size class were defined as an ecological sample. The ecological samples were subdivided into metabarcoding libraries (the sequencing samples) with 25,50,100 or 150 specimens for sequencing. To construct the reference sets, individual specimens were sequenced as a barcoding sample. Cytochrome c oxidase I (COI) was used as the barcoding gene, which is a 650-base long mitochondrial gene. This gene length is  challenging to extract fully \cite{Blaxter2004}, but fortunately the shorter fragment of this gene has been approved as valid for taxonomic identification \cite{Hajibabaei2005}. In this study the COI gene been used are length in 418bp which is a valid fragment length. 
+
+This study aimed to investigate how the sequencing depth influenced the number of amplicon sequence variants (ASVs) across the filtering tools, and the number of Operational Taxonomic Units (OTUs) recovered, using the beetle sequencing data obtained from Qinling Mountain. The filtering parameters and the denoising threshold, which may alter the results of similar ecological studies will be investigated. Lastly, the current filtering pipeline will be discussed and reviewed, in order to discard all the potential erroneous biological data that has been collected so far.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods}
+\subsection{Data Processing}
+The sequenced data were recovered to the subdivided library level with a custom python script developed by Dr. Thomas J. Creedy. This  was built based on the demultiplexing function in cutadapt2.9 \cite{cutadapt}). It allows inputting compressed sequence files and a demultiplexing table with file names and indices that are attached to the sequence. A 1248 barcoding data library and 1147 metabarcoding library were recovered from the raw sequencing data. Then forward and reverse reads were merged using PEAR v0.9.11 \cite{Zhang2014}. Primers that were attached at the end of the reads were removed with cutadapt2.9 \cite{cutadapt} using the linked adaptor option and without anchoring the 5’ end. In many studies and customised data processing pipelines \cite{Creedy2019,Creedy2020}, primer removal is performed before reads merging to speed up the computational processing time. However, in this particular set of data, a large number of sequences have extra indices of length 2-4 bp attached to the primer. In this case, any reads without a given primer will be removed from the file, which consequently leads to a failure of merging forward and reverse sequences as there are an unequal number of reads in the forward and reverse files for this library. Therefore the forward and reverse reads for each library were merged to ensure the maximum possible reads were recovered from processing.  Then cutadapt was used to link option to “frame” out the target sequence between the forward and reverse primer for the COI gene. 991 barcoding libraries and 1006 metabarcoding libraries were recovered after this step. Data processing  procedures were integrated into a bash script titled data processing.sh.
+
+
+\subsection{Amplicon Data Filtering and OTU Delimitation}
+Quality filtering was performed with vsearch v2.14\cite{vsearch}, tolerating a maximum of 1 error for every read at the library level.  Next, the reads  in each library were  concatenated  into a single file and dereplicated to unique sequences (uniq) while recording the frequency of each unique read using the vsearch v2.14 dereplication option. This is removing the duplicated reads and compressing the file size for faster data handling, the information at library level (each sequencing sample) could be tracked with mapping the uniq with reads and libraries.
+The uniq with indel were filtered out with vsearch by the length of 418 bp COI gene fragments. The frequency of each read was also filtered by the UNOISE2 \cite{Edgar2016} algorithm implemented in vsearch, with minimal frequency = 4(gamma = 4) and default alpha = 2. UNOISE2 algorithm denoised the sequences by clustering low-frequency reads  based on their Levenshtein distance to the high-frequency reads\cite{Edgar2016}. The high-frequency reads were chosen as centroids and retained, whereas the low-frequency reads were determined as noise and discarded. All the  unique sequences that have one or more stop codons were removed with filtertranslate.py \cite{Andujar2020}using the invertebrate Mitochondrial translation table. Finally, the chimeras were filtered with the UCHIME2\cite{Edgar2016b} algorithm implemented in vsearch.  Chimeras are the sequences that beam formed by joining two or more sequences mistakenly.  There are multiple reasons why chimeras may have formeds, with the probable cause being the  enzymatic reaction in the PCR amplification process. Once a template was generated, the identical  chimera sequence would be generated in the subsequent cycles of amplifications,which makes Chimera filtering particularly challenging.  UCHIME2 uses  the divergence and frequency of reads to spot and remove these potential  chimeras\cite{Edgar2016a} . 
+All the filtered uniqs were considered the amplicon sequence variants (ASVs), which were error removed sequences recovered from high-throughput sequencing. The ASVs were then delimited into OTUs with 3 percent clustering using vsearch, as the intraspecific dissimilarity  for the COI gene is  theoretically 3 percent. 
+
+To understand the effect filtering, the unique reads were also delimited using the 3 percent clustering method which generated the unfiltered OTUs. 
+The uniqs were mapped to the concatenated reads (i.e. the reads without dereplication) using vsearch search exact option. Map then indicates the uniq presence, information and how many reads have been for this uniq in every library. Filtered and unfiltered OTUs were also mapped to unique reads using vsearch usearch global with 97percent searching identity because the delimitation method is based on 3percent dissimilarity.
+
+\subsubsection{Library Information Extraction and Analysis}
+
+To investigate how the number of reads in each library changes through bulk filtering and OTU delimitations, a poison script count uniqs otu.py  was developed. This tool intakes the map that presents which sample it comes from, which unfiltered OTU and filtered OTU that the uniqs belongs to, and also which unfiltered OTUs match to the filtered OTUs, then these presences information of uniqs were used to match with one another. For each sample, the number of reads, uniqs, filtered OTUs, unfiltered OTUs being clustered into an OTU were tabulated. 
+
+The Python script, OTU X sample.py, which uses the map of samples against filtered ASVs and the map of ASVs against filtered OTU as input, would demonstrate how many unique ASV were discovered,clustered into a filtered OTU. This output in map format the information that is  used as the number of ASVs for each sample and merge with the information table generated. 
+
+This tabulated library level information was imported into R 3.63\cite{R} to investigate how the sequencing depth, represented by the number of reads in each library, correlated to the frequency of uniqs, ASVs, filtered and unfiltered OTUs. 
+
+Using the map generated in the previous steps, all the libraries with more than 1300 reads (which is about the mean number of the reads across) were rarefied to 1300 reads for each library with rrarefy function in the vegan package\cite{vegan} . 
+
+Rarefaction is sampling from the libraries that have a large number of reads to the target and discarding any library that is below the target reads number. This procedure unified the sequencing depth, which allowed an objective evaluation of the influence of sample composition. The rarefied maps were also tabulated into the information in library level format and merged with the specimen composition information i.e the number of specimen and location information.
+To explore the potential intraspecific differences across locations, each of the ASV and OTU were analysed with R to investigate whether they are only found in a single location, on either the north or south-facing side of Qingling mountain or if it has been discovered across all the geographical sites.
+
+\subsection{Extracting Unique Reads Characteristics}
+Instead of filtering the unique reads with the procedure described above, a python script, check fasta.py was developed to extract the characteristic of each uniq including the length and frequency of the reads,  whether it had been discarded using UNOISE2 \cite{Edgar2016a} in vsearch \cite{vsearch} with given alpha and gamma, the number of stop codons that had been detected in the reads and whether it had been discarded by the UCHIME2 \cite{Edgar2016b} algorithm. Frequency extraction was based on the vsearch dereplication -sizeout functions,a stop codon counting function that depends  on the biopython \cite{Cock2009} module were modified from the stopcount function developed by Dr Thomas J Creedy in the filtertranslate.py script \cite{Andujar2020} , chimera and denoising information were both extracted from the UNOISE2 and UCHIME2 algorithm output in vsearch. All the characteristics information were tabulated and exported. The denoising parameter alpha(alpha) is designed as a customised  parameter in the function, therefore, alpha that is ranging from 1 to 6 were input to the script and then the information table was merged with the uniq using R 3.6.3\citet{R}
+With loading the frequency map for uniq against the library, the property with different denoising alpha settings were used as the filtering parameters to remove the erroneous  uniq from the map. With the filtered map of ASVs, Shannon’s alpha diversity index and Fisher’s diversity index for each library were generated with implemented functions in the vegan package \cite{vegan}. The distribution of Shannon’s and Fisher’s alpha diversity indices were compared across different denoising alpha.
+Then the ecological samples were further merged to 4 location levels.The Shannon and Fisher diversity index were also calculated to compare across the denoising  alpha and locations. Jaccard beta diversity indexes were worked out for comparison purposes.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\subsection{Sequencing Depth}
+Amplicon sequencing depth, as reflected by the number of reads,  affected the resulting number of ASVs and the diversity of OTUs. Figure1 demonstrates how filtering procedures and OTU clustering affects the retained reads. Fitting glm with poisson distribution shows that filtering is a significant factor in mitigating the inflation for ASVs and OTUs retained (t = -1.35, p < 0.01); OTU delimitation is also significantly influential (t = -3.4, p<0.01) to the outcomes. The number of reads are significantly related to the recovered outcomes (t = 6.48e-05, p < 0.01). 
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\hsize]{figures/Figure1.png}
+    \caption{uniq, ASVs, unfiltered OTU and filtered OTU influenced by the number of reads in a raw sample: the unfiltered ASVs are de-replicated reads (uniqs), unfiltered OTUs are the OTUs delimited from the uniqs with 3\% clustering. ASVs and OTU are generated with the filtering procedures stated in section 2.2. The X-axis is showing the number of reads for each library, and the Y-axis are the counts for uniqs, ASVs, filtered and unfiltered OTUs. The color of the points indicate sample composition with a number of specimens added. Fitting line is the logarithm of x against y.}
+    \label{fig1}
+\end{figure}
+
+\subsection{Sample Composition}
+The pattern of Figure 2 shows that more specimens present in the sample would not necessarily have more ASVs and OTUs recovered, while metabarcoding samples have minor differences between each other under the constant sequencing depth (size = 1300 reads).
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\hsize]{figures/Figure2.png}
+    \caption{The effect of sample composition on the number of uniqs, ASVs, filtered and unfiltered OTUs. The x-axis indicates the number of specimens. The boxplot indicates the median, the upper end is the 25th percentile and the lower end is the 75th percentile of all the samples in this composition group. The violin plot shows the distribution of data in the particular group.}
+    \label{fig2}
+\end{figure}
+
+\subsection{ASV and OTU Composition Across Location}
+For each of the geographical locations, the proportion of single site specific ASVs decreased after 3\% OTU clustering, whereas the other three types have increased(Figure3). Fengcity and Foping, the southern sites of Qinling mountain have greater proportion of locational and regional specific ASVs and OTUs, while the northern sites have more haplotypes and OTUs being discovered across the locations.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\hsize]{figures/Figure3.png}
+    \caption{Proportion of ASVs and OTUs discovered in all the other locations across the four sampling locations. The x-axis shows the 4 sampling locations, where Fengcity and Foping are located on the southern side of Qingling Mountain;  Meicity and Yuhunagmiao are on the Northern side. In the figure legend, all locations means the ASV/OTU were detected in all other locations as well, multiple locations indicate it has been discovered in at least one site that on the opposite side of Qingling mountain, Northern/Southern only indicating it been only detected in the same side of mountain, and single location means it been only found in that particular location}
+    \label{fig3}
+\end{figure}
+
+\subsection{Filtering Parameter and Ecological Outcomes}
+The distribution of Shannon and Fisher’s diversity index were shown in the Figure4. The distribution of the index is parallely shifted across the altering denoising alpha. ANOVA and Tukey’s HSD post-hoc test shows there is no significant difference among the distribution for the Shannon’s diversity indexes (F = 1.9, df = 5, p = 0.092). However, same tests on the distribution for Fisher’s diversity index shows significant differences (F = 3.04, df = 5, p = 0.01) ; alpha=1 is distinct from alpha=6 (diff = 26.3, p = 0.01).
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\hsize]{figures/Figure4.png}
+    \caption{The distribution of Shannon’s and Fisher’s alpha diversity index for 96 ecological samples with different denoising alpha. Each ecological sample, which has been sampled from the same location had the alpha diversity indexes calculated. Distribution for the indices were plotted. Where X-axis are all the alpha diversity index, and the legend indicates each set of diversity index that has been generated with data filtered by various denoising alpha}
+    \label{fig4}
+\end{figure}
+
+For the Shannon index, no matter how the denoising alpha altered(Figure5), Fengcity had the greatest diversity, and Meicity was the least diverse area. However, for Fisher’s diversity, while using a strict denoising alpha setting (i.e alpha< 3 ), Foping showed slightly greater diversity than Feng city and the greatest diversity across the locations.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\hsize]{figures/Figure5.png}
+    \caption{Shannon’s and Fisher’s alpha diversity across four sampling sites using data that was filtered with different denoising alpha. A is for Shannon’s alpha diversity index B is for Fisher’s alpha diversity index}
+    \label{fig5}
+\end{figure}
+The Jaccard diversity index (Table1)is a comparative beta diversity index ranging from 0 to 1. The closer the index is to zero, the more the two groups of comparison are distinct from each other in terms of diversity. As table 1 shows, Feng city is generally the most distinct location from the other locations, and this pattern remains the same across all the data filtered by denoising alpha
+\begin{table}
+    \centering
+    \includegraphics[width = 0.8\hsize]{figures/table2.png}
+    \caption{Jaccard’s beta diversity index for pairwise location comparison with datafiltered by different denoising alphas}
+    \label{fig:my_label}
+\end{table}
+
+\section{Discussion}
+\subsection{Sequencing Depth and Composition}
+As Figure 1 presented, the  sequencing depth represented by the number of  reads  is positively related to the number of OTUs and ASVs. The red line is a logarithmic x against y, which is in the shape of a species accumulation curve. By comparing filtered and unfiltered ASVs and OTUs, it shows that filtering and OTU clustering is mitigating the inflation of reads. This proves the filtering steps are effective in removing erroneous reads. The differences in sequencing depth is hugely influential for comparing the number of specimens against ASV and OTUs. Therefore, I rarefied all the samples back above the  average number of reads to the average. Rarefaction randomly subsamples the given library to the target number of reads\cite{Hurlbert1971}  which removes the effect of sequencing depth. 
+
+As Figure 2 shows the barcoding samples with single specimens generally have less numbers of ASVs and OTUs arbitrarily sampled to the same number of reads to start with. Among the metabarcoding (number of specimen >1) samples with different compositions, numbers of specimens were not reflected on the number of ASVs and OTUs. Instead, they have similar outcomes in ASV and OTUs quantities. This pattern indicates that certain factors are restricting the outcomes of using a large number of samples for metabarcoding. A plausible explanation is the limitation in DNA extraction. When a huge number of samples are pooled as a dense and informative “soup” for metabarcoding, under laboratory conditions, the less dense samples will be more likely to undergo lysis fully with the same amount of lyase for DNA to be fully extracted. It could also be caused by a number of morphospecies being added to the sample. In this study, the targeting region is the mitochondrial gene COI, which makes  intraspecific differences in sequences less likely to be found compared to other longer genes or whole genomic data. Therefore, beetles that belong to the same species may have had exactly the same pattern in this gene and been considered as the same ASVs or OTU. However, there is a trade off between accuracy and efficiency. Sanger sequencing without a doubt can yield accurate results. When the COI gene is used for meta-barcoding, with an appropriate experimental design, it can produce accurate and reliable results.
+
+Although rarefaction is very suitable for  unifying the data for comparative studies and theoretical investigations\cite{Melian2011}, it is very risky to use it for taxonomic study and identification for biomonitoring purposes. While it subsamples, it is randomly choosing reads to be removed, and any library that has a number of reads below the target rarefaction threshold would be completely removed, as biomonitoring and taxonomic identification aims to acquire as much information from the samples as possible.
+
+\subsection{Intraspecific Diversity}
+When the ASVs were delimited into OTU levels, much less location specific reads were observed, and a higher proportion of reads were discovered in the other locations. This is indicative of the intraspecific variation that occurred geographically. Compared with the two northern regions, the southern sites had a greater proportion of regional specific species and haplotypes discovered. 
+Linked to the alpha diversity indexes in Figure 5, Fengcity and Foping has the greatest alpha biodiversity. Since Qinling Mountain is the geographical transition between northern temperate and southern subtropical China, the climate is potentially one of the drivers of biodiversity differences across the locations. The subtropical region is more likely to observe a more diverse community. According to its rich vegetation diversity, unique feeding and mating habitats would allow diversification of unique species and haplotypes to occur \cite{Deyrup1987}. 
+
+\subsection{Fltering Alpha}
+Denoising is fundamentally an error correction procedure in genetic analysis, widely applied to amplicon data. The mechanism of denoising assumes the true biological variations as a clustering centroids to be abundant in samples, and discards the erroneous reads which have high similarity with the centroids. The UNOISE2 algorithm\cite{Edgar2016b} used here has the parameter alpha, which is the threshold for genetics and abundances dissimilarities to differentiate between abundant centroids and rare noises. 
+
+By increasing the alpha, more comparatively rare reads and a few reads that have high similarity would be retained in the sample. This is reflected on the increased alpha diversity index across locations in Figure 5. The rare reads would have been retained across all the ecological samples and locations. This was reflected on the distribution of diversity indexes parallely shifted across the Shannon’s index, which explained the similar pattern across all the denoising parameters in the distribution of Shannon’s index.
+
+There is disagreement between the distribution of Shannon’s and Fisher’s alpha diversity,  caused by the algorithm of these two diversity indexes. Fisher’s diversity index is theoretically independent from the sample size \cite{Karlson2004} as it assumes the data is following the logarithmic distributions and evaluates it so forth. Since Fengcity’s data  has the largest sample size across all the locations, Fisher’s diversity index tends to provide a more accurate estimate of the local diversity. A low alpha may alter the alpha diversity index across the locations.
+
+Jaccard’s index shows the pairwise difference between locations, the pattern of these differences have not been vastly changed across the denoising alpha. However, by the reason for increasing alpha would retain more reads, the Jaccard’s beta diversity shows more while using larger denoising alpha, it would be more diverse across the locations. For a comparison study across geographical locations, the denoising alpha may not alter the results by evaluating which site is more diverse from the other, however the quantity of the diversity index may vary. 
+
+\subsection{OTU and ASVs Inflations: What can we do?}
+Although the filtering parameters have been carefully selected and applied to data, a higher number of ASVs and OTUs than expected still occurs in numerous samples. This is a common phenomenon in ecological studies\cite{Flynn2015} . The inflation could be caused by contamination in the sample, or pseudogenes generated by the insertion of mitochondrial genes into the genome (the NUMT). These are fairly commonly discovered in the eukaryotes \cite{Bensasson2001}. The current denoising pipeline could remove some of them based on its similarity to the true mitochondrial gene. However the NUMT with high abundance may still survive filtering, and mislead in the ecological analysis and taxonomic analysis\cite{Tsuji2012}. To solve this in ASVs, restricting the denoising parameter is not an ideal approach, as Edgar described in the UNOISE2 paper\cite{Edgar2016b}, while filtering in bulk, many true variants from libraries with less raw reads may be sacrificed during denoising. Setting a strict denoising parameter would worsen this. Therefore, a better way to deal with this is to perform targeted filtering at the library level after the filtering in bulk. Some of the erroneous reads could accumulate across the sample and survive from the bulk filtering, therefore, filtering by library could mitigate this at the ASV level and avoid over-filtering the data. With more targeted filtering of ASVs, it would bring the data to the haplotype level resolution crucial for revealing ecological patterns at the community level \cite{Callahan2017}). For more accurate identifications, applying novel filtering approaches, such as NUMTdumper\cite{Andujar2020} and constructing an accurate reference set and searching against the metabarcoding data would strengthen the reliability of ASVs and boost the intraspecific study in the community.
+
+\section{Conclusion}
+
+Sequencing depth has a significant effect on the final outcome of filtering and OTU delimitations. Filtering and OTU clustering methods can mitigate this by removing the erroneous reads and clustering the intraspecific differences. With arbitrarily unified raw reads by rarefaction, the number of specimens reflects a non linear correlation with the OTUs and ASVs being recovered. This will be useful information for future experimental designs to retain as much information as possible. Intraspecific diversity was discovered by the ASVs and OTUs presence and absence information across different locations. The changing denoising alpha would not massively alter the ecological diversity pattern while comparing across the geographical locations. However, it would alter the quantity of diversity index and alpha diversity outcomes across different denoising alpha depending on the diversity index being used. To recover accurate haplotype and OTU information, sequence size filtering at the sequencing sample level and the reference set constructed with novel methodology can be applied.
+
+\section{Data availability}
+All the python tools, analysis code and data for analysis are available on.    
+\url{https://github.com/ys219/CMEECoursework/tree/master/Main_project}
+Metabarcoding and barcoding sequences are not available
+
+\section{Acknowledgements}
+I would like to particularly thank Dr. Thomas J Creedy and my supervisor Prof Alfried Vogler for providing guidance and advice along the entire project. Thanks to everyone in the Vogler’s lab for welcoming me and for their helpfulness, and thanks to Dr. Rui-E Nie for explaining the composition and the experimental design of the metabarcoding data.
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{Thesis_ref.bib}
+
+
+
+
+\vfill % Whitespace between editor names
+
+
+
+
+\end{document}
